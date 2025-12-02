@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.easywall
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.easywall
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.easywall; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtend.lib;bundle-version="2.41.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.41.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.xtext.example.easywall,
+ org.xtext.example.easywall.serializer,
+ org.xtext.example.easywall.services,
+ org.xtext.example.easywall.easyWall,
+ org.xtext.example.easywall.scoping,
+ org.xtext.example.easywall.easyWall.util,
+ org.xtext.example.easywall.easyWall.impl,
+ org.xtext.example.easywall.validation,
+ org.xtext.example.easywall.generator,
+ org.xtext.example.easywall.parser.antlr.internal,
+ org.xtext.example.easywall.parser.antlr
+Import-Package: org.apache.log4j

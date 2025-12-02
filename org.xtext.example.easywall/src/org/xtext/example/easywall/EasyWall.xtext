@@ -1,0 +1,135 @@
+grammar org.xtext.example.easywall.EasyWall with org.eclipse.xtext.common.Terminals
+
+generate easyWall "http://www.xtext.org/example/easywall/EasyWall"
+
+EFProgram:
+	EFHeader (rule=EFRule | firewall=EFfirewall)
+;
+EFHeader:
+	{EFHeader} ('pack' name=QualifiedName ';')?
+	imports+=EFImports*
+;
+/*
+ * FIREWALL
+ */
+EFfirewall:
+	firewall=EFFireClass
+;
+EFImports:
+	'import' importedNamespace=QualifiedNameWithWildcard ';'
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;
+QualifiedNameWithWildcard:
+	QualifiedName '.*'
+;
+EFFireClass:
+	'firewall' name=ID '{'
+	members+=EFMember*
+	'}'
+;
+EFMember:
+	EFField | EFMethod
+;
+EFField:
+	('set' | 'var') EFTypedDeclaration ';' //set for constants and var for variables
+;
+EFTypedDeclaration:
+	name=ID ':' (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType)
+;
+enum EFNetworkNativeType:
+	NETWORK='network' | IP='netip' | PORT='netport'
+;
+EFVariableDeclaration:
+	('set' | 'var') EFTypedDeclaration '=' expression=EFExpression ';'
+;
+EFMethod:
+	'def' EFTypedDeclaration
+	'(' (params+=EFParameter (',' params+=EFParameter)*)? ')'
+	body=EFBlock
+;
+EFParameter: EFTypedDeclaration;
+EFBlock:
+	{EFBlock} '{' statements+=EFStatement* '}'
+;
+EFStatement:
+	EFVariableDeclaration |
+	EFReturn |
+	EFExpression ';' |
+	EFIfStatement
+;
+EFReturn:
+	'return' expression=EFExpression ';'
+;
+EFIfStatement:
+	'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
+	(=>'else' elseBlock=EFIfBlock)?
+;
+EFIfBlock returns EFBlock:
+	statements+=EFStatement
+	| EFBlock
+;
+EFExpression returns EFExpression:
+    EFAssignment
+;
+EFAssignment returns EFExpression:
+    EFOrExpression ({EFAssignment.left=current} '=' right=EFAssignment)?
+;
+
+EFOrExpression returns EFExpression:
+    EFAndExpression ({EFOrExpression.left=current} EFOr right=EFAndExpression)*
+;
+EFAndExpression returns EFExpression:
+    EFEqualExpression ({EFAndExpression.left=current} EFAnd right=EFEqualExpression)*
+;
+EFEqualExpression returns EFExpression:
+    EFRelExpression ({EFEqualExpression.left=current} EFEqualOperators right=EFRelExpression)*
+;
+EFRelExpression returns EFExpression:
+    EFUnaryExpression ({EFRelExpression.left=current} EFRelOperators right=EFUnaryExpression)*
+;
+
+EFUnaryExpression returns EFExpression:
+    {EFNotExpression} EFNot expression=EFUnaryExpression | EFPrimaryExpression
+;
+EFPrimaryExpression returns EFExpression:
+    {EFStringConstant} value=STRING
+  | {EFIntConstant} value=INT
+  | {EFBoolConstant} value=('true'|'false')
+  | {EFPrimitiveType} type=EFNetworkNativeType
+  | {EFThis} 'this'
+  | {EFSuper} 'super'
+  | {EFNew} 'new' type=[EFRuleClass|QualifiedName] '(' ')'
+  | {EFBRacketsExpression} '(' expression=EFExpression ')'
+  | {EFFunctionCall} functionName=[EFTypedDeclaration|QualifiedName] '(' (args+=EFExpression (',' args+=EFExpression)*)? ')'
+  | {EFSymbolRef} symbol=[EFTypedDeclaration|QualifiedName]
+;
+EFSelectionExpression returns EFExpression:
+    EFPrimaryExpression
+    (
+        {EFMemberSelection.receiver=current} '.'
+        member=[EFTypedDeclaration|QualifiedName]
+        ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
+    )*
+;
+/*
+ * RULES
+ */
+EFRule:
+	rules=EFRuleClass
+;
+EFRuleClass:
+	'rule' name=ID 'at' type=EFRulesTypes '{'
+	members+=EFMember
+	'}'
+;
+enum EFRulesTypes:
+	IPLEVEL='NetworkLayer' | TRANSPLEVEL='TransportLayer' | APPLEVEL='ApplicationLayer'
+;
+EFOr: '||' | 'or';
+EFAnd: '&&' | 'and';
+EFNot: '!' | 'not';
+EFEqualOperators: '==' | '!=' | 'isequalto';
+EFRelOperators: '>=' | '<=' | '>' | '<' ;

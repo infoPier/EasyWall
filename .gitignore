@@ -1,0 +1,9 @@
+.metadata
+
+org.xtext.example.easywall/.launch/
+org.xtext.example.easywall/.antlr-generator-3.2.0-patch.jar
+
+org.xtext.example.easywall*/.settings/
+org.xtext.example.easywall*/.project
+org.xtext.example.easywall*/.classpath
+org.xtext.example.easywall*/*bin/
