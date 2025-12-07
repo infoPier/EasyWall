@@ -11,6 +11,10 @@ package org.xtext.example.easywall.validation
  */
 class EasyWallValidator extends AbstractEasyWallValidator {
 	
+	protected static val ISSUE_CODE_PREFIX = "org.xtext.example.easywall.";
+	public static val MISSING_PROTOCOL = ISSUE_CODE_PREFIX + "MissingProtocol";
+	public static val MISSING_DIRECTION = ISSUE_CODE_PREFIX + "MissingDirection";
+	
 //	public static val INVALID_NAME = 'invalidName'
 //
 //	@Check

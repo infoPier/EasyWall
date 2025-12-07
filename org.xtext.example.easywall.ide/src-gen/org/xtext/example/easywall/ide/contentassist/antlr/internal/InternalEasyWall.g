@@ -275,14 +275,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-// Entry rule entryRuleEFTypedDeclaration
-entryRuleEFTypedDeclaration
-:
-{ before(grammarAccess.getEFTypedDeclarationRule()); }
-	 ruleEFTypedDeclaration
-{ after(grammarAccess.getEFTypedDeclarationRule()); } 
-	 EOF 
-;
 
 // Rule EFTypedDeclaration
 ruleEFTypedDeclaration 
@@ -469,31 +461,6 @@ ruleEFIfStatement
 		{ before(grammarAccess.getEFIfStatementAccess().getGroup()); }
 		(rule__EFIfStatement__Group__0)
 		{ after(grammarAccess.getEFIfStatementAccess().getGroup()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Entry rule entryRuleEFIfBlock
-entryRuleEFIfBlock
-:
-{ before(grammarAccess.getEFIfBlockRule()); }
-	 ruleEFIfBlock
-{ after(grammarAccess.getEFIfBlockRule()); } 
-	 EOF 
-;
-
-// Rule EFIfBlock
-ruleEFIfBlock 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getEFIfBlockAccess().getAlternatives()); }
-		(rule__EFIfBlock__Alternatives)
-		{ after(grammarAccess.getEFIfBlockAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -1045,27 +1012,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EFIfBlock__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEFIfBlockAccess().getStatementsAssignment_0()); }
-		(rule__EFIfBlock__StatementsAssignment_0)
-		{ after(grammarAccess.getEFIfBlockAccess().getStatementsAssignment_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getEFIfBlockAccess().getEFBlockParserRuleCall_1()); }
-		ruleEFBlock
-		{ after(grammarAccess.getEFIfBlockAccess().getEFBlockParserRuleCall_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__EFUnaryExpression__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -1321,6 +1267,18 @@ rule__EFNetworkNativeType__Alternatives
 		{ before(grammarAccess.getEFNetworkNativeTypeAccess().getPORTEnumLiteralDeclaration_2()); }
 		('netport')
 		{ after(grammarAccess.getEFNetworkNativeTypeAccess().getPORTEnumLiteralDeclaration_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getEFNetworkNativeTypeAccess().getPROTOCOLEnumLiteralDeclaration_3()); }
+		('protocol')
+		{ after(grammarAccess.getEFNetworkNativeTypeAccess().getPROTOCOLEnumLiteralDeclaration_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_4()); }
+		('direction')
+		{ after(grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_4()); }
 	)
 ;
 finally {
@@ -4748,7 +4706,7 @@ rule__EFRuleClass__Group__5__Impl
 :
 (
 	{ before(grammarAccess.getEFRuleClassAccess().getMembersAssignment_5()); }
-	(rule__EFRuleClass__MembersAssignment_5)
+	(rule__EFRuleClass__MembersAssignment_5)*
 	{ after(grammarAccess.getEFRuleClassAccess().getMembersAssignment_5()); }
 )
 ;
@@ -5063,9 +5021,9 @@ rule__EFIfStatement__ThenBlockAssignment_4
 	}
 :
 	(
-		{ before(grammarAccess.getEFIfStatementAccess().getThenBlockEFIfBlockParserRuleCall_4_0()); }
-		ruleEFIfBlock
-		{ after(grammarAccess.getEFIfStatementAccess().getThenBlockEFIfBlockParserRuleCall_4_0()); }
+		{ before(grammarAccess.getEFIfStatementAccess().getThenBlockEFBlockParserRuleCall_4_0()); }
+		ruleEFBlock
+		{ after(grammarAccess.getEFIfStatementAccess().getThenBlockEFBlockParserRuleCall_4_0()); }
 	)
 ;
 finally {
@@ -5078,24 +5036,9 @@ rule__EFIfStatement__ElseBlockAssignment_5_1
 	}
 :
 	(
-		{ before(grammarAccess.getEFIfStatementAccess().getElseBlockEFIfBlockParserRuleCall_5_1_0()); }
-		ruleEFIfBlock
-		{ after(grammarAccess.getEFIfStatementAccess().getElseBlockEFIfBlockParserRuleCall_5_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__EFIfBlock__StatementsAssignment_0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getEFIfBlockAccess().getStatementsEFStatementParserRuleCall_0_0()); }
-		ruleEFStatement
-		{ after(grammarAccess.getEFIfBlockAccess().getStatementsEFStatementParserRuleCall_0_0()); }
+		{ before(grammarAccess.getEFIfStatementAccess().getElseBlockEFBlockParserRuleCall_5_1_0()); }
+		ruleEFBlock
+		{ after(grammarAccess.getEFIfStatementAccess().getElseBlockEFBlockParserRuleCall_5_1_0()); }
 	)
 ;
 finally {
@@ -5292,13 +5235,9 @@ rule__EFPrimaryExpression__FunctionNameAssignment_8_1
 	}
 :
 	(
-		{ before(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameEFTypedDeclarationCrossReference_8_1_0()); }
-		(
-			{ before(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameEFTypedDeclarationQualifiedNameParserRuleCall_8_1_0_1()); }
-			ruleQualifiedName
-			{ after(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameEFTypedDeclarationQualifiedNameParserRuleCall_8_1_0_1()); }
-		)
-		{ after(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameEFTypedDeclarationCrossReference_8_1_0()); }
+		{ before(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameQualifiedNameParserRuleCall_8_1_0()); }
+		ruleQualifiedName
+		{ after(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameQualifiedNameParserRuleCall_8_1_0()); }
 	)
 ;
 finally {
@@ -5341,13 +5280,9 @@ rule__EFPrimaryExpression__SymbolAssignment_9_1
 	}
 :
 	(
-		{ before(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationCrossReference_9_1_0()); }
-		(
-			{ before(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationQualifiedNameParserRuleCall_9_1_0_1()); }
-			ruleQualifiedName
-			{ after(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationQualifiedNameParserRuleCall_9_1_0_1()); }
-		)
-		{ after(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationCrossReference_9_1_0()); }
+		{ before(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_9_1_0()); }
+		ruleQualifiedName
+		{ after(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_9_1_0()); }
 	)
 ;
 finally {

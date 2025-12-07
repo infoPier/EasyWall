@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.easywall.easyWall.EFExpression;
+import org.xtext.example.easywall.easyWall.EFMember;
 import org.xtext.example.easywall.easyWall.EFMemberSelection;
-import org.xtext.example.easywall.easyWall.EFTypedDeclaration;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
@@ -58,7 +58,7 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
    * @generated
    * @ordered
    */
-  protected EFTypedDeclaration member;
+  protected EFMember member;
 
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
@@ -147,12 +147,12 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
    * @generated
    */
   @Override
-  public EFTypedDeclaration getMember()
+  public EFMember getMember()
   {
     if (member != null && member.eIsProxy())
     {
       InternalEObject oldMember = (InternalEObject)member;
-      member = (EFTypedDeclaration)eResolveProxy(oldMember);
+      member = (EFMember)eResolveProxy(oldMember);
       if (member != oldMember)
       {
         if (eNotificationRequired())
@@ -167,7 +167,7 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
    * <!-- end-user-doc -->
    * @generated
    */
-  public EFTypedDeclaration basicGetMember()
+  public EFMember basicGetMember()
   {
     return member;
   }
@@ -178,9 +178,9 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
    * @generated
    */
   @Override
-  public void setMember(EFTypedDeclaration newMember)
+  public void setMember(EFMember newMember)
   {
-    EFTypedDeclaration oldMember = member;
+    EFMember oldMember = member;
     member = newMember;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_MEMBER_SELECTION__MEMBER, oldMember, member));
@@ -255,7 +255,7 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
         setReceiver((EFExpression)newValue);
         return;
       case EasyWallPackage.EF_MEMBER_SELECTION__MEMBER:
-        setMember((EFTypedDeclaration)newValue);
+        setMember((EFMember)newValue);
         return;
       case EasyWallPackage.EF_MEMBER_SELECTION__ARGS:
         getArgs().clear();
@@ -279,7 +279,7 @@ public class EFMemberSelectionImpl extends EFExpressionImpl implements EFMemberS
         setReceiver((EFExpression)null);
         return;
       case EasyWallPackage.EF_MEMBER_SELECTION__MEMBER:
-        setMember((EFTypedDeclaration)null);
+        setMember((EFMember)null);
         return;
       case EasyWallPackage.EF_MEMBER_SELECTION__ARGS:
         getArgs().clear();

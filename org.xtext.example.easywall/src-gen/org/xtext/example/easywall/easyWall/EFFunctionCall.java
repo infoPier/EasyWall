@@ -25,26 +25,26 @@ import org.eclipse.emf.common.util.EList;
 public interface EFFunctionCall extends EFExpression
 {
   /**
-   * Returns the value of the '<em><b>Function Name</b></em>' reference.
+   * Returns the value of the '<em><b>Function Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Function Name</em>' reference.
-   * @see #setFunctionName(EFTypedDeclaration)
+   * @return the value of the '<em>Function Name</em>' attribute.
+   * @see #setFunctionName(String)
    * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFFunctionCall_FunctionName()
    * @model
    * @generated
    */
-  EFTypedDeclaration getFunctionName();
+  String getFunctionName();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFFunctionCall#getFunctionName <em>Function Name</em>}' reference.
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFFunctionCall#getFunctionName <em>Function Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Function Name</em>' reference.
+   * @param value the new value of the '<em>Function Name</em>' attribute.
    * @see #getFunctionName()
    * @generated
    */
-  void setFunctionName(EFTypedDeclaration value);
+  void setFunctionName(String value);
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.

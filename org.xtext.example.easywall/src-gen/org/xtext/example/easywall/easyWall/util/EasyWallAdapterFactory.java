@@ -111,11 +111,6 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
         return createEFFieldAdapter();
       }
       @Override
-      public Adapter caseEFTypedDeclaration(EFTypedDeclaration object)
-      {
-        return createEFTypedDeclarationAdapter();
-      }
-      @Override
       public Adapter caseEFVariableDeclaration(EFVariableDeclaration object)
       {
         return createEFVariableDeclarationAdapter();
@@ -373,21 +368,6 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEFFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFTypedDeclaration <em>EF Typed Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.easywall.easyWall.EFTypedDeclaration
-   * @generated
-   */
-  public Adapter createEFTypedDeclarationAdapter()
   {
     return null;
   }

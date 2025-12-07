@@ -45,7 +45,6 @@ import org.xtext.example.easywall.easyWall.EFStringConstant;
 import org.xtext.example.easywall.easyWall.EFSuper;
 import org.xtext.example.easywall.easyWall.EFSymbolRef;
 import org.xtext.example.easywall.easyWall.EFThis;
-import org.xtext.example.easywall.easyWall.EFTypedDeclaration;
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EFfirewall;
 import org.xtext.example.easywall.easyWall.EasyWallFactory;
@@ -107,13 +106,6 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   private EClass efFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass efTypedDeclarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -540,86 +532,42 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
+  public EAttribute getEFMember_Name()
+  {
+    return (EAttribute)efMemberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFMember_Ruletype()
+  {
+    return (EReference)efMemberEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFMember_Nativetype()
+  {
+    return (EAttribute)efMemberEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEFField()
   {
     return efFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getEFTypedDeclaration()
-  {
-    return efTypedDeclarationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEFTypedDeclaration_Name()
-  {
-    return (EAttribute)efTypedDeclarationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEFTypedDeclaration_Ruletype()
-  {
-    return (EReference)efTypedDeclarationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEFTypedDeclaration_Nativetype()
-  {
-    return (EAttribute)efTypedDeclarationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEFTypedDeclaration_Expression()
-  {
-    return (EReference)efTypedDeclarationEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEFTypedDeclaration_Params()
-  {
-    return (EReference)efTypedDeclarationEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEFTypedDeclaration_Body()
-  {
-    return (EReference)efTypedDeclarationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -639,6 +587,50 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
+  public EAttribute getEFVariableDeclaration_Name()
+  {
+    return (EAttribute)efVariableDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFVariableDeclaration_Ruletype()
+  {
+    return (EReference)efVariableDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFVariableDeclaration_Nativetype()
+  {
+    return (EAttribute)efVariableDeclarationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFVariableDeclaration_Expression()
+  {
+    return (EReference)efVariableDeclarationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEFMethod()
   {
     return efMethodEClass;
@@ -650,9 +642,64 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
+  public EReference getEFMethod_Params()
+  {
+    return (EReference)efMethodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFMethod_Body()
+  {
+    return (EReference)efMethodEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEFParameter()
   {
     return efParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFParameter_Name()
+  {
+    return (EAttribute)efParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFParameter_Ruletype()
+  {
+    return (EReference)efParameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFParameter_Nativetype()
+  {
+    return (EAttribute)efParameterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1189,9 +1236,9 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
-  public EReference getEFFunctionCall_FunctionName()
+  public EAttribute getEFFunctionCall_FunctionName()
   {
-    return (EReference)efFunctionCallEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)efFunctionCallEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1222,9 +1269,9 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
-  public EReference getEFSymbolRef_Symbol()
+  public EAttribute getEFSymbolRef_Symbol()
   {
-    return (EReference)efSymbolRefEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)efSymbolRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1343,22 +1390,26 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     createEReference(efFireClassEClass, EF_FIRE_CLASS__MEMBERS);
 
     efMemberEClass = createEClass(EF_MEMBER);
+    createEAttribute(efMemberEClass, EF_MEMBER__NAME);
+    createEReference(efMemberEClass, EF_MEMBER__RULETYPE);
+    createEAttribute(efMemberEClass, EF_MEMBER__NATIVETYPE);
 
     efFieldEClass = createEClass(EF_FIELD);
 
-    efTypedDeclarationEClass = createEClass(EF_TYPED_DECLARATION);
-    createEAttribute(efTypedDeclarationEClass, EF_TYPED_DECLARATION__NAME);
-    createEReference(efTypedDeclarationEClass, EF_TYPED_DECLARATION__RULETYPE);
-    createEAttribute(efTypedDeclarationEClass, EF_TYPED_DECLARATION__NATIVETYPE);
-    createEReference(efTypedDeclarationEClass, EF_TYPED_DECLARATION__EXPRESSION);
-    createEReference(efTypedDeclarationEClass, EF_TYPED_DECLARATION__PARAMS);
-    createEReference(efTypedDeclarationEClass, EF_TYPED_DECLARATION__BODY);
-
     efVariableDeclarationEClass = createEClass(EF_VARIABLE_DECLARATION);
+    createEAttribute(efVariableDeclarationEClass, EF_VARIABLE_DECLARATION__NAME);
+    createEReference(efVariableDeclarationEClass, EF_VARIABLE_DECLARATION__RULETYPE);
+    createEAttribute(efVariableDeclarationEClass, EF_VARIABLE_DECLARATION__NATIVETYPE);
+    createEReference(efVariableDeclarationEClass, EF_VARIABLE_DECLARATION__EXPRESSION);
 
     efMethodEClass = createEClass(EF_METHOD);
+    createEReference(efMethodEClass, EF_METHOD__PARAMS);
+    createEReference(efMethodEClass, EF_METHOD__BODY);
 
     efParameterEClass = createEClass(EF_PARAMETER);
+    createEAttribute(efParameterEClass, EF_PARAMETER__NAME);
+    createEReference(efParameterEClass, EF_PARAMETER__RULETYPE);
+    createEAttribute(efParameterEClass, EF_PARAMETER__NATIVETYPE);
 
     efBlockEClass = createEClass(EF_BLOCK);
     createEReference(efBlockEClass, EF_BLOCK__STATEMENTS);
@@ -1429,11 +1480,11 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     createEReference(efbRacketsExpressionEClass, EFB_RACKETS_EXPRESSION__EXPRESSION);
 
     efFunctionCallEClass = createEClass(EF_FUNCTION_CALL);
-    createEReference(efFunctionCallEClass, EF_FUNCTION_CALL__FUNCTION_NAME);
+    createEAttribute(efFunctionCallEClass, EF_FUNCTION_CALL__FUNCTION_NAME);
     createEReference(efFunctionCallEClass, EF_FUNCTION_CALL__ARGS);
 
     efSymbolRefEClass = createEClass(EF_SYMBOL_REF);
-    createEReference(efSymbolRefEClass, EF_SYMBOL_REF__SYMBOL);
+    createEAttribute(efSymbolRefEClass, EF_SYMBOL_REF__SYMBOL);
 
     efMemberSelectionEClass = createEClass(EF_MEMBER_SELECTION);
     createEReference(efMemberSelectionEClass, EF_MEMBER_SELECTION__RECEIVER);
@@ -1476,10 +1527,6 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     // Add supertypes to classes
     efHeaderEClass.getESuperTypes().add(this.getEFProgram());
     efFieldEClass.getESuperTypes().add(this.getEFMember());
-    efTypedDeclarationEClass.getESuperTypes().add(this.getEFField());
-    efTypedDeclarationEClass.getESuperTypes().add(this.getEFVariableDeclaration());
-    efTypedDeclarationEClass.getESuperTypes().add(this.getEFMethod());
-    efTypedDeclarationEClass.getESuperTypes().add(this.getEFParameter());
     efVariableDeclarationEClass.getESuperTypes().add(this.getEFStatement());
     efMethodEClass.getESuperTypes().add(this.getEFMember());
     efReturnEClass.getESuperTypes().add(this.getEFStatement());
@@ -1523,22 +1570,26 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     initEReference(getEFFireClass_Members(), this.getEFMember(), null, "members", null, 0, -1, EFFireClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efMemberEClass, EFMember.class, "EFMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEFMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, EFMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFMember_Ruletype(), this.getEFRuleClass(), null, "ruletype", null, 0, 1, EFMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFMember_Nativetype(), this.getEFNetworkNativeType(), "nativetype", null, 0, 1, EFMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efFieldEClass, EFField.class, "EFField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(efTypedDeclarationEClass, EFTypedDeclaration.class, "EFTypedDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEFTypedDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEFTypedDeclaration_Ruletype(), this.getEFRuleClass(), null, "ruletype", null, 0, 1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEFTypedDeclaration_Nativetype(), this.getEFNetworkNativeType(), "nativetype", null, 0, 1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEFTypedDeclaration_Expression(), this.getEFExpression(), null, "expression", null, 0, 1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEFTypedDeclaration_Params(), this.getEFParameter(), null, "params", null, 0, -1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEFTypedDeclaration_Body(), this.getEFBlock(), null, "body", null, 0, 1, EFTypedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(efVariableDeclarationEClass, EFVariableDeclaration.class, "EFVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEFVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, EFVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFVariableDeclaration_Ruletype(), this.getEFRuleClass(), null, "ruletype", null, 0, 1, EFVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFVariableDeclaration_Nativetype(), this.getEFNetworkNativeType(), "nativetype", null, 0, 1, EFVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFVariableDeclaration_Expression(), this.getEFExpression(), null, "expression", null, 0, 1, EFVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efMethodEClass, EFMethod.class, "EFMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEFMethod_Params(), this.getEFParameter(), null, "params", null, 0, -1, EFMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFMethod_Body(), this.getEFBlock(), null, "body", null, 0, 1, EFMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efParameterEClass, EFParameter.class, "EFParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEFParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, EFParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFParameter_Ruletype(), this.getEFRuleClass(), null, "ruletype", null, 0, 1, EFParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFParameter_Nativetype(), this.getEFNetworkNativeType(), "nativetype", null, 0, 1, EFParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efBlockEClass, EFBlock.class, "EFBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEFBlock_Statements(), this.getEFStatement(), null, "statements", null, 0, -1, EFBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1609,15 +1660,15 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     initEReference(getEFBRacketsExpression_Expression(), this.getEFExpression(), null, "expression", null, 0, 1, EFBRacketsExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efFunctionCallEClass, EFFunctionCall.class, "EFFunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEFFunctionCall_FunctionName(), this.getEFTypedDeclaration(), null, "functionName", null, 0, 1, EFFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFFunctionCall_FunctionName(), ecorePackage.getEString(), "functionName", null, 0, 1, EFFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEFFunctionCall_Args(), this.getEFExpression(), null, "args", null, 0, -1, EFFunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efSymbolRefEClass, EFSymbolRef.class, "EFSymbolRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEFSymbolRef_Symbol(), this.getEFTypedDeclaration(), null, "symbol", null, 0, 1, EFSymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFSymbolRef_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, EFSymbolRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efMemberSelectionEClass, EFMemberSelection.class, "EFMemberSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEFMemberSelection_Receiver(), this.getEFExpression(), null, "receiver", null, 0, 1, EFMemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEFMemberSelection_Member(), this.getEFTypedDeclaration(), null, "member", null, 0, 1, EFMemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEFMemberSelection_Member(), this.getEFMember(), null, "member", null, 0, 1, EFMemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEFMemberSelection_Args(), this.getEFExpression(), null, "args", null, 0, -1, EFMemberSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
@@ -1625,6 +1676,8 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.NETWORK);
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.IP);
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.PORT);
+    addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.PROTOCOL);
+    addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.DIRECTION);
 
     initEEnum(efRulesTypesEEnum, EFRulesTypes.class, "EFRulesTypes");
     addEEnumLiteral(efRulesTypesEEnum, EFRulesTypes.IPLEVEL);

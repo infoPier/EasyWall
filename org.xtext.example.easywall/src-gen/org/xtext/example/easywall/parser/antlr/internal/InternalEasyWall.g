@@ -491,9 +491,12 @@ ruleEFField returns [EObject current=null]
 			}
 		)
 		{
+			if ($current==null) {
+				$current = createModelElement(grammarAccess.getEFFieldRule());
+			}
 			newCompositeNode(grammarAccess.getEFFieldAccess().getEFTypedDeclarationParserRuleCall_1());
 		}
-		this_EFTypedDeclaration_2=ruleEFTypedDeclaration
+		this_EFTypedDeclaration_2=ruleEFTypedDeclaration[$current]
 		{
 			$current = $this_EFTypedDeclaration_2.current;
 			afterParserOrEnumRuleCall();
@@ -505,15 +508,9 @@ ruleEFField returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleEFTypedDeclaration
-entryRuleEFTypedDeclaration returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFTypedDeclarationRule()); }
-	iv_ruleEFTypedDeclaration=ruleEFTypedDeclaration
-	{ $current=$iv_ruleEFTypedDeclaration.current; }
-	EOF;
 
 // Rule EFTypedDeclaration
-ruleEFTypedDeclaration returns [EObject current=null]
+ruleEFTypedDeclaration[EObject in_current]  returns [EObject current=in_current]
 @init {
 	enterRule();
 }
@@ -612,9 +609,12 @@ ruleEFVariableDeclaration returns [EObject current=null]
 			}
 		)
 		{
+			if ($current==null) {
+				$current = createModelElement(grammarAccess.getEFVariableDeclarationRule());
+			}
 			newCompositeNode(grammarAccess.getEFVariableDeclarationAccess().getEFTypedDeclarationParserRuleCall_1());
 		}
-		this_EFTypedDeclaration_2=ruleEFTypedDeclaration
+		this_EFTypedDeclaration_2=ruleEFTypedDeclaration[$current]
 		{
 			$current = $this_EFTypedDeclaration_2.current;
 			afterParserOrEnumRuleCall();
@@ -670,9 +670,12 @@ ruleEFMethod returns [EObject current=null]
 			newLeafNode(otherlv_0, grammarAccess.getEFMethodAccess().getDefKeyword_0());
 		}
 		{
+			if ($current==null) {
+				$current = createModelElement(grammarAccess.getEFMethodRule());
+			}
 			newCompositeNode(grammarAccess.getEFMethodAccess().getEFTypedDeclarationParserRuleCall_1());
 		}
-		this_EFTypedDeclaration_1=ruleEFTypedDeclaration
+		this_EFTypedDeclaration_1=ruleEFTypedDeclaration[$current]
 		{
 			$current = $this_EFTypedDeclaration_1.current;
 			afterParserOrEnumRuleCall();
@@ -769,9 +772,12 @@ ruleEFParameter returns [EObject current=null]
 	leaveRule();
 }:
 	{
+		if ($current==null) {
+			$current = createModelElement(grammarAccess.getEFParameterRule());
+		}
 		newCompositeNode(grammarAccess.getEFParameterAccess().getEFTypedDeclarationParserRuleCall());
 	}
-	this_EFTypedDeclaration_0=ruleEFTypedDeclaration
+	this_EFTypedDeclaration_0=ruleEFTypedDeclaration[$current]
 	{
 		$current = $this_EFTypedDeclaration_0.current;
 		afterParserOrEnumRuleCall();
@@ -987,9 +993,9 @@ ruleEFIfStatement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEFIfStatementAccess().getThenBlockEFIfBlockParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEFIfStatementAccess().getThenBlockEFBlockParserRuleCall_4_0());
 				}
-				lv_thenBlock_4_0=ruleEFIfBlock
+				lv_thenBlock_4_0=ruleEFBlock
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEFIfStatementRule());
@@ -998,7 +1004,7 @@ ruleEFIfStatement returns [EObject current=null]
 						$current,
 						"thenBlock",
 						lv_thenBlock_4_0,
-						"org.xtext.example.easywall.EasyWall.EFIfBlock");
+						"org.xtext.example.easywall.EasyWall.EFBlock");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1014,9 +1020,9 @@ ruleEFIfStatement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEFIfStatementAccess().getElseBlockEFIfBlockParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getEFIfStatementAccess().getElseBlockEFBlockParserRuleCall_5_1_0());
 					}
-					lv_elseBlock_6_0=ruleEFIfBlock
+					lv_elseBlock_6_0=ruleEFBlock
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEFIfStatementRule());
@@ -1025,59 +1031,12 @@ ruleEFIfStatement returns [EObject current=null]
 							$current,
 							"elseBlock",
 							lv_elseBlock_6_0,
-							"org.xtext.example.easywall.EasyWall.EFIfBlock");
+							"org.xtext.example.easywall.EasyWall.EFBlock");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleEFIfBlock
-entryRuleEFIfBlock returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFIfBlockRule()); }
-	iv_ruleEFIfBlock=ruleEFIfBlock
-	{ $current=$iv_ruleEFIfBlock.current; }
-	EOF;
-
-// Rule EFIfBlock
-ruleEFIfBlock returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEFIfBlockAccess().getStatementsEFStatementParserRuleCall_0_0());
-				}
-				lv_statements_0_0=ruleEFStatement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEFIfBlockRule());
-					}
-					add(
-						$current,
-						"statements",
-						lv_statements_0_0,
-						"org.xtext.example.easywall.EasyWall.EFStatement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		{
-			newCompositeNode(grammarAccess.getEFIfBlockAccess().getEFBlockParserRuleCall_1());
-		}
-		this_EFBlock_1=ruleEFBlock
-		{
-			$current = $this_EFBlock_1.current;
-			afterParserOrEnumRuleCall();
-		}
 	)
 ;
 
@@ -1728,15 +1687,18 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameQualifiedNameParserRuleCall_8_1_0());
+					}
+					lv_functionName_22_0=ruleQualifiedName
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEFPrimaryExpressionRule());
+							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameEFTypedDeclarationCrossReference_8_1_0());
-					}
-					ruleQualifiedName
-					{
+						set(
+							$current,
+							"functionName",
+							lv_functionName_22_0,
+							"org.xtext.example.easywall.EasyWall.QualifiedName");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1808,15 +1770,18 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				(
 					{
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_9_1_0());
+					}
+					lv_symbol_29_0=ruleQualifiedName
+					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getEFPrimaryExpressionRule());
+							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
 						}
-					}
-					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationCrossReference_9_1_0());
-					}
-					ruleQualifiedName
-					{
+						set(
+							$current,
+							"symbol",
+							lv_symbol_29_0,
+							"org.xtext.example.easywall.EasyWall.QualifiedName");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1944,7 +1909,7 @@ ruleEFRuleClass returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
 		otherlv_6='}'
 		{
 			newLeafNode(otherlv_6, grammarAccess.getEFRuleClassAccess().getRightCurlyBracketKeyword_6());
@@ -2150,6 +2115,22 @@ ruleEFNetworkNativeType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getEFNetworkNativeTypeAccess().getPORTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_2, grammarAccess.getEFNetworkNativeTypeAccess().getPORTEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='protocol'
+			{
+				$current = grammarAccess.getEFNetworkNativeTypeAccess().getPROTOCOLEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getEFNetworkNativeTypeAccess().getPROTOCOLEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='direction'
+			{
+				$current = grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_4());
 			}
 		)
 	)

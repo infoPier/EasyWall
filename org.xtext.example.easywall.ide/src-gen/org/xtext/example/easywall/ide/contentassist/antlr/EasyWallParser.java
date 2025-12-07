@@ -37,7 +37,6 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFTypedDeclarationAccess().getAlternatives_2(), "rule__EFTypedDeclaration__Alternatives_2");
 			builder.put(grammarAccess.getEFVariableDeclarationAccess().getAlternatives_0(), "rule__EFVariableDeclaration__Alternatives_0");
 			builder.put(grammarAccess.getEFStatementAccess().getAlternatives(), "rule__EFStatement__Alternatives");
-			builder.put(grammarAccess.getEFIfBlockAccess().getAlternatives(), "rule__EFIfBlock__Alternatives");
 			builder.put(grammarAccess.getEFUnaryExpressionAccess().getAlternatives(), "rule__EFUnaryExpression__Alternatives");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getAlternatives(), "rule__EFPrimaryExpression__Alternatives");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getValueAlternatives_2_1_0(), "rule__EFPrimaryExpression__ValueAlternatives_2_1_0");
@@ -116,7 +115,6 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFIfStatementAccess().getExpressionAssignment_2(), "rule__EFIfStatement__ExpressionAssignment_2");
 			builder.put(grammarAccess.getEFIfStatementAccess().getThenBlockAssignment_4(), "rule__EFIfStatement__ThenBlockAssignment_4");
 			builder.put(grammarAccess.getEFIfStatementAccess().getElseBlockAssignment_5_1(), "rule__EFIfStatement__ElseBlockAssignment_5_1");
-			builder.put(grammarAccess.getEFIfBlockAccess().getStatementsAssignment_0(), "rule__EFIfBlock__StatementsAssignment_0");
 			builder.put(grammarAccess.getEFAssignmentAccess().getRightAssignment_1_2(), "rule__EFAssignment__RightAssignment_1_2");
 			builder.put(grammarAccess.getEFOrExpressionAccess().getRightAssignment_1_2(), "rule__EFOrExpression__RightAssignment_1_2");
 			builder.put(grammarAccess.getEFAndExpressionAccess().getRightAssignment_1_2(), "rule__EFAndExpression__RightAssignment_1_2");

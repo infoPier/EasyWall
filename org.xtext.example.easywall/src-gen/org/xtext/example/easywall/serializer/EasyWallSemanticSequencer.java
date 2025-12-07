@@ -20,6 +20,7 @@ import org.xtext.example.easywall.easyWall.EFBRacketsExpression;
 import org.xtext.example.easywall.easyWall.EFBlock;
 import org.xtext.example.easywall.easyWall.EFBoolConstant;
 import org.xtext.example.easywall.easyWall.EFEqualExpression;
+import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFFireClass;
 import org.xtext.example.easywall.easyWall.EFFunctionCall;
 import org.xtext.example.easywall.easyWall.EFHeader;
@@ -27,9 +28,11 @@ import org.xtext.example.easywall.easyWall.EFIfStatement;
 import org.xtext.example.easywall.easyWall.EFImports;
 import org.xtext.example.easywall.easyWall.EFIntConstant;
 import org.xtext.example.easywall.easyWall.EFMemberSelection;
+import org.xtext.example.easywall.easyWall.EFMethod;
 import org.xtext.example.easywall.easyWall.EFNew;
 import org.xtext.example.easywall.easyWall.EFNotExpression;
 import org.xtext.example.easywall.easyWall.EFOrExpression;
+import org.xtext.example.easywall.easyWall.EFParameter;
 import org.xtext.example.easywall.easyWall.EFPrimitiveType;
 import org.xtext.example.easywall.easyWall.EFRelExpression;
 import org.xtext.example.easywall.easyWall.EFReturn;
@@ -39,7 +42,7 @@ import org.xtext.example.easywall.easyWall.EFStringConstant;
 import org.xtext.example.easywall.easyWall.EFSuper;
 import org.xtext.example.easywall.easyWall.EFSymbolRef;
 import org.xtext.example.easywall.easyWall.EFThis;
-import org.xtext.example.easywall.easyWall.EFTypedDeclaration;
+import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EFfirewall;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 import org.xtext.example.easywall.services.EasyWallGrammarAccess;
@@ -68,20 +71,16 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				sequence_EFPrimaryExpression(context, (EFBRacketsExpression) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_BLOCK:
-				if (rule == grammarAccess.getEFBlockRule()) {
-					sequence_EFBlock(context, (EFBlock) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getEFIfBlockRule()) {
-					sequence_EFBlock_EFIfBlock(context, (EFBlock) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_EFBlock(context, (EFBlock) semanticObject); 
+				return; 
 			case EasyWallPackage.EF_BOOL_CONSTANT:
 				sequence_EFPrimaryExpression(context, (EFBoolConstant) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_EQUAL_EXPRESSION:
 				sequence_EFEqualExpression(context, (EFEqualExpression) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_FIELD:
+				sequence_EFTypedDeclaration(context, (EFField) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_FIRE_CLASS:
 				sequence_EFFireClass(context, (EFFireClass) semanticObject); 
@@ -111,6 +110,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EasyWallPackage.EF_MEMBER_SELECTION:
 				sequence_EFSelectionExpression(context, (EFMemberSelection) semanticObject); 
 				return; 
+			case EasyWallPackage.EF_METHOD:
+				sequence_EFMethod_EFTypedDeclaration(context, (EFMethod) semanticObject); 
+				return; 
 			case EasyWallPackage.EF_NEW:
 				sequence_EFPrimaryExpression(context, (EFNew) semanticObject); 
 				return; 
@@ -119,6 +121,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case EasyWallPackage.EF_OR_EXPRESSION:
 				sequence_EFOrExpression(context, (EFOrExpression) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_PARAMETER:
+				sequence_EFTypedDeclaration(context, (EFParameter) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_PRIMITIVE_TYPE:
 				sequence_EFPrimaryExpression(context, (EFPrimitiveType) semanticObject); 
@@ -147,27 +152,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EasyWallPackage.EF_THIS:
 				sequence_EFPrimaryExpression(context, (EFThis) semanticObject); 
 				return; 
-			case EasyWallPackage.EF_TYPED_DECLARATION:
-				if (rule == grammarAccess.getEFMemberRule()) {
-					sequence_EFMethod_EFTypedDeclaration(context, (EFTypedDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getEFMethodRule()) {
-					sequence_EFMethod_EFTypedDeclaration(context, (EFTypedDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getEFFieldRule()
-						|| rule == grammarAccess.getEFTypedDeclarationRule()
-						|| rule == grammarAccess.getEFParameterRule()) {
-					sequence_EFTypedDeclaration(context, (EFTypedDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getEFVariableDeclarationRule()
-						|| rule == grammarAccess.getEFStatementRule()) {
-					sequence_EFTypedDeclaration_EFVariableDeclaration(context, (EFTypedDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
+			case EasyWallPackage.EF_VARIABLE_DECLARATION:
+				sequence_EFTypedDeclaration_EFVariableDeclaration(context, (EFVariableDeclaration) semanticObject); 
+				return; 
 			case EasyWallPackage.EFFIREWALL:
 				sequence_EFfirewall(context, (EFfirewall) semanticObject); 
 				return; 
@@ -241,20 +228,6 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * </pre>
 	 */
 	protected void sequence_EFBlock(ISerializationContext context, EFBlock semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     EFIfBlock returns EFBlock
-	 *
-	 * Constraint:
-	 *     (statements+=EFStatement+ | statements+=EFStatement)?
-	 * </pre>
-	 */
-	protected void sequence_EFBlock_EFIfBlock(ISerializationContext context, EFBlock semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -340,7 +313,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFIfStatement returns EFIfStatement
 	 *
 	 * Constraint:
-	 *     (expression=EFExpression thenBlock=EFIfBlock elseBlock=EFIfBlock?)
+	 *     (expression=EFExpression thenBlock=EFBlock elseBlock=EFBlock?)
 	 * </pre>
 	 */
 	protected void sequence_EFIfStatement(ISerializationContext context, EFIfStatement semanticObject) {
@@ -371,28 +344,17 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     EFMember returns EFTypedDeclaration
+	 *     EFMember returns EFMethod
+	 *     EFMethod returns EFMethod
 	 *
 	 * Constraint:
-	 *     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType) ((params+=EFParameter params+=EFParameter*)? body=EFBlock)?)
+	 *     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType) (params+=EFParameter params+=EFParameter*)? body=EFBlock)
 	 * </pre>
 	 */
-	protected void sequence_EFMethod_EFTypedDeclaration(ISerializationContext context, EFTypedDeclaration semanticObject) {
+	protected void sequence_EFMethod_EFTypedDeclaration(ISerializationContext context, EFMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
-	
-	// This method is commented out because it has the same signature as another method in this class.
-	// This is probably a bug in Xtext's serializer, please report it here: 
-	// https://bugs.eclipse.org/bugs/enter_bug.cgi?product=TMF
-	//
-	// Contexts:
-	//     EFMethod returns EFTypedDeclaration
-	//
-	// Constraint:
-	//     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType) (params+=EFParameter params+=EFParameter*)? body=EFBlock)
-	//
-	// protected void sequence_EFMethod_EFTypedDeclaration(ISerializationContext context, EFTypedDeclaration semanticObject) { }
 	
 	/**
 	 * <pre>
@@ -507,7 +469,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFFunctionCall
 	 *
 	 * Constraint:
-	 *     (functionName=[EFTypedDeclaration|QualifiedName] (args+=EFExpression args+=EFExpression*)?)
+	 *     (functionName=QualifiedName (args+=EFExpression args+=EFExpression*)?)
 	 * </pre>
 	 */
 	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFFunctionCall semanticObject) {
@@ -705,7 +667,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFSymbolRef
 	 *
 	 * Constraint:
-	 *     symbol=[EFTypedDeclaration|QualifiedName]
+	 *     symbol=QualifiedName
 	 * </pre>
 	 */
 	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFSymbolRef semanticObject) {
@@ -714,7 +676,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_SYMBOL_REF__SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolEFTypedDeclarationQualifiedNameParserRuleCall_9_1_0_1(), semanticObject.eGet(EasyWallPackage.Literals.EF_SYMBOL_REF__SYMBOL, false));
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_9_1_0(), semanticObject.getSymbol());
 		feeder.finish();
 	}
 	
@@ -809,7 +771,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFRuleClass returns EFRuleClass
 	 *
 	 * Constraint:
-	 *     (name=ID type=EFRulesTypes members+=EFMember)
+	 *     (name=ID type=EFRulesTypes members+=EFMember*)
 	 * </pre>
 	 */
 	protected void sequence_EFRuleClass(ISerializationContext context, EFRuleClass semanticObject) {
@@ -844,7 +806,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFMemberSelection
 	 *
 	 * Constraint:
-	 *     (receiver=EFSelectionExpression_EFMemberSelection_1_0 member=[EFTypedDeclaration|QualifiedName] (args+=EFExpression args+=EFExpression*)?)
+	 *     (receiver=EFSelectionExpression_EFMemberSelection_1_0 member=[EFMember|ID] (args+=EFExpression args+=EFExpression*)?)
 	 * </pre>
 	 */
 	protected void sequence_EFSelectionExpression(ISerializationContext context, EFMemberSelection semanticObject) {
@@ -855,15 +817,14 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     EFField returns EFTypedDeclaration
-	 *     EFTypedDeclaration returns EFTypedDeclaration
-	 *     EFParameter returns EFTypedDeclaration
+	 *     EFMember returns EFField
+	 *     EFField returns EFField
 	 *
 	 * Constraint:
 	 *     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType))
 	 * </pre>
 	 */
-	protected void sequence_EFTypedDeclaration(ISerializationContext context, EFTypedDeclaration semanticObject) {
+	protected void sequence_EFTypedDeclaration(ISerializationContext context, EFField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -871,14 +832,28 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     EFVariableDeclaration returns EFTypedDeclaration
-	 *     EFStatement returns EFTypedDeclaration
+	 *     EFParameter returns EFParameter
+	 *
+	 * Constraint:
+	 *     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType))
+	 * </pre>
+	 */
+	protected void sequence_EFTypedDeclaration(ISerializationContext context, EFParameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFVariableDeclaration returns EFVariableDeclaration
+	 *     EFStatement returns EFVariableDeclaration
 	 *
 	 * Constraint:
 	 *     (name=ID (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType) expression=EFExpression)
 	 * </pre>
 	 */
-	protected void sequence_EFTypedDeclaration_EFVariableDeclaration(ISerializationContext context, EFTypedDeclaration semanticObject) {
+	protected void sequence_EFTypedDeclaration_EFVariableDeclaration(ISerializationContext context, EFVariableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

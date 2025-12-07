@@ -48,7 +48,27 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  PORT(2, "PORT", "netport");
+  PORT(2, "PORT", "netport"),
+
+  /**
+   * The '<em><b>PROTOCOL</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PROTOCOL_VALUE
+   * @generated
+   * @ordered
+   */
+  PROTOCOL(3, "PROTOCOL", "protocol"),
+
+  /**
+   * The '<em><b>DIRECTION</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DIRECTION_VALUE
+   * @generated
+   * @ordered
+   */
+  DIRECTION(4, "DIRECTION", "direction");
 
   /**
    * The '<em><b>NETWORK</b></em>' literal value.
@@ -84,6 +104,28 @@ public enum EFNetworkNativeType implements Enumerator
   public static final int PORT_VALUE = 2;
 
   /**
+   * The '<em><b>PROTOCOL</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #PROTOCOL
+   * @model literal="protocol"
+   * @generated
+   * @ordered
+   */
+  public static final int PROTOCOL_VALUE = 3;
+
+  /**
+   * The '<em><b>DIRECTION</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #DIRECTION
+   * @model literal="direction"
+   * @generated
+   * @ordered
+   */
+  public static final int DIRECTION_VALUE = 4;
+
+  /**
    * An array of all the '<em><b>EF Network Native Type</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -95,6 +137,8 @@ public enum EFNetworkNativeType implements Enumerator
       NETWORK,
       IP,
       PORT,
+      PROTOCOL,
+      DIRECTION,
     };
 
   /**
@@ -162,6 +206,8 @@ public enum EFNetworkNativeType implements Enumerator
       case NETWORK_VALUE: return NETWORK;
       case IP_VALUE: return IP;
       case PORT_VALUE: return PORT;
+      case PROTOCOL_VALUE: return PROTOCOL;
+      case DIRECTION_VALUE: return DIRECTION;
     }
     return null;
   }

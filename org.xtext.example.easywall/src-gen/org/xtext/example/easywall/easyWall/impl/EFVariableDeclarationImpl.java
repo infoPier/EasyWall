@@ -3,8 +3,17 @@
  */
 package org.xtext.example.easywall.easyWall.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.xtext.example.easywall.easyWall.EFExpression;
+import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
+import org.xtext.example.easywall.easyWall.EFRuleClass;
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
@@ -12,11 +21,80 @@ import org.xtext.example.easywall.easyWall.EasyWallPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>EF Variable Declaration</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl#getRuletype <em>Ruletype</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl#getNativetype <em>Nativetype</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class EFVariableDeclarationImpl extends EFStatementImpl implements EFVariableDeclaration
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRuletype() <em>Ruletype</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRuletype()
+   * @generated
+   * @ordered
+   */
+  protected EFRuleClass ruletype;
+
+  /**
+   * The default value of the '{@link #getNativetype() <em>Nativetype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNativetype()
+   * @generated
+   * @ordered
+   */
+  protected static final EFNetworkNativeType NATIVETYPE_EDEFAULT = EFNetworkNativeType.NETWORK;
+
+  /**
+   * The cached value of the '{@link #getNativetype() <em>Nativetype</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNativetype()
+   * @generated
+   * @ordered
+   */
+  protected EFNetworkNativeType nativetype = NATIVETYPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpression()
+   * @generated
+   * @ordered
+   */
+  protected EFExpression expression;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +114,283 @@ public class EFVariableDeclarationImpl extends EFStatementImpl implements EFVari
   protected EClass eStaticClass()
   {
     return EasyWallPackage.Literals.EF_VARIABLE_DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_VARIABLE_DECLARATION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFRuleClass getRuletype()
+  {
+    if (ruletype != null && ruletype.eIsProxy())
+    {
+      InternalEObject oldRuletype = (InternalEObject)ruletype;
+      ruletype = (EFRuleClass)eResolveProxy(oldRuletype);
+      if (ruletype != oldRuletype)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE, oldRuletype, ruletype));
+      }
+    }
+    return ruletype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EFRuleClass basicGetRuletype()
+  {
+    return ruletype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRuletype(EFRuleClass newRuletype)
+  {
+    EFRuleClass oldRuletype = ruletype;
+    ruletype = newRuletype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE, oldRuletype, ruletype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFNetworkNativeType getNativetype()
+  {
+    return nativetype;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNativetype(EFNetworkNativeType newNativetype)
+  {
+    EFNetworkNativeType oldNativetype = nativetype;
+    nativetype = newNativetype == null ? NATIVETYPE_EDEFAULT : newNativetype;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_VARIABLE_DECLARATION__NATIVETYPE, oldNativetype, nativetype));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFExpression getExpression()
+  {
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpression(EFExpression newExpression, NotificationChain msgs)
+  {
+    EFExpression oldExpression = expression;
+    expression = newExpression;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION, oldExpression, newExpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExpression(EFExpression newExpression)
+  {
+    if (newExpression != expression)
+    {
+      NotificationChain msgs = null;
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION:
+        return basicSetExpression(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NAME:
+        return getName();
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE:
+        if (resolve) return getRuletype();
+        return basicGetRuletype();
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NATIVETYPE:
+        return getNativetype();
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION:
+        return getExpression();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NAME:
+        setName((String)newValue);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE:
+        setRuletype((EFRuleClass)newValue);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NATIVETYPE:
+        setNativetype((EFNetworkNativeType)newValue);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION:
+        setExpression((EFExpression)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE:
+        setRuletype((EFRuleClass)null);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NATIVETYPE:
+        setNativetype(NATIVETYPE_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION:
+        setExpression((EFExpression)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__RULETYPE:
+        return ruletype != null;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__NATIVETYPE:
+        return nativetype != NATIVETYPE_EDEFAULT;
+      case EasyWallPackage.EF_VARIABLE_DECLARATION__EXPRESSION:
+        return expression != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", nativetype: ");
+    result.append(nativetype);
+    result.append(')');
+    return result.toString();
   }
 
 } //EFVariableDeclarationImpl

@@ -10,6 +10,8 @@
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/NETWORK"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/IP"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PORT"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PROTOCOL"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/DIRECTION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//EFRulesTypes">
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFRulesTypes/IPLEVEL"/>
@@ -33,19 +35,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFFireClass/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFFireClass/members"/>
     </genClasses>
-    <genClasses ecoreClass="EasyWall.ecore#//EFMember"/>
-    <genClasses ecoreClass="EasyWall.ecore#//EFField"/>
-    <genClasses ecoreClass="EasyWall.ecore#//EFTypedDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFTypedDeclaration/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFTypedDeclaration/ruletype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFTypedDeclaration/nativetype"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFTypedDeclaration/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFTypedDeclaration/params"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFTypedDeclaration/body"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFMember/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFMember/ruletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFMember/nativetype"/>
     </genClasses>
-    <genClasses ecoreClass="EasyWall.ecore#//EFVariableDeclaration"/>
-    <genClasses ecoreClass="EasyWall.ecore#//EFMethod"/>
-    <genClasses ecoreClass="EasyWall.ecore#//EFParameter"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFField"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFVariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/ruletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/nativetype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFMethod/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFMethod/body"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFParameter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFParameter/ruletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFParameter/nativetype"/>
+    </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFBlock">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFBlock/statements"/>
     </genClasses>
@@ -111,11 +121,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFBRacketsExpression/expression"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFFunctionCall">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFFunctionCall/functionName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFFunctionCall/functionName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFFunctionCall/args"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFSymbolRef">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFSymbolRef/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFSymbolRef/symbol"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFMemberSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFMemberSelection/receiver"/>

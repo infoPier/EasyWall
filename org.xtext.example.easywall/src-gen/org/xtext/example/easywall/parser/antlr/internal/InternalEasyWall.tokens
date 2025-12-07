@@ -14,12 +14,13 @@
 '=='=43
 '>'=48
 '>='=46
-'ApplicationLayer'=55
-'NetworkLayer'=53
-'TransportLayer'=54
+'ApplicationLayer'=57
+'NetworkLayer'=55
+'TransportLayer'=56
 'and'=40
 'at'=36
 'def'=23
+'direction'=54
 'else'=29
 'false'=31
 'firewall'=16
@@ -33,6 +34,7 @@
 'not'=42
 'or'=38
 'pack'=11
+'protocol'=53
 'return'=27
 'rule'=35
 'set'=19
@@ -95,3 +97,5 @@ T__52=52
 T__53=53
 T__54=54
 T__55=55
+T__56=56
+T__57=57

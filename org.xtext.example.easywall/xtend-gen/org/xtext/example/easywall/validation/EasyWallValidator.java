@@ -10,4 +10,9 @@ package org.xtext.example.easywall.validation;
  */
 @SuppressWarnings("all")
 public class EasyWallValidator extends AbstractEasyWallValidator {
+  protected static final String ISSUE_CODE_PREFIX = "org.xtext.example.easywall.";
+
+  public static final String MISSING_PROTOCOL = (EasyWallValidator.ISSUE_CODE_PREFIX + "MissingProtocol");
+
+  public static final String MISSING_DIRECTION = (EasyWallValidator.ISSUE_CODE_PREFIX + "MissingDirection");
 }

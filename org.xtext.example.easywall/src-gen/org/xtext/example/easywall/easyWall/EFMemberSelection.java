@@ -52,12 +52,12 @@ public interface EFMemberSelection extends EFExpression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Member</em>' reference.
-   * @see #setMember(EFTypedDeclaration)
+   * @see #setMember(EFMember)
    * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFMemberSelection_Member()
    * @model
    * @generated
    */
-  EFTypedDeclaration getMember();
+  EFMember getMember();
 
   /**
    * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFMemberSelection#getMember <em>Member</em>}' reference.
@@ -67,7 +67,7 @@ public interface EFMemberSelection extends EFExpression
    * @see #getMember()
    * @generated
    */
-  void setMember(EFTypedDeclaration value);
+  void setMember(EFMember value);
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference list.

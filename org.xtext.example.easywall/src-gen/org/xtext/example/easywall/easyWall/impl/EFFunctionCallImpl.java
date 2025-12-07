@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EFFunctionCall;
-import org.xtext.example.easywall.easyWall.EFTypedDeclaration;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
@@ -40,14 +39,24 @@ import org.xtext.example.easywall.easyWall.EasyWallPackage;
 public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCall
 {
   /**
-   * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' reference.
+   * The default value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFunctionName()
    * @generated
    * @ordered
    */
-  protected EFTypedDeclaration functionName;
+  protected static final String FUNCTION_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunctionName()
+   * @generated
+   * @ordered
+   */
+  protected String functionName = FUNCTION_NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
@@ -86,27 +95,7 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
    * @generated
    */
   @Override
-  public EFTypedDeclaration getFunctionName()
-  {
-    if (functionName != null && functionName.eIsProxy())
-    {
-      InternalEObject oldFunctionName = (InternalEObject)functionName;
-      functionName = (EFTypedDeclaration)eResolveProxy(oldFunctionName);
-      if (functionName != oldFunctionName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME, oldFunctionName, functionName));
-      }
-    }
-    return functionName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EFTypedDeclaration basicGetFunctionName()
+  public String getFunctionName()
   {
     return functionName;
   }
@@ -117,9 +106,9 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
    * @generated
    */
   @Override
-  public void setFunctionName(EFTypedDeclaration newFunctionName)
+  public void setFunctionName(String newFunctionName)
   {
-    EFTypedDeclaration oldFunctionName = functionName;
+    String oldFunctionName = functionName;
     functionName = newFunctionName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME, oldFunctionName, functionName));
@@ -167,8 +156,7 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
     switch (featureID)
     {
       case EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME:
-        if (resolve) return getFunctionName();
-        return basicGetFunctionName();
+        return getFunctionName();
       case EasyWallPackage.EF_FUNCTION_CALL__ARGS:
         return getArgs();
     }
@@ -187,7 +175,7 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
     switch (featureID)
     {
       case EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME:
-        setFunctionName((EFTypedDeclaration)newValue);
+        setFunctionName((String)newValue);
         return;
       case EasyWallPackage.EF_FUNCTION_CALL__ARGS:
         getArgs().clear();
@@ -208,7 +196,7 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
     switch (featureID)
     {
       case EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME:
-        setFunctionName((EFTypedDeclaration)null);
+        setFunctionName(FUNCTION_NAME_EDEFAULT);
         return;
       case EasyWallPackage.EF_FUNCTION_CALL__ARGS:
         getArgs().clear();
@@ -228,11 +216,28 @@ public class EFFunctionCallImpl extends EFExpressionImpl implements EFFunctionCa
     switch (featureID)
     {
       case EasyWallPackage.EF_FUNCTION_CALL__FUNCTION_NAME:
-        return functionName != null;
+        return FUNCTION_NAME_EDEFAULT == null ? functionName != null : !FUNCTION_NAME_EDEFAULT.equals(functionName);
       case EasyWallPackage.EF_FUNCTION_CALL__ARGS:
         return args != null && !args.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (functionName: ");
+    result.append(functionName);
+    result.append(')');
+    return result.toString();
   }
 
 } //EFFunctionCallImpl

@@ -87,15 +87,6 @@ public interface EasyWallFactory extends EFactory
   EFField createEFField();
 
   /**
-   * Returns a new object of class '<em>EF Typed Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>EF Typed Declaration</em>'.
-   * @generated
-   */
-  EFTypedDeclaration createEFTypedDeclaration();
-
-  /**
    * Returns a new object of class '<em>EF Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

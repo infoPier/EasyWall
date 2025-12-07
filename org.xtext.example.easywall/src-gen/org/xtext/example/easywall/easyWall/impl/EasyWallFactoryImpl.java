@@ -73,7 +73,6 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
       case EasyWallPackage.EF_FIRE_CLASS: return createEFFireClass();
       case EasyWallPackage.EF_MEMBER: return createEFMember();
       case EasyWallPackage.EF_FIELD: return createEFField();
-      case EasyWallPackage.EF_TYPED_DECLARATION: return createEFTypedDeclaration();
       case EasyWallPackage.EF_VARIABLE_DECLARATION: return createEFVariableDeclaration();
       case EasyWallPackage.EF_METHOD: return createEFMethod();
       case EasyWallPackage.EF_PARAMETER: return createEFParameter();
@@ -226,18 +225,6 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
   {
     EFFieldImpl efField = new EFFieldImpl();
     return efField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EFTypedDeclaration createEFTypedDeclaration()
-  {
-    EFTypedDeclarationImpl efTypedDeclaration = new EFTypedDeclarationImpl();
-    return efTypedDeclaration;
   }
 
   /**

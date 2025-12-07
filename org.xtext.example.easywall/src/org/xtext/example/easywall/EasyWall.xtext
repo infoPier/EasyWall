@@ -36,11 +36,11 @@ EFMember:
 EFField:
 	('set' | 'var') EFTypedDeclaration ';' //set for constants and var for variables
 ;
-EFTypedDeclaration:
+fragment EFTypedDeclaration *:
 	name=ID ':' (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType)
 ;
 enum EFNetworkNativeType:
-	NETWORK='network' | IP='netip' | PORT='netport'
+	NETWORK='network' | IP='netip' | PORT='netport' | PROTOCOL='protocol' | DIRECTION='direction'
 ;
 EFVariableDeclaration:
 	('set' | 'var') EFTypedDeclaration '=' expression=EFExpression ';'
@@ -48,8 +48,7 @@ EFVariableDeclaration:
 EFMethod:
 	'def' EFTypedDeclaration
 	'(' (params+=EFParameter (',' params+=EFParameter)*)? ')'
-	body=EFBlock
-;
+	body=EFBlock;
 EFParameter: EFTypedDeclaration;
 EFBlock:
 	{EFBlock} '{' statements+=EFStatement* '}'
@@ -64,14 +63,13 @@ EFReturn:
 	'return' expression=EFExpression ';'
 ;
 EFIfStatement:
-	'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
-	(=>'else' elseBlock=EFIfBlock)?
+	'if' '(' expression=EFExpression ')' thenBlock=EFBlock
+	(=>'else' elseBlock=EFBlock)?
 ;
-EFIfBlock returns EFBlock:
-	statements+=EFStatement
-	| EFBlock
-;
-EFExpression returns EFExpression:
+/*EFIfBlock returns EFBlock:
+	 statements+=EFStatement | EFBlock
+;*/
+EFExpression:
     EFAssignment
 ;
 EFAssignment returns EFExpression:
@@ -103,14 +101,14 @@ EFPrimaryExpression returns EFExpression:
   | {EFSuper} 'super'
   | {EFNew} 'new' type=[EFRuleClass|QualifiedName] '(' ')'
   | {EFBRacketsExpression} '(' expression=EFExpression ')'
-  | {EFFunctionCall} functionName=[EFTypedDeclaration|QualifiedName] '(' (args+=EFExpression (',' args+=EFExpression)*)? ')'
-  | {EFSymbolRef} symbol=[EFTypedDeclaration|QualifiedName]
+  | {EFFunctionCall} functionName=QualifiedName '(' (args+=EFExpression (',' args+=EFExpression)*)? ')'
+  | {EFSymbolRef} symbol=QualifiedName
 ;
 EFSelectionExpression returns EFExpression:
     EFPrimaryExpression
     (
         {EFMemberSelection.receiver=current} '.'
-        member=[EFTypedDeclaration|QualifiedName]
+        member=[EFMember]
         ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
     )*
 ;
@@ -122,7 +120,7 @@ EFRule:
 ;
 EFRuleClass:
 	'rule' name=ID 'at' type=EFRulesTypes '{'
-	members+=EFMember
+	members+=EFMember*
 	'}'
 ;
 enum EFRulesTypes:

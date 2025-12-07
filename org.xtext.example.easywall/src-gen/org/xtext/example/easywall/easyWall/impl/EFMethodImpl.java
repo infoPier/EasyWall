@@ -3,20 +3,62 @@
  */
 package org.xtext.example.easywall.easyWall.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.xtext.example.easywall.easyWall.EFBlock;
 import org.xtext.example.easywall.easyWall.EFMethod;
+import org.xtext.example.easywall.easyWall.EFParameter;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>EF Method</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFMethodImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFMethodImpl#getBody <em>Body</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class EFMethodImpl extends EFMemberImpl implements EFMethod
 {
+  /**
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParams()
+   * @generated
+   * @ordered
+   */
+  protected EList<EFParameter> params;
+
+  /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected EFBlock body;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +78,167 @@ public class EFMethodImpl extends EFMemberImpl implements EFMethod
   protected EClass eStaticClass()
   {
     return EasyWallPackage.Literals.EF_METHOD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<EFParameter> getParams()
+  {
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<EFParameter>(EFParameter.class, this, EasyWallPackage.EF_METHOD__PARAMS);
+    }
+    return params;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFBlock getBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBody(EFBlock newBody, NotificationChain msgs)
+  {
+    EFBlock oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_METHOD__BODY, oldBody, newBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBody(EFBlock newBody)
+  {
+    if (newBody != body)
+    {
+      NotificationChain msgs = null;
+      if (body != null)
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_METHOD__BODY, null, msgs);
+      if (newBody != null)
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_METHOD__BODY, null, msgs);
+      msgs = basicSetBody(newBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_METHOD__BODY, newBody, newBody));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_METHOD__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
+      case EasyWallPackage.EF_METHOD__BODY:
+        return basicSetBody(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_METHOD__PARAMS:
+        return getParams();
+      case EasyWallPackage.EF_METHOD__BODY:
+        return getBody();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_METHOD__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends EFParameter>)newValue);
+        return;
+      case EasyWallPackage.EF_METHOD__BODY:
+        setBody((EFBlock)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_METHOD__PARAMS:
+        getParams().clear();
+        return;
+      case EasyWallPackage.EF_METHOD__BODY:
+        setBody((EFBlock)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_METHOD__PARAMS:
+        return params != null && !params.isEmpty();
+      case EasyWallPackage.EF_METHOD__BODY:
+        return body != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //EFMethodImpl
