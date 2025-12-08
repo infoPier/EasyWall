@@ -71,8 +71,15 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				sequence_EFPrimaryExpression(context, (EFBRacketsExpression) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_BLOCK:
-				sequence_EFBlock(context, (EFBlock) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getEFBlockRule()) {
+					sequence_EFBlock(context, (EFBlock) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getEFIfBlockRule()) {
+					sequence_EFBlock_EFIfBlock(context, (EFBlock) semanticObject); 
+					return; 
+				}
+				else break;
 			case EasyWallPackage.EF_BOOL_CONSTANT:
 				sequence_EFPrimaryExpression(context, (EFBoolConstant) semanticObject); 
 				return; 
@@ -235,6 +242,20 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFIfBlock returns EFBlock
+	 *
+	 * Constraint:
+	 *     (statements+=EFStatement+ | statements+=EFStatement)?
+	 * </pre>
+	 */
+	protected void sequence_EFBlock_EFIfBlock(ISerializationContext context, EFBlock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     EFStatement returns EFEqualExpression
 	 *     EFExpression returns EFEqualExpression
 	 *     EFAssignment returns EFEqualExpression
@@ -313,7 +334,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     EFIfStatement returns EFIfStatement
 	 *
 	 * Constraint:
-	 *     (expression=EFExpression thenBlock=EFBlock elseBlock=EFBlock?)
+	 *     (expression=EFExpression thenBlock=EFIfBlock elseBlock=EFIfBlock?)
 	 * </pre>
 	 */
 	protected void sequence_EFIfStatement(ISerializationContext context, EFIfStatement semanticObject) {

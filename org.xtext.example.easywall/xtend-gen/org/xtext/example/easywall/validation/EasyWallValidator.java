@@ -3,6 +3,22 @@
  */
 package org.xtext.example.easywall.validation;
 
+import com.google.inject.Inject;
+import java.util.Objects;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.example.easywall.EasyWallUtils;
+import org.xtext.example.easywall.easyWall.EFExpression;
+import org.xtext.example.easywall.easyWall.EFField;
+import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
+import org.xtext.example.easywall.easyWall.EFRule;
+import org.xtext.example.easywall.easyWall.EFStringConstant;
+import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
+import org.xtext.example.easywall.easyWall.EasyWallPackage;
+
 /**
  * This class contains custom validation rules.
  * 
@@ -15,4 +31,139 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
   public static final String MISSING_PROTOCOL = (EasyWallValidator.ISSUE_CODE_PREFIX + "MissingProtocol");
 
   public static final String MISSING_DIRECTION = (EasyWallValidator.ISSUE_CODE_PREFIX + "MissingDirection");
+
+  public static final String BAD_DIRECTION = (EasyWallValidator.ISSUE_CODE_PREFIX + "BadDirection");
+
+  /**
+   * TODO
+   */
+  public static final String BAD_PROTOCOL = (EasyWallValidator.ISSUE_CODE_PREFIX + "BadProtocol");
+
+  public static final String PROTOCOL_RULELAYER_MISMATCH = (EasyWallValidator.ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch");
+
+  public static final String IP_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "IPSyntax");
+
+  public static final String NETWORK_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "NetworkSyntax");
+
+  public static final String NETPORT_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "NetPortSyntax");
+
+  @Inject
+  @Extension
+  private EasyWallUtils _easyWallUtils;
+
+  @Check
+  public void checkMissingProtocol(final EFRule rule) {
+    final Function1<EFField, Boolean> _function = (EFField f) -> {
+      EFNetworkNativeType _nativetype = f.getNativetype();
+      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL));
+    };
+    final Function1<EFField, String> _function_1 = (EFField f) -> {
+      return f.getName();
+    };
+    final Function1<String, Boolean> _function_2 = (String n) -> {
+      return Boolean.valueOf(Objects.equals(n, "RULE_PROTOCOL"));
+    };
+    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2));
+    if (_isEmpty) {
+      String _name = rule.getRules().getName();
+      String _plus = ("Rule " + _name);
+      String _plus_1 = (_plus + " is missing protocol");
+      this.error(_plus_1, 
+        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        EasyWallValidator.MISSING_PROTOCOL);
+    }
+  }
+
+  @Check
+  public void checkTooManyProtocols(final EFRule rule) {
+    final Function1<EFField, Boolean> _function = (EFField f) -> {
+      EFNetworkNativeType _nativetype = f.getNativetype();
+      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL));
+    };
+    final Function1<EFField, String> _function_1 = (EFField f) -> {
+      return f.getName();
+    };
+    final Function1<String, Boolean> _function_2 = (String n) -> {
+      return Boolean.valueOf(Objects.equals(n, "RULE_PROTOCOL"));
+    };
+    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2), Object.class)).length;
+    boolean _greaterThan = (_length > 1);
+    if (_greaterThan) {
+      String _name = rule.getRules().getName();
+      String _plus = ("Rule " + _name);
+      String _plus_1 = (_plus + " has to many rule protocols");
+      this.error(_plus_1, 
+        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        EasyWallValidator.MISSING_PROTOCOL);
+    }
+  }
+
+  @Check
+  public void checkMissingDirection(final EFRule rule) {
+    final Function1<EFField, Boolean> _function = (EFField f) -> {
+      EFNetworkNativeType _nativetype = f.getNativetype();
+      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION));
+    };
+    final Function1<EFField, String> _function_1 = (EFField f) -> {
+      return f.getName();
+    };
+    final Function1<String, Boolean> _function_2 = (String n) -> {
+      return Boolean.valueOf(Objects.equals(n, "RULE_DIRECTION"));
+    };
+    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2));
+    if (_isEmpty) {
+      String _name = rule.getRules().getName();
+      String _plus = ("Rule " + _name);
+      String _plus_1 = (_plus + " is missing direction (in/out)");
+      this.error(_plus_1, 
+        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        EasyWallValidator.MISSING_DIRECTION);
+    }
+  }
+
+  @Check
+  public void checkTooManyDirections(final EFRule rule) {
+    final Function1<EFField, Boolean> _function = (EFField f) -> {
+      EFNetworkNativeType _nativetype = f.getNativetype();
+      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION));
+    };
+    final Function1<EFField, String> _function_1 = (EFField f) -> {
+      return f.getName();
+    };
+    final Function1<String, Boolean> _function_2 = (String n) -> {
+      return Boolean.valueOf(Objects.equals(n, "RULE_DIRECTION"));
+    };
+    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2), Object.class)).length;
+    boolean _greaterThan = (_length > 1);
+    if (_greaterThan) {
+      String _name = rule.getRules().getName();
+      String _plus = ("Rule " + _name);
+      String _plus_1 = (_plus + " has to many rule directions");
+      this.error(_plus_1, 
+        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        EasyWallValidator.MISSING_DIRECTION);
+    }
+  }
+
+  @Check
+  public void checkDirectionValue(final EFVariableDeclaration dec) {
+    EFNetworkNativeType _nativetype = dec.getNativetype();
+    boolean _equals = Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION);
+    if (_equals) {
+      EFExpression expr = dec.getExpression();
+      if ((expr instanceof EFStringConstant)) {
+        String value = ((EFStringConstant)expr).getValue();
+        value = value.replace("\"", "");
+        if (((((!value.equals("IN")) && (!value.equals("in"))) && (!value.equals("OUT"))) && (!value.equals("out")))) {
+          this.error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"", 
+            EasyWallPackage.eINSTANCE.getEFVariableDeclaration_Expression(), 
+            EasyWallValidator.BAD_DIRECTION);
+        }
+      } else {
+        this.error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"", 
+          EasyWallPackage.eINSTANCE.getEFVariableDeclaration_Expression(), 
+          EasyWallValidator.BAD_DIRECTION);
+      }
+    }
+  }
 }

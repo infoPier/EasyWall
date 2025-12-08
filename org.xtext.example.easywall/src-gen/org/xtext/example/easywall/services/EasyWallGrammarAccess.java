@@ -579,20 +579,20 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final RuleCall cExpressionEFExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cThenBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cThenBlockEFBlockParserRuleCall_4_0 = (RuleCall)cThenBlockAssignment_4.eContents().get(0);
+		private final RuleCall cThenBlockEFIfBlockParserRuleCall_4_0 = (RuleCall)cThenBlockAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cElseKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cElseBlockAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cElseBlockEFBlockParserRuleCall_5_1_0 = (RuleCall)cElseBlockAssignment_5_1.eContents().get(0);
+		private final RuleCall cElseBlockEFIfBlockParserRuleCall_5_1_0 = (RuleCall)cElseBlockAssignment_5_1.eContents().get(0);
 		
 		//EFIfStatement:
-		//    'if' '(' expression=EFExpression ')' thenBlock=EFBlock
-		//    (=>'else' elseBlock=EFBlock)?
+		//    'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
+		//    (=>'else' elseBlock=EFIfBlock)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' '(' expression=EFExpression ')' thenBlock=EFBlock
-		//(=>'else' elseBlock=EFBlock)?
+		//'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
+		//(=>'else' elseBlock=EFIfBlock)?
 		public Group getGroup() { return cGroup; }
 		
 		//'if'
@@ -610,31 +610,52 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 		
-		//thenBlock=EFBlock
+		//thenBlock=EFIfBlock
 		public Assignment getThenBlockAssignment_4() { return cThenBlockAssignment_4; }
 		
-		//EFBlock
-		public RuleCall getThenBlockEFBlockParserRuleCall_4_0() { return cThenBlockEFBlockParserRuleCall_4_0; }
+		//EFIfBlock
+		public RuleCall getThenBlockEFIfBlockParserRuleCall_4_0() { return cThenBlockEFIfBlockParserRuleCall_4_0; }
 		
-		//(=>'else' elseBlock=EFBlock)?
+		//(=>'else' elseBlock=EFIfBlock)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//=>'else'
 		public Keyword getElseKeyword_5_0() { return cElseKeyword_5_0; }
 		
-		//elseBlock=EFBlock
+		//elseBlock=EFIfBlock
 		public Assignment getElseBlockAssignment_5_1() { return cElseBlockAssignment_5_1; }
 		
+		//EFIfBlock
+		public RuleCall getElseBlockEFIfBlockParserRuleCall_5_1_0() { return cElseBlockEFIfBlockParserRuleCall_5_1_0; }
+	}
+	public class EFIfBlockElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFIfBlock");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cStatementsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cStatementsEFStatementParserRuleCall_0_0 = (RuleCall)cStatementsAssignment_0.eContents().get(0);
+		private final RuleCall cEFBlockParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//EFIfBlock returns EFBlock:
+		//     statements+=EFStatement | EFBlock
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//statements+=EFStatement | EFBlock
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//statements+=EFStatement
+		public Assignment getStatementsAssignment_0() { return cStatementsAssignment_0; }
+		
+		//EFStatement
+		public RuleCall getStatementsEFStatementParserRuleCall_0_0() { return cStatementsEFStatementParserRuleCall_0_0; }
+		
 		//EFBlock
-		public RuleCall getElseBlockEFBlockParserRuleCall_5_1_0() { return cElseBlockEFBlockParserRuleCall_5_1_0; }
+		public RuleCall getEFBlockParserRuleCall_1() { return cEFBlockParserRuleCall_1; }
 	}
 	public class EFExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFExpression");
 		private final RuleCall cEFAssignmentParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		///*EFIfBlock returns EFBlock:
-		//     statements+=EFStatement | EFBlock
-		//;*/
 		//EFExpression:
 		//    EFAssignment
 		//;
@@ -1115,7 +1136,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final RuleCall cEFPrimaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cEFMemberSelectionReceiverAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cColonColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cMemberAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final CrossReference cMemberEFMemberCrossReference_1_2_0 = (CrossReference)cMemberAssignment_1_2.eContents().get(0);
 		private final RuleCall cMemberEFMemberIDTerminalRuleCall_1_2_0_1 = (RuleCall)cMemberEFMemberCrossReference_1_2_0.eContents().get(1);
@@ -1133,7 +1154,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//EFSelectionExpression returns EFExpression:
 		//    EFPrimaryExpression
 		//    (
-		//        {EFMemberSelection.receiver=current} '.'
+		//        {EFMemberSelection.receiver=current} '::'
 		//        member=[EFMember]
 		//        ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
 		//    )*
@@ -1142,7 +1163,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		
 		//EFPrimaryExpression
 		//(
-		//    {EFMemberSelection.receiver=current} '.'
+		//    {EFMemberSelection.receiver=current} '::'
 		//    member=[EFMember]
 		//    ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
 		//)*
@@ -1152,7 +1173,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		public RuleCall getEFPrimaryExpressionParserRuleCall_0() { return cEFPrimaryExpressionParserRuleCall_0; }
 		
 		//(
-		//    {EFMemberSelection.receiver=current} '.'
+		//    {EFMemberSelection.receiver=current} '::'
 		//    member=[EFMember]
 		//    ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
 		//)*
@@ -1161,8 +1182,8 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//{EFMemberSelection.receiver=current}
 		public Action getEFMemberSelectionReceiverAction_1_0() { return cEFMemberSelectionReceiverAction_1_0; }
 		
-		//'.'
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		//'::'
+		public Keyword getColonColonKeyword_1_1() { return cColonColonKeyword_1_1; }
 		
 		//member=[EFMember]
 		public Assignment getMemberAssignment_1_2() { return cMemberAssignment_1_2; }
@@ -1488,6 +1509,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	private final EFStatementElements pEFStatement;
 	private final EFReturnElements pEFReturn;
 	private final EFIfStatementElements pEFIfStatement;
+	private final EFIfBlockElements pEFIfBlock;
 	private final EFExpressionElements pEFExpression;
 	private final EFAssignmentElements pEFAssignment;
 	private final EFOrExpressionElements pEFOrExpression;
@@ -1533,6 +1555,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		this.pEFStatement = new EFStatementElements();
 		this.pEFReturn = new EFReturnElements();
 		this.pEFIfStatement = new EFIfStatementElements();
+		this.pEFIfBlock = new EFIfBlockElements();
 		this.pEFExpression = new EFExpressionElements();
 		this.pEFAssignment = new EFAssignmentElements();
 		this.pEFOrExpression = new EFOrExpressionElements();
@@ -1775,8 +1798,8 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	}
 	
 	//EFIfStatement:
-	//    'if' '(' expression=EFExpression ')' thenBlock=EFBlock
-	//    (=>'else' elseBlock=EFBlock)?
+	//    'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
+	//    (=>'else' elseBlock=EFIfBlock)?
 	//;
 	public EFIfStatementElements getEFIfStatementAccess() {
 		return pEFIfStatement;
@@ -1786,9 +1809,17 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		return getEFIfStatementAccess().getRule();
 	}
 	
-	///*EFIfBlock returns EFBlock:
+	//EFIfBlock returns EFBlock:
 	//     statements+=EFStatement | EFBlock
-	//;*/
+	//;
+	public EFIfBlockElements getEFIfBlockAccess() {
+		return pEFIfBlock;
+	}
+	
+	public ParserRule getEFIfBlockRule() {
+		return getEFIfBlockAccess().getRule();
+	}
+	
 	//EFExpression:
 	//    EFAssignment
 	//;
@@ -1889,7 +1920,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//EFSelectionExpression returns EFExpression:
 	//    EFPrimaryExpression
 	//    (
-	//        {EFMemberSelection.receiver=current} '.'
+	//        {EFMemberSelection.receiver=current} '::'
 	//        member=[EFMember]
 	//        ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
 	//    )*

@@ -63,12 +63,12 @@ EFReturn:
 	'return' expression=EFExpression ';'
 ;
 EFIfStatement:
-	'if' '(' expression=EFExpression ')' thenBlock=EFBlock
-	(=>'else' elseBlock=EFBlock)?
+	'if' '(' expression=EFExpression ')' thenBlock=EFIfBlock
+	(=>'else' elseBlock=EFIfBlock)?
 ;
-/*EFIfBlock returns EFBlock:
+EFIfBlock returns EFBlock:
 	 statements+=EFStatement | EFBlock
-;*/
+;
 EFExpression:
     EFAssignment
 ;
@@ -107,7 +107,7 @@ EFPrimaryExpression returns EFExpression:
 EFSelectionExpression returns EFExpression:
     EFPrimaryExpression
     (
-        {EFMemberSelection.receiver=current} '.'
+        {EFMemberSelection.receiver=current} '::'
         member=[EFMember]
         ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
     )*

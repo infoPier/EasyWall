@@ -993,9 +993,9 @@ ruleEFIfStatement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEFIfStatementAccess().getThenBlockEFBlockParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getEFIfStatementAccess().getThenBlockEFIfBlockParserRuleCall_4_0());
 				}
-				lv_thenBlock_4_0=ruleEFBlock
+				lv_thenBlock_4_0=ruleEFIfBlock
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEFIfStatementRule());
@@ -1004,7 +1004,7 @@ ruleEFIfStatement returns [EObject current=null]
 						$current,
 						"thenBlock",
 						lv_thenBlock_4_0,
-						"org.xtext.example.easywall.EasyWall.EFBlock");
+						"org.xtext.example.easywall.EasyWall.EFIfBlock");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1020,9 +1020,9 @@ ruleEFIfStatement returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEFIfStatementAccess().getElseBlockEFBlockParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getEFIfStatementAccess().getElseBlockEFIfBlockParserRuleCall_5_1_0());
 					}
-					lv_elseBlock_6_0=ruleEFBlock
+					lv_elseBlock_6_0=ruleEFIfBlock
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEFIfStatementRule());
@@ -1031,12 +1031,59 @@ ruleEFIfStatement returns [EObject current=null]
 							$current,
 							"elseBlock",
 							lv_elseBlock_6_0,
-							"org.xtext.example.easywall.EasyWall.EFBlock");
+							"org.xtext.example.easywall.EasyWall.EFIfBlock");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleEFIfBlock
+entryRuleEFIfBlock returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFIfBlockRule()); }
+	iv_ruleEFIfBlock=ruleEFIfBlock
+	{ $current=$iv_ruleEFIfBlock.current; }
+	EOF;
+
+// Rule EFIfBlock
+ruleEFIfBlock returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEFIfBlockAccess().getStatementsEFStatementParserRuleCall_0_0());
+				}
+				lv_statements_0_0=ruleEFStatement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEFIfBlockRule());
+					}
+					add(
+						$current,
+						"statements",
+						lv_statements_0_0,
+						"org.xtext.example.easywall.EasyWall.EFStatement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		{
+			newCompositeNode(grammarAccess.getEFIfBlockAccess().getEFBlockParserRuleCall_1());
+		}
+		this_EFBlock_1=ruleEFBlock
+		{
+			$current = $this_EFBlock_1.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 

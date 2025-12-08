@@ -1061,10 +1061,10 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2174:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalEasyWall.g:2174:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalEasyWall.g:2221:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalEasyWall.g:2221:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalEasyWall.g:2174:11: ( '^' )?
+            // InternalEasyWall.g:2221:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1073,7 +1073,7 @@ public class InternalEasyWallLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalEasyWall.g:2174:11: '^'
+                    // InternalEasyWall.g:2221:11: '^'
                     {
                     match('^'); 
 
@@ -1091,7 +1091,7 @@ public class InternalEasyWallLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalEasyWall.g:2174:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalEasyWall.g:2221:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1140,10 +1140,10 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2176:10: ( ( '0' .. '9' )+ )
-            // InternalEasyWall.g:2176:12: ( '0' .. '9' )+
+            // InternalEasyWall.g:2223:10: ( ( '0' .. '9' )+ )
+            // InternalEasyWall.g:2223:12: ( '0' .. '9' )+
             {
-            // InternalEasyWall.g:2176:12: ( '0' .. '9' )+
+            // InternalEasyWall.g:2223:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1157,7 +1157,7 @@ public class InternalEasyWallLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalEasyWall.g:2176:13: '0' .. '9'
+            	    // InternalEasyWall.g:2223:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1189,10 +1189,10 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2178:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalEasyWall.g:2178:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEasyWall.g:2225:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalEasyWall.g:2225:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalEasyWall.g:2178:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalEasyWall.g:2225:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1210,10 +1210,10 @@ public class InternalEasyWallLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalEasyWall.g:2178:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalEasyWall.g:2225:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalEasyWall.g:2178:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalEasyWall.g:2225:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1229,7 +1229,7 @@ public class InternalEasyWallLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalEasyWall.g:2178:21: '\\\\' .
+                    	    // InternalEasyWall.g:2225:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1237,7 +1237,7 @@ public class InternalEasyWallLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEasyWall.g:2178:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalEasyWall.g:2225:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1262,10 +1262,10 @@ public class InternalEasyWallLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalEasyWall.g:2178:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalEasyWall.g:2225:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalEasyWall.g:2178:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalEasyWall.g:2225:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1281,7 +1281,7 @@ public class InternalEasyWallLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalEasyWall.g:2178:54: '\\\\' .
+                    	    // InternalEasyWall.g:2225:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1289,7 +1289,7 @@ public class InternalEasyWallLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalEasyWall.g:2178:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalEasyWall.g:2225:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1332,12 +1332,12 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2180:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalEasyWall.g:2180:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalEasyWall.g:2227:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalEasyWall.g:2227:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalEasyWall.g:2180:24: ( options {greedy=false; } : . )*
+            // InternalEasyWall.g:2227:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1362,7 +1362,7 @@ public class InternalEasyWallLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalEasyWall.g:2180:52: .
+            	    // InternalEasyWall.g:2227:52: .
             	    {
             	    matchAny(); 
 
@@ -1392,12 +1392,12 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2182:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalEasyWall.g:2182:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalEasyWall.g:2229:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalEasyWall.g:2229:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalEasyWall.g:2182:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalEasyWall.g:2229:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1410,7 +1410,7 @@ public class InternalEasyWallLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalEasyWall.g:2182:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalEasyWall.g:2229:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1430,7 +1430,7 @@ public class InternalEasyWallLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalEasyWall.g:2182:40: ( ( '\\r' )? '\\n' )?
+            // InternalEasyWall.g:2229:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1439,9 +1439,9 @@ public class InternalEasyWallLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalEasyWall.g:2182:41: ( '\\r' )? '\\n'
+                    // InternalEasyWall.g:2229:41: ( '\\r' )? '\\n'
                     {
-                    // InternalEasyWall.g:2182:41: ( '\\r' )?
+                    // InternalEasyWall.g:2229:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1450,7 +1450,7 @@ public class InternalEasyWallLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalEasyWall.g:2182:41: '\\r'
+                            // InternalEasyWall.g:2229:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1482,10 +1482,10 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2184:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalEasyWall.g:2184:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEasyWall.g:2231:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalEasyWall.g:2231:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalEasyWall.g:2184:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalEasyWall.g:2231:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1539,8 +1539,8 @@ public class InternalEasyWallLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalEasyWall.g:2186:16: ( . )
-            // InternalEasyWall.g:2186:18: .
+            // InternalEasyWall.g:2233:16: ( . )
+            // InternalEasyWall.g:2233:18: .
             {
             matchAny(); 
 

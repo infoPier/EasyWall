@@ -3,6 +3,14 @@
  */
 package org.xtext.example.easywall.validation
 
+import org.xtext.example.easywall.easyWall.EFRule
+import org.eclipse.xtext.validation.Check
+import com.google.inject.Inject
+import org.xtext.example.easywall.EasyWallUtils
+import org.xtext.example.easywall.easyWall.EasyWallPackage
+import org.xtext.example.easywall.easyWall.EFNetworkNativeType
+import org.xtext.example.easywall.easyWall.EFVariableDeclaration
+import org.xtext.example.easywall.easyWall.EFStringConstant
 
 /**
  * This class contains custom validation rules. 
@@ -14,16 +22,92 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 	protected static val ISSUE_CODE_PREFIX = "org.xtext.example.easywall.";
 	public static val MISSING_PROTOCOL = ISSUE_CODE_PREFIX + "MissingProtocol";
 	public static val MISSING_DIRECTION = ISSUE_CODE_PREFIX + "MissingDirection";
+	public static val BAD_DIRECTION = ISSUE_CODE_PREFIX + "BadDirection";
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					EasyWallPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	/* TODO */
+	public static val BAD_PROTOCOL = ISSUE_CODE_PREFIX + "BadProtocol";
+	public static val PROTOCOL_RULELAYER_MISMATCH = ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch";
+	public static val IP_SYNTAX = ISSUE_CODE_PREFIX + "IPSyntax";
+	public static val NETWORK_SYNTAX = ISSUE_CODE_PREFIX + "NetworkSyntax";
+	public static val NETPORT_SYNTAX = ISSUE_CODE_PREFIX + "NetPortSyntax";
 	
+	@Inject extension EasyWallUtils
+	
+	@Check
+	def checkMissingProtocol(EFRule rule){
+		if(rule.ruleFields
+			.filter[f | f.nativetype == EFNetworkNativeType.PROTOCOL]
+			.map[f | f.name]
+			.filter[n | n == "RULE_PROTOCOL"]
+			.isEmpty) { 
+				error("Rule " + rule.rules.name+ " is missing protocol", 
+					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					MISSING_PROTOCOL)
+			}
+	}
+	
+	@Check
+	def checkTooManyProtocols(EFRule rule){
+		if(rule.ruleFields
+			.filter[f | f.nativetype == EFNetworkNativeType.PROTOCOL]
+			.map[f | f.name]
+			.filter[n | n == "RULE_PROTOCOL"]
+			.length > 1) { 
+				error("Rule " + rule.rules.name+ " has to many rule protocols", 
+					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					MISSING_PROTOCOL)
+			}
+	}
+	
+	@Check
+	def checkMissingDirection(EFRule rule){
+		if(rule.ruleFields
+			.filter[f | f.nativetype == EFNetworkNativeType.DIRECTION]
+			.map[f | f.name]
+			.filter[n | n == "RULE_DIRECTION"]
+			.isEmpty) { 
+				error("Rule " + rule.rules.name+ " is missing direction (in/out)", 
+					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					MISSING_DIRECTION)
+			}
+	}	
+	
+	@Check
+	def checkTooManyDirections(EFRule rule){
+		if(rule.ruleFields
+			.filter[f | f.nativetype == EFNetworkNativeType.DIRECTION]
+			.map[f | f.name]
+			.filter[n | n == "RULE_DIRECTION"]
+			.length > 1) { 
+				error("Rule " + rule.rules.name+ " has to many rule directions", 
+					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					MISSING_DIRECTION)
+			}
+	}	
+	
+	@Check
+	def checkDirectionValue(EFVariableDeclaration dec){
+		
+		if(dec.nativetype == EFNetworkNativeType.DIRECTION){
+			var expr = dec.expression;
+			if(expr instanceof EFStringConstant){
+				var value = expr.value
+				value = value.replace("\"","")
+				if(!value.equals("IN") && !value.equals("in")
+					&& !value.equals("OUT") && !value.equals("out")
+				){
+					error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"",
+						EasyWallPackage.eINSTANCE.EFVariableDeclaration_Expression,
+						BAD_DIRECTION
+					)
+				}
+			}
+			else{
+				error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"",
+						EasyWallPackage.eINSTANCE.EFVariableDeclaration_Expression,
+						BAD_DIRECTION
+					)
+			}
+		}
+	}
 }
