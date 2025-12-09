@@ -128,7 +128,9 @@ public class EasyWallSwitch<T> extends Switch<T>
       {
         EFVariableDeclaration efVariableDeclaration = (EFVariableDeclaration)theEObject;
         T result = caseEFVariableDeclaration(efVariableDeclaration);
+        if (result == null) result = caseEFField(efVariableDeclaration);
         if (result == null) result = caseEFStatement(efVariableDeclaration);
+        if (result == null) result = caseEFMember(efVariableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -286,6 +288,42 @@ public class EasyWallSwitch<T> extends Switch<T>
         T result = caseEFPrimitiveType(efPrimitiveType);
         if (result == null) result = caseEFExpression(efPrimitiveType);
         if (result == null) result = caseEFStatement(efPrimitiveType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_DIRECTION_CONSTANT:
+      {
+        EFDirectionConstant efDirectionConstant = (EFDirectionConstant)theEObject;
+        T result = caseEFDirectionConstant(efDirectionConstant);
+        if (result == null) result = caseEFExpression(efDirectionConstant);
+        if (result == null) result = caseEFStatement(efDirectionConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_NETWORK_PROTOCOL_CONSTANT:
+      {
+        EFNetworkProtocolConstant efNetworkProtocolConstant = (EFNetworkProtocolConstant)theEObject;
+        T result = caseEFNetworkProtocolConstant(efNetworkProtocolConstant);
+        if (result == null) result = caseEFExpression(efNetworkProtocolConstant);
+        if (result == null) result = caseEFStatement(efNetworkProtocolConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_TRANSPORT_PROTOCOL_CONSTANT:
+      {
+        EFTransportProtocolConstant efTransportProtocolConstant = (EFTransportProtocolConstant)theEObject;
+        T result = caseEFTransportProtocolConstant(efTransportProtocolConstant);
+        if (result == null) result = caseEFExpression(efTransportProtocolConstant);
+        if (result == null) result = caseEFStatement(efTransportProtocolConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_APPLICATION_PROTOCOL_CONSTANT:
+      {
+        EFApplicationProtocolConstant efApplicationProtocolConstant = (EFApplicationProtocolConstant)theEObject;
+        T result = caseEFApplicationProtocolConstant(efApplicationProtocolConstant);
+        if (result == null) result = caseEFExpression(efApplicationProtocolConstant);
+        if (result == null) result = caseEFStatement(efApplicationProtocolConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -784,6 +822,70 @@ public class EasyWallSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEFPrimitiveType(EFPrimitiveType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Direction Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Direction Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFDirectionConstant(EFDirectionConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Network Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Network Protocol Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFNetworkProtocolConstant(EFNetworkProtocolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Transport Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Transport Protocol Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFTransportProtocolConstant(EFTransportProtocolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Application Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Application Protocol Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFApplicationProtocolConstant(EFApplicationProtocolConstant object)
   {
     return null;
   }

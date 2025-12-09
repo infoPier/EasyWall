@@ -11,11 +11,15 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.easywall.EasyWallUtils;
+import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
+import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFRule;
-import org.xtext.example.easywall.easyWall.EFStringConstant;
+import org.xtext.example.easywall.easyWall.EFRuleClass;
+import org.xtext.example.easywall.easyWall.EFRulesTypes;
+import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
@@ -34,13 +38,11 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
 
   public static final String BAD_DIRECTION = (EasyWallValidator.ISSUE_CODE_PREFIX + "BadDirection");
 
+  public static final String PROTOCOL_RULELAYER_MISMATCH = (EasyWallValidator.ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch");
+
   /**
    * TODO
    */
-  public static final String BAD_PROTOCOL = (EasyWallValidator.ISSUE_CODE_PREFIX + "BadProtocol");
-
-  public static final String PROTOCOL_RULELAYER_MISMATCH = (EasyWallValidator.ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch");
-
   public static final String IP_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "IPSyntax");
 
   public static final String NETWORK_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "NetworkSyntax");
@@ -145,24 +147,32 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
     }
   }
 
-  @Check
-  public void checkDirectionValue(final EFVariableDeclaration dec) {
-    EFNetworkNativeType _nativetype = dec.getNativetype();
-    boolean _equals = Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION);
+  public void checkProtocolMismatch(final EFVariableDeclaration decl) {
+    EFRuleClass layer = decl.getRuletype();
+    EFNetworkNativeType _nativetype = decl.getNativetype();
+    boolean _equals = Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL);
     if (_equals) {
-      EFExpression expr = dec.getExpression();
-      if ((expr instanceof EFStringConstant)) {
-        String value = ((EFStringConstant)expr).getValue();
-        value = value.replace("\"", "");
-        if (((((!value.equals("IN")) && (!value.equals("in"))) && (!value.equals("OUT"))) && (!value.equals("out")))) {
-          this.error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"", 
-            EasyWallPackage.eINSTANCE.getEFVariableDeclaration_Expression(), 
-            EasyWallValidator.BAD_DIRECTION);
+      EFExpression expr = decl.getExpression();
+      if (((((expr instanceof EFNetworkProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.IPLEVEL))) || ((expr instanceof EFTransportProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.TRANSPLEVEL)))) || ((expr instanceof EFApplicationProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.APPLEVEL))))) {
+        String protocol = null;
+        String protocolLayer = null;
+        if ((expr instanceof EFNetworkProtocolConstant)) {
+          protocol = ((EFNetworkProtocolConstant) expr).getProtocol().toString();
+          protocolLayer = "Network Layer";
+        } else {
+          if ((expr instanceof EFTransportProtocolConstant)) {
+            protocol = ((EFTransportProtocolConstant) expr).getProtocol().toString();
+            protocolLayer = "Transport Layer";
+          } else {
+            if ((expr instanceof EFApplicationProtocolConstant)) {
+              protocol = ((EFApplicationProtocolConstant) expr).getProtocol().toString();
+              protocolLayer = "Application Layer";
+            }
+          }
         }
-      } else {
-        this.error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"", 
-          EasyWallPackage.eINSTANCE.getEFVariableDeclaration_Expression(), 
-          EasyWallValidator.BAD_DIRECTION);
+        this.error(((((("Protocol " + protocol) + " does not match the layer defined for the rule.\nRule is at: ") + layer) + "\nProtocol defined is at: ") + protocolLayer), 
+          EasyWallPackage.eINSTANCE.getEFAssignment_Right(), 
+          EasyWallValidator.PROTOCOL_RULELAYER_MISMATCH);
       }
     }
   }

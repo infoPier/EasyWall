@@ -93,6 +93,10 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
       case EasyWallPackage.EF_INT_CONSTANT: return createEFIntConstant();
       case EasyWallPackage.EF_BOOL_CONSTANT: return createEFBoolConstant();
       case EasyWallPackage.EF_PRIMITIVE_TYPE: return createEFPrimitiveType();
+      case EasyWallPackage.EF_DIRECTION_CONSTANT: return createEFDirectionConstant();
+      case EasyWallPackage.EF_NETWORK_PROTOCOL_CONSTANT: return createEFNetworkProtocolConstant();
+      case EasyWallPackage.EF_TRANSPORT_PROTOCOL_CONSTANT: return createEFTransportProtocolConstant();
+      case EasyWallPackage.EF_APPLICATION_PROTOCOL_CONSTANT: return createEFApplicationProtocolConstant();
       case EasyWallPackage.EF_THIS: return createEFThis();
       case EasyWallPackage.EF_SUPER: return createEFSuper();
       case EasyWallPackage.EF_NEW: return createEFNew();
@@ -117,8 +121,16 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
     {
       case EasyWallPackage.EF_NETWORK_NATIVE_TYPE:
         return createEFNetworkNativeTypeFromString(eDataType, initialValue);
+      case EasyWallPackage.EF_DIRECTION_NATIVE_TYPE:
+        return createEFDirectionNativeTypeFromString(eDataType, initialValue);
       case EasyWallPackage.EF_RULES_TYPES:
         return createEFRulesTypesFromString(eDataType, initialValue);
+      case EasyWallPackage.NETWORKLAYERPROTOCOL:
+        return createNETWORKLAYERPROTOCOLFromString(eDataType, initialValue);
+      case EasyWallPackage.TRANSPORTLAYERPROTOCOL:
+        return createTRANSPORTLAYERPROTOCOLFromString(eDataType, initialValue);
+      case EasyWallPackage.APPLICATIONLAYERPROTOCOL:
+        return createAPPLICATIONLAYERPROTOCOLFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -136,8 +148,16 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
     {
       case EasyWallPackage.EF_NETWORK_NATIVE_TYPE:
         return convertEFNetworkNativeTypeToString(eDataType, instanceValue);
+      case EasyWallPackage.EF_DIRECTION_NATIVE_TYPE:
+        return convertEFDirectionNativeTypeToString(eDataType, instanceValue);
       case EasyWallPackage.EF_RULES_TYPES:
         return convertEFRulesTypesToString(eDataType, instanceValue);
+      case EasyWallPackage.NETWORKLAYERPROTOCOL:
+        return convertNETWORKLAYERPROTOCOLToString(eDataType, instanceValue);
+      case EasyWallPackage.TRANSPORTLAYERPROTOCOL:
+        return convertTRANSPORTLAYERPROTOCOLToString(eDataType, instanceValue);
+      case EasyWallPackage.APPLICATIONLAYERPROTOCOL:
+        return convertAPPLICATIONLAYERPROTOCOLToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -473,6 +493,54 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
    * @generated
    */
   @Override
+  public EFDirectionConstant createEFDirectionConstant()
+  {
+    EFDirectionConstantImpl efDirectionConstant = new EFDirectionConstantImpl();
+    return efDirectionConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFNetworkProtocolConstant createEFNetworkProtocolConstant()
+  {
+    EFNetworkProtocolConstantImpl efNetworkProtocolConstant = new EFNetworkProtocolConstantImpl();
+    return efNetworkProtocolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFTransportProtocolConstant createEFTransportProtocolConstant()
+  {
+    EFTransportProtocolConstantImpl efTransportProtocolConstant = new EFTransportProtocolConstantImpl();
+    return efTransportProtocolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFApplicationProtocolConstant createEFApplicationProtocolConstant()
+  {
+    EFApplicationProtocolConstantImpl efApplicationProtocolConstant = new EFApplicationProtocolConstantImpl();
+    return efApplicationProtocolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EFThis createEFThis()
   {
     EFThisImpl efThis = new EFThisImpl();
@@ -578,6 +646,28 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public EFDirectionNativeType createEFDirectionNativeTypeFromString(EDataType eDataType, String initialValue)
+  {
+    EFDirectionNativeType result = EFDirectionNativeType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertEFDirectionNativeTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EFRulesTypes createEFRulesTypesFromString(EDataType eDataType, String initialValue)
   {
     EFRulesTypes result = EFRulesTypes.get(initialValue);
@@ -591,6 +681,72 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
    * @generated
    */
   public String convertEFRulesTypesToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NETWORKLAYERPROTOCOL createNETWORKLAYERPROTOCOLFromString(EDataType eDataType, String initialValue)
+  {
+    NETWORKLAYERPROTOCOL result = NETWORKLAYERPROTOCOL.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertNETWORKLAYERPROTOCOLToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TRANSPORTLAYERPROTOCOL createTRANSPORTLAYERPROTOCOLFromString(EDataType eDataType, String initialValue)
+  {
+    TRANSPORTLAYERPROTOCOL result = TRANSPORTLAYERPROTOCOL.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertTRANSPORTLAYERPROTOCOLToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public APPLICATIONLAYERPROTOCOL createAPPLICATIONLAYERPROTOCOLFromString(EDataType eDataType, String initialValue)
+  {
+    APPLICATIONLAYERPROTOCOL result = APPLICATIONLAYERPROTOCOL.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAPPLICATIONLAYERPROTOCOLToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

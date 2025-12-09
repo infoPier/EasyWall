@@ -267,6 +267,42 @@ public interface EasyWallFactory extends EFactory
   EFPrimitiveType createEFPrimitiveType();
 
   /**
+   * Returns a new object of class '<em>EF Direction Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Direction Constant</em>'.
+   * @generated
+   */
+  EFDirectionConstant createEFDirectionConstant();
+
+  /**
+   * Returns a new object of class '<em>EF Network Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Network Protocol Constant</em>'.
+   * @generated
+   */
+  EFNetworkProtocolConstant createEFNetworkProtocolConstant();
+
+  /**
+   * Returns a new object of class '<em>EF Transport Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Transport Protocol Constant</em>'.
+   * @generated
+   */
+  EFTransportProtocolConstant createEFTransportProtocolConstant();
+
+  /**
+   * Returns a new object of class '<em>EF Application Protocol Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Application Protocol Constant</em>'.
+   * @generated
+   */
+  EFApplicationProtocolConstant createEFApplicationProtocolConstant();
+
+  /**
    * Returns a new object of class '<em>EF This</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

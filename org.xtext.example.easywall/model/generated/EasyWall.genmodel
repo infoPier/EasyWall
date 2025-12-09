@@ -13,10 +13,45 @@
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PROTOCOL"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/DIRECTION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//EFDirectionNativeType">
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFDirectionNativeType/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFDirectionNativeType/OUT"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//EFRulesTypes">
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFRulesTypes/IPLEVEL"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFRulesTypes/TRANSPLEVEL"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFRulesTypes/APPLEVEL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//NETWORKLAYERPROTOCOL">
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/IPv4"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/IPv6"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/ARP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/ICMP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/NAT"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/RIP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/OSPF"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/IPSEC"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//NETWORKLAYERPROTOCOL/IGMP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//TRANSPORTLAYERPROTOCOL">
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//TRANSPORTLAYERPROTOCOL/UDP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//TRANSPORTLAYERPROTOCOL/TCP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//TRANSPORTLAYERPROTOCOL/QUIC"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//TRANSPORTLAYERPROTOCOL/SCTP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL">
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/HTTP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/HTTPS"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/SMTP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/POP3"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/IMAP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/FTP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/TFTP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/SNMP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/TELNET"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/SSH"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/DNS"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//APPLICATIONLAYERPROTOCOL/DHCP"/>
     </genEnums>
     <genClasses ecoreClass="EasyWall.ecore#//EFProgram"/>
     <genClasses ecoreClass="EasyWall.ecore#//EFHeader">
@@ -42,9 +77,6 @@
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFField"/>
     <genClasses ecoreClass="EasyWall.ecore#//EFVariableDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/ruletype"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/nativetype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/expression"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFMethod">
@@ -111,6 +143,18 @@
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFPrimitiveType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFPrimitiveType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFDirectionConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFDirectionConstant/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFNetworkProtocolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFNetworkProtocolConstant/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFTransportProtocolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFTransportProtocolConstant/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFApplicationProtocolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFApplicationProtocolConstant/protocol"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFThis"/>
     <genClasses ecoreClass="EasyWall.ecore#//EFSuper"/>

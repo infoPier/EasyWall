@@ -318,25 +318,6 @@ public interface EasyWallPackage extends EPackage
   int EF_FIELD_FEATURE_COUNT = EF_MEMBER_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFStatementImpl <em>EF Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.easywall.easyWall.impl.EFStatementImpl
-   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFStatement()
-   * @generated
-   */
-  int EF_STATEMENT = 11;
-
-  /**
-   * The number of structural features of the '<em>EF Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_STATEMENT_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl <em>EF Variable Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -353,7 +334,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__NAME = EF_STATEMENT_FEATURE_COUNT + 0;
+  int EF_VARIABLE_DECLARATION__NAME = EF_FIELD__NAME;
 
   /**
    * The feature id for the '<em><b>Ruletype</b></em>' reference.
@@ -362,7 +343,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__RULETYPE = EF_STATEMENT_FEATURE_COUNT + 1;
+  int EF_VARIABLE_DECLARATION__RULETYPE = EF_FIELD__RULETYPE;
 
   /**
    * The feature id for the '<em><b>Nativetype</b></em>' attribute.
@@ -371,7 +352,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__NATIVETYPE = EF_STATEMENT_FEATURE_COUNT + 2;
+  int EF_VARIABLE_DECLARATION__NATIVETYPE = EF_FIELD__NATIVETYPE;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -380,7 +361,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__EXPRESSION = EF_STATEMENT_FEATURE_COUNT + 3;
+  int EF_VARIABLE_DECLARATION__EXPRESSION = EF_FIELD_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>EF Variable Declaration</em>' class.
@@ -389,7 +370,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION_FEATURE_COUNT = EF_STATEMENT_FEATURE_COUNT + 4;
+  int EF_VARIABLE_DECLARATION_FEATURE_COUNT = EF_FIELD_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFMethodImpl <em>EF Method</em>}' class.
@@ -528,6 +509,25 @@ public interface EasyWallPackage extends EPackage
    * @ordered
    */
   int EF_BLOCK_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFStatementImpl <em>EF Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFStatementImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFStatement()
+   * @generated
+   */
+  int EF_STATEMENT = 11;
+
+  /**
+   * The number of structural features of the '<em>EF Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STATEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFReturnImpl <em>EF Return</em>}' class.
@@ -1022,6 +1022,118 @@ public interface EasyWallPackage extends EPackage
   int EF_PRIMITIVE_TYPE_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFDirectionConstantImpl <em>EF Direction Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFDirectionConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionConstant()
+   * @generated
+   */
+  int EF_DIRECTION_CONSTANT = 27;
+
+  /**
+   * The feature id for the '<em><b>Direction</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__DIRECTION = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Direction Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetworkProtocolConstantImpl <em>EF Network Protocol Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFNetworkProtocolConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkProtocolConstant()
+   * @generated
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT = 28;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__PROTOCOL = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Network Protocol Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFTransportProtocolConstantImpl <em>EF Transport Protocol Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFTransportProtocolConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFTransportProtocolConstant()
+   * @generated
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT = 29;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__PROTOCOL = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Transport Protocol Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFApplicationProtocolConstantImpl <em>EF Application Protocol Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFApplicationProtocolConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFApplicationProtocolConstant()
+   * @generated
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT = 30;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Application Protocol Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1029,7 +1141,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFThis()
    * @generated
    */
-  int EF_THIS = 27;
+  int EF_THIS = 31;
 
   /**
    * The number of structural features of the '<em>EF This</em>' class.
@@ -1048,7 +1160,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSuper()
    * @generated
    */
-  int EF_SUPER = 28;
+  int EF_SUPER = 32;
 
   /**
    * The number of structural features of the '<em>EF Super</em>' class.
@@ -1067,7 +1179,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNew()
    * @generated
    */
-  int EF_NEW = 29;
+  int EF_NEW = 33;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1095,7 +1207,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFBRacketsExpression()
    * @generated
    */
-  int EFB_RACKETS_EXPRESSION = 30;
+  int EFB_RACKETS_EXPRESSION = 34;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1123,7 +1235,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFFunctionCall()
    * @generated
    */
-  int EF_FUNCTION_CALL = 31;
+  int EF_FUNCTION_CALL = 35;
 
   /**
    * The feature id for the '<em><b>Function Name</b></em>' attribute.
@@ -1160,7 +1272,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSymbolRef()
    * @generated
    */
-  int EF_SYMBOL_REF = 32;
+  int EF_SYMBOL_REF = 36;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -1188,7 +1300,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFMemberSelection()
    * @generated
    */
-  int EF_MEMBER_SELECTION = 33;
+  int EF_MEMBER_SELECTION = 37;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1234,7 +1346,17 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkNativeType()
    * @generated
    */
-  int EF_NETWORK_NATIVE_TYPE = 34;
+  int EF_NETWORK_NATIVE_TYPE = 38;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFDirectionNativeType <em>EF Direction Native Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.EFDirectionNativeType
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionNativeType()
+   * @generated
+   */
+  int EF_DIRECTION_NATIVE_TYPE = 39;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFRulesTypes <em>EF Rules Types</em>}' enum.
@@ -1244,7 +1366,37 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFRulesTypes()
    * @generated
    */
-  int EF_RULES_TYPES = 35;
+  int EF_RULES_TYPES = 40;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL <em>NETWORKLAYERPROTOCOL</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getNETWORKLAYERPROTOCOL()
+   * @generated
+   */
+  int NETWORKLAYERPROTOCOL = 41;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL <em>TRANSPORTLAYERPROTOCOL</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getTRANSPORTLAYERPROTOCOL()
+   * @generated
+   */
+  int TRANSPORTLAYERPROTOCOL = 42;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL <em>APPLICATIONLAYERPROTOCOL</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getAPPLICATIONLAYERPROTOCOL()
+   * @generated
+   */
+  int APPLICATIONLAYERPROTOCOL = 43;
 
 
   /**
@@ -1447,39 +1599,6 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   EClass getEFVariableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getName()
-   * @see #getEFVariableDeclaration()
-   * @generated
-   */
-  EAttribute getEFVariableDeclaration_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getRuletype <em>Ruletype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ruletype</em>'.
-   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getRuletype()
-   * @see #getEFVariableDeclaration()
-   * @generated
-   */
-  EReference getEFVariableDeclaration_Ruletype();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getNativetype <em>Nativetype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nativetype</em>'.
-   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getNativetype()
-   * @see #getEFVariableDeclaration()
-   * @generated
-   */
-  EAttribute getEFVariableDeclaration_Nativetype();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getExpression <em>Expression</em>}'.
@@ -2002,6 +2121,90 @@ public interface EasyWallPackage extends EPackage
   EAttribute getEFPrimitiveType_Type();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFDirectionConstant <em>EF Direction Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Direction Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFDirectionConstant
+   * @generated
+   */
+  EClass getEFDirectionConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFDirectionConstant#getDirection <em>Direction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Direction</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFDirectionConstant#getDirection()
+   * @see #getEFDirectionConstant()
+   * @generated
+   */
+  EAttribute getEFDirectionConstant_Direction();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant <em>EF Network Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Network Protocol Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant
+   * @generated
+   */
+  EClass getEFNetworkProtocolConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant#getProtocol()
+   * @see #getEFNetworkProtocolConstant()
+   * @generated
+   */
+  EAttribute getEFNetworkProtocolConstant_Protocol();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFTransportProtocolConstant <em>EF Transport Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Transport Protocol Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFTransportProtocolConstant
+   * @generated
+   */
+  EClass getEFTransportProtocolConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFTransportProtocolConstant#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFTransportProtocolConstant#getProtocol()
+   * @see #getEFTransportProtocolConstant()
+   * @generated
+   */
+  EAttribute getEFTransportProtocolConstant_Protocol();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant <em>EF Application Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Application Protocol Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant
+   * @generated
+   */
+  EClass getEFApplicationProtocolConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant#getProtocol()
+   * @see #getEFApplicationProtocolConstant()
+   * @generated
+   */
+  EAttribute getEFApplicationProtocolConstant_Protocol();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFThis <em>EF This</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2170,6 +2373,16 @@ public interface EasyWallPackage extends EPackage
   EEnum getEFNetworkNativeType();
 
   /**
+   * Returns the meta object for enum '{@link org.xtext.example.easywall.easyWall.EFDirectionNativeType <em>EF Direction Native Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>EF Direction Native Type</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFDirectionNativeType
+   * @generated
+   */
+  EEnum getEFDirectionNativeType();
+
+  /**
    * Returns the meta object for enum '{@link org.xtext.example.easywall.easyWall.EFRulesTypes <em>EF Rules Types</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2178,6 +2391,36 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   EEnum getEFRulesTypes();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL <em>NETWORKLAYERPROTOCOL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>NETWORKLAYERPROTOCOL</em>'.
+   * @see org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL
+   * @generated
+   */
+  EEnum getNETWORKLAYERPROTOCOL();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL <em>TRANSPORTLAYERPROTOCOL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>TRANSPORTLAYERPROTOCOL</em>'.
+   * @see org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL
+   * @generated
+   */
+  EEnum getTRANSPORTLAYERPROTOCOL();
+
+  /**
+   * Returns the meta object for enum '{@link org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL <em>APPLICATIONLAYERPROTOCOL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>APPLICATIONLAYERPROTOCOL</em>'.
+   * @see org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL
+   * @generated
+   */
+  EEnum getAPPLICATIONLAYERPROTOCOL();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2369,30 +2612,6 @@ public interface EasyWallPackage extends EPackage
      * @generated
      */
     EClass EF_VARIABLE_DECLARATION = eINSTANCE.getEFVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EF_VARIABLE_DECLARATION__NAME = eINSTANCE.getEFVariableDeclaration_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Ruletype</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EF_VARIABLE_DECLARATION__RULETYPE = eINSTANCE.getEFVariableDeclaration_Ruletype();
-
-    /**
-     * The meta object literal for the '<em><b>Nativetype</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EF_VARIABLE_DECLARATION__NATIVETYPE = eINSTANCE.getEFVariableDeclaration_Nativetype();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -2825,6 +3044,78 @@ public interface EasyWallPackage extends EPackage
     EAttribute EF_PRIMITIVE_TYPE__TYPE = eINSTANCE.getEFPrimitiveType_Type();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFDirectionConstantImpl <em>EF Direction Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFDirectionConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionConstant()
+     * @generated
+     */
+    EClass EF_DIRECTION_CONSTANT = eINSTANCE.getEFDirectionConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_DIRECTION_CONSTANT__DIRECTION = eINSTANCE.getEFDirectionConstant_Direction();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetworkProtocolConstantImpl <em>EF Network Protocol Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFNetworkProtocolConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkProtocolConstant()
+     * @generated
+     */
+    EClass EF_NETWORK_PROTOCOL_CONSTANT = eINSTANCE.getEFNetworkProtocolConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_NETWORK_PROTOCOL_CONSTANT__PROTOCOL = eINSTANCE.getEFNetworkProtocolConstant_Protocol();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFTransportProtocolConstantImpl <em>EF Transport Protocol Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFTransportProtocolConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFTransportProtocolConstant()
+     * @generated
+     */
+    EClass EF_TRANSPORT_PROTOCOL_CONSTANT = eINSTANCE.getEFTransportProtocolConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_TRANSPORT_PROTOCOL_CONSTANT__PROTOCOL = eINSTANCE.getEFTransportProtocolConstant_Protocol();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFApplicationProtocolConstantImpl <em>EF Application Protocol Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFApplicationProtocolConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFApplicationProtocolConstant()
+     * @generated
+     */
+    EClass EF_APPLICATION_PROTOCOL_CONSTANT = eINSTANCE.getEFApplicationProtocolConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL = eINSTANCE.getEFApplicationProtocolConstant_Protocol();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2969,6 +3260,16 @@ public interface EasyWallPackage extends EPackage
     EEnum EF_NETWORK_NATIVE_TYPE = eINSTANCE.getEFNetworkNativeType();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.EFDirectionNativeType <em>EF Direction Native Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.EFDirectionNativeType
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionNativeType()
+     * @generated
+     */
+    EEnum EF_DIRECTION_NATIVE_TYPE = eINSTANCE.getEFDirectionNativeType();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.EFRulesTypes <em>EF Rules Types</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2977,6 +3278,36 @@ public interface EasyWallPackage extends EPackage
      * @generated
      */
     EEnum EF_RULES_TYPES = eINSTANCE.getEFRulesTypes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL <em>NETWORKLAYERPROTOCOL</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getNETWORKLAYERPROTOCOL()
+     * @generated
+     */
+    EEnum NETWORKLAYERPROTOCOL = eINSTANCE.getNETWORKLAYERPROTOCOL();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL <em>TRANSPORTLAYERPROTOCOL</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getTRANSPORTLAYERPROTOCOL()
+     * @generated
+     */
+    EEnum TRANSPORTLAYERPROTOCOL = eINSTANCE.getTRANSPORTLAYERPROTOCOL();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL <em>APPLICATIONLAYERPROTOCOL</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getAPPLICATIONLAYERPROTOCOL()
+     * @generated
+     */
+    EEnum APPLICATIONLAYERPROTOCOL = eINSTANCE.getAPPLICATIONLAYERPROTOCOL();
 
   }
 

@@ -15,10 +15,12 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.easywall.easyWall.EFAndExpression;
+import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFAssignment;
 import org.xtext.example.easywall.easyWall.EFBRacketsExpression;
 import org.xtext.example.easywall.easyWall.EFBlock;
 import org.xtext.example.easywall.easyWall.EFBoolConstant;
+import org.xtext.example.easywall.easyWall.EFDirectionConstant;
 import org.xtext.example.easywall.easyWall.EFEqualExpression;
 import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFFireClass;
@@ -29,6 +31,7 @@ import org.xtext.example.easywall.easyWall.EFImports;
 import org.xtext.example.easywall.easyWall.EFIntConstant;
 import org.xtext.example.easywall.easyWall.EFMemberSelection;
 import org.xtext.example.easywall.easyWall.EFMethod;
+import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFNew;
 import org.xtext.example.easywall.easyWall.EFNotExpression;
 import org.xtext.example.easywall.easyWall.EFOrExpression;
@@ -42,6 +45,7 @@ import org.xtext.example.easywall.easyWall.EFStringConstant;
 import org.xtext.example.easywall.easyWall.EFSuper;
 import org.xtext.example.easywall.easyWall.EFSymbolRef;
 import org.xtext.example.easywall.easyWall.EFThis;
+import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EFfirewall;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
@@ -64,6 +68,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EasyWallPackage.EF_AND_EXPRESSION:
 				sequence_EFAndExpression(context, (EFAndExpression) semanticObject); 
 				return; 
+			case EasyWallPackage.EF_APPLICATION_PROTOCOL_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFApplicationProtocolConstant) semanticObject); 
+				return; 
 			case EasyWallPackage.EF_ASSIGNMENT:
 				sequence_EFAssignment(context, (EFAssignment) semanticObject); 
 				return; 
@@ -82,6 +89,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				else break;
 			case EasyWallPackage.EF_BOOL_CONSTANT:
 				sequence_EFPrimaryExpression(context, (EFBoolConstant) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_DIRECTION_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFDirectionConstant) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_EQUAL_EXPRESSION:
 				sequence_EFEqualExpression(context, (EFEqualExpression) semanticObject); 
@@ -119,6 +129,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case EasyWallPackage.EF_METHOD:
 				sequence_EFMethod_EFTypedDeclaration(context, (EFMethod) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_NETWORK_PROTOCOL_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFNetworkProtocolConstant) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_NEW:
 				sequence_EFPrimaryExpression(context, (EFNew) semanticObject); 
@@ -158,6 +171,9 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case EasyWallPackage.EF_THIS:
 				sequence_EFPrimaryExpression(context, (EFThis) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_TRANSPORT_PROTOCOL_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFTransportProtocolConstant) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_VARIABLE_DECLARATION:
 				sequence_EFTypedDeclaration_EFVariableDeclaration(context, (EFVariableDeclaration) semanticObject); 
@@ -408,6 +424,41 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFStatement returns EFApplicationProtocolConstant
+	 *     EFExpression returns EFApplicationProtocolConstant
+	 *     EFAssignment returns EFApplicationProtocolConstant
+	 *     EFAssignment.EFAssignment_1_0 returns EFApplicationProtocolConstant
+	 *     EFOrExpression returns EFApplicationProtocolConstant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFApplicationProtocolConstant
+	 *     EFAndExpression returns EFApplicationProtocolConstant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFApplicationProtocolConstant
+	 *     EFEqualExpression returns EFApplicationProtocolConstant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFApplicationProtocolConstant
+	 *     EFRelExpression returns EFApplicationProtocolConstant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFApplicationProtocolConstant
+	 *     EFUnaryExpression returns EFApplicationProtocolConstant
+	 *     EFPrimaryExpression returns EFApplicationProtocolConstant
+	 *     EFSelectionExpression returns EFApplicationProtocolConstant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFApplicationProtocolConstant
+	 *
+	 * Constraint:
+	 *     protocol=APPLICATIONLAYERPROTOCOL
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFApplicationProtocolConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getProtocolAPPLICATIONLAYERPROTOCOLEnumRuleCall_7_1_0(), semanticObject.getProtocol());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     EFStatement returns EFBRacketsExpression
 	 *     EFExpression returns EFBRacketsExpression
 	 *     EFAssignment returns EFBRacketsExpression
@@ -435,7 +486,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EFB_RACKETS_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_7_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_11_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -466,6 +517,41 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFBoolConstant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFStatement returns EFDirectionConstant
+	 *     EFExpression returns EFDirectionConstant
+	 *     EFAssignment returns EFDirectionConstant
+	 *     EFAssignment.EFAssignment_1_0 returns EFDirectionConstant
+	 *     EFOrExpression returns EFDirectionConstant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFDirectionConstant
+	 *     EFAndExpression returns EFDirectionConstant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFDirectionConstant
+	 *     EFEqualExpression returns EFDirectionConstant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFDirectionConstant
+	 *     EFRelExpression returns EFDirectionConstant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFDirectionConstant
+	 *     EFUnaryExpression returns EFDirectionConstant
+	 *     EFPrimaryExpression returns EFDirectionConstant
+	 *     EFSelectionExpression returns EFDirectionConstant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFDirectionConstant
+	 *
+	 * Constraint:
+	 *     direction=EFDirectionNativeType
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFDirectionConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_DIRECTION_CONSTANT__DIRECTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_DIRECTION_CONSTANT__DIRECTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getDirectionEFDirectionNativeTypeEnumRuleCall_4_1_0(), semanticObject.getDirection());
+		feeder.finish();
 	}
 	
 	
@@ -536,6 +622,41 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFStatement returns EFNetworkProtocolConstant
+	 *     EFExpression returns EFNetworkProtocolConstant
+	 *     EFAssignment returns EFNetworkProtocolConstant
+	 *     EFAssignment.EFAssignment_1_0 returns EFNetworkProtocolConstant
+	 *     EFOrExpression returns EFNetworkProtocolConstant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFNetworkProtocolConstant
+	 *     EFAndExpression returns EFNetworkProtocolConstant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFNetworkProtocolConstant
+	 *     EFEqualExpression returns EFNetworkProtocolConstant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFNetworkProtocolConstant
+	 *     EFRelExpression returns EFNetworkProtocolConstant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFNetworkProtocolConstant
+	 *     EFUnaryExpression returns EFNetworkProtocolConstant
+	 *     EFPrimaryExpression returns EFNetworkProtocolConstant
+	 *     EFSelectionExpression returns EFNetworkProtocolConstant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFNetworkProtocolConstant
+	 *
+	 * Constraint:
+	 *     protocol=NETWORKLAYERPROTOCOL
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFNetworkProtocolConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_NETWORK_PROTOCOL_CONSTANT__PROTOCOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_NETWORK_PROTOCOL_CONSTANT__PROTOCOL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getProtocolNETWORKLAYERPROTOCOLEnumRuleCall_5_1_0(), semanticObject.getProtocol());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     EFStatement returns EFNew
 	 *     EFExpression returns EFNew
 	 *     EFAssignment returns EFNew
@@ -563,7 +684,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_NEW__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassQualifiedNameParserRuleCall_6_2_0_1(), semanticObject.eGet(EasyWallPackage.Literals.EF_NEW__TYPE, false));
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassQualifiedNameParserRuleCall_10_2_0_1(), semanticObject.eGet(EasyWallPackage.Literals.EF_NEW__TYPE, false));
 		feeder.finish();
 	}
 	
@@ -697,7 +818,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_SYMBOL_REF__SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_9_1_0(), semanticObject.getSymbol());
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_13_1_0(), semanticObject.getSymbol());
 		feeder.finish();
 	}
 	
@@ -728,6 +849,41 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFThis semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFStatement returns EFTransportProtocolConstant
+	 *     EFExpression returns EFTransportProtocolConstant
+	 *     EFAssignment returns EFTransportProtocolConstant
+	 *     EFAssignment.EFAssignment_1_0 returns EFTransportProtocolConstant
+	 *     EFOrExpression returns EFTransportProtocolConstant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFTransportProtocolConstant
+	 *     EFAndExpression returns EFTransportProtocolConstant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFTransportProtocolConstant
+	 *     EFEqualExpression returns EFTransportProtocolConstant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFTransportProtocolConstant
+	 *     EFRelExpression returns EFTransportProtocolConstant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFTransportProtocolConstant
+	 *     EFUnaryExpression returns EFTransportProtocolConstant
+	 *     EFPrimaryExpression returns EFTransportProtocolConstant
+	 *     EFSelectionExpression returns EFTransportProtocolConstant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFTransportProtocolConstant
+	 *
+	 * Constraint:
+	 *     protocol=TRANSPORTLAYERPROTOCOL
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFTransportProtocolConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_TRANSPORT_PROTOCOL_CONSTANT__PROTOCOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_TRANSPORT_PROTOCOL_CONSTANT__PROTOCOL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getProtocolTRANSPORTLAYERPROTOCOLEnumRuleCall_6_1_0(), semanticObject.getProtocol());
+		feeder.finish();
 	}
 	
 	
@@ -867,6 +1023,8 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFMember returns EFVariableDeclaration
+	 *     EFField returns EFVariableDeclaration
 	 *     EFVariableDeclaration returns EFVariableDeclaration
 	 *     EFStatement returns EFVariableDeclaration
 	 *

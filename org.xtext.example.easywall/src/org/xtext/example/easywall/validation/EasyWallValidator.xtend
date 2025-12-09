@@ -10,7 +10,10 @@ import org.xtext.example.easywall.EasyWallUtils
 import org.xtext.example.easywall.easyWall.EasyWallPackage
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration
-import org.xtext.example.easywall.easyWall.EFStringConstant
+import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant
+import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant
+import org.xtext.example.easywall.easyWall.EFRulesTypes
+import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant
 
 /**
  * This class contains custom validation rules. 
@@ -23,10 +26,9 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 	public static val MISSING_PROTOCOL = ISSUE_CODE_PREFIX + "MissingProtocol";
 	public static val MISSING_DIRECTION = ISSUE_CODE_PREFIX + "MissingDirection";
 	public static val BAD_DIRECTION = ISSUE_CODE_PREFIX + "BadDirection";
+	public static val PROTOCOL_RULELAYER_MISMATCH = ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch";
 	
 	/* TODO */
-	public static val BAD_PROTOCOL = ISSUE_CODE_PREFIX + "BadProtocol";
-	public static val PROTOCOL_RULELAYER_MISMATCH = ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch";
 	public static val IP_SYNTAX = ISSUE_CODE_PREFIX + "IPSyntax";
 	public static val NETWORK_SYNTAX = ISSUE_CODE_PREFIX + "NetworkSyntax";
 	public static val NETPORT_SYNTAX = ISSUE_CODE_PREFIX + "NetPortSyntax";
@@ -85,28 +87,30 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 			}
 	}	
 	
-	@Check
-	def checkDirectionValue(EFVariableDeclaration dec){
+	def checkProtocolMismatch(EFVariableDeclaration decl){
+		var layer = decl.ruletype
 		
-		if(dec.nativetype == EFNetworkNativeType.DIRECTION){
-			var expr = dec.expression;
-			if(expr instanceof EFStringConstant){
-				var value = expr.value
-				value = value.replace("\"","")
-				if(!value.equals("IN") && !value.equals("in")
-					&& !value.equals("OUT") && !value.equals("out")
-				){
-					error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"",
-						EasyWallPackage.eINSTANCE.EFVariableDeclaration_Expression,
-						BAD_DIRECTION
-					)
-				}
-			}
-			else{
-				error("Direction type variable must be equal to one of the following: \"in\", \"IN\", \"out\", \"OUT\"",
-						EasyWallPackage.eINSTANCE.EFVariableDeclaration_Expression,
-						BAD_DIRECTION
-					)
+		if(decl.nativetype == EFNetworkNativeType.PROTOCOL){
+			var expr = decl.expression
+			
+			if((expr instanceof EFNetworkProtocolConstant && layer != EFRulesTypes.IPLEVEL) ||
+				(expr instanceof EFTransportProtocolConstant && layer != EFRulesTypes.TRANSPLEVEL) ||
+				(expr instanceof EFApplicationProtocolConstant && layer != EFRulesTypes.APPLEVEL)){
+					var String protocol
+					var String protocolLayer
+					if(expr instanceof EFNetworkProtocolConstant){
+						protocol = (expr as EFNetworkProtocolConstant).protocol.toString
+						protocolLayer = "Network Layer"
+					} else if(expr instanceof EFTransportProtocolConstant){
+						protocol = (expr as EFTransportProtocolConstant).protocol.toString
+						protocolLayer = "Transport Layer"
+					} else if(expr instanceof EFApplicationProtocolConstant){
+						protocol = (expr as EFApplicationProtocolConstant).protocol.toString
+						protocolLayer = "Application Layer"
+					}
+					error("Protocol " + protocol + " does not match the layer defined for the rule.\nRule is at: " + layer +"\nProtocol defined is at: " + protocolLayer,
+						EasyWallPackage.eINSTANCE.EFAssignment_Right,
+						PROTOCOL_RULELAYER_MISMATCH)
 			}
 		}
 	}

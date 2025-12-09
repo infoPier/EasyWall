@@ -211,6 +211,26 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
         return createEFPrimitiveTypeAdapter();
       }
       @Override
+      public Adapter caseEFDirectionConstant(EFDirectionConstant object)
+      {
+        return createEFDirectionConstantAdapter();
+      }
+      @Override
+      public Adapter caseEFNetworkProtocolConstant(EFNetworkProtocolConstant object)
+      {
+        return createEFNetworkProtocolConstantAdapter();
+      }
+      @Override
+      public Adapter caseEFTransportProtocolConstant(EFTransportProtocolConstant object)
+      {
+        return createEFTransportProtocolConstantAdapter();
+      }
+      @Override
+      public Adapter caseEFApplicationProtocolConstant(EFApplicationProtocolConstant object)
+      {
+        return createEFApplicationProtocolConstantAdapter();
+      }
+      @Override
       public Adapter caseEFThis(EFThis object)
       {
         return createEFThisAdapter();
@@ -668,6 +688,66 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEFPrimitiveTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFDirectionConstant <em>EF Direction Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFDirectionConstant
+   * @generated
+   */
+  public Adapter createEFDirectionConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant <em>EF Network Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant
+   * @generated
+   */
+  public Adapter createEFNetworkProtocolConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFTransportProtocolConstant <em>EF Transport Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFTransportProtocolConstant
+   * @generated
+   */
+  public Adapter createEFTransportProtocolConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant <em>EF Application Protocol Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant
+   * @generated
+   */
+  public Adapter createEFApplicationProtocolConstantAdapter()
   {
     return null;
   }

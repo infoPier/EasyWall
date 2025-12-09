@@ -49,4 +49,30 @@ class EasyWallParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+	@Test
+	def void ruleINDirection(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var dir : direction = in;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void ruleOUTDirection(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var dir : direction = out;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
 }

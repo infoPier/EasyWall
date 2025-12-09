@@ -34,13 +34,16 @@ EFMember:
 	EFField | EFMethod
 ;
 EFField:
-	('set' | 'var') EFTypedDeclaration ';' //set for constants and var for variables
+	('set' | 'var') EFTypedDeclaration ';' | EFVariableDeclaration//set for constants and var for variables
 ;
 fragment EFTypedDeclaration *:
 	name=ID ':' (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType)
 ;
 enum EFNetworkNativeType:
-	NETWORK='network' | IP='netip' | PORT='netport' | PROTOCOL='protocol' | DIRECTION='direction'
+	NETWORK='network' | IPv4='netip' | IPv6='netipv6' | PORT='netport' | PROTOCOL='protocol' | DIRECTION='direction'
+;
+enum EFDirectionNativeType:
+	IN='in' | OUT='out'
 ;
 EFVariableDeclaration:
 	('set' | 'var') EFTypedDeclaration '=' expression=EFExpression ';'
@@ -97,6 +100,14 @@ EFPrimaryExpression returns EFExpression:
   | {EFIntConstant} value=INT
   | {EFBoolConstant} value=('true'|'false')
   | {EFPrimitiveType} type=EFNetworkNativeType
+  | {EFDirectionConstant} direction=EFDirectionNativeType
+  | {EFNetworkProtocolConstant} protocol=NETWORKLAYERPROTOCOL
+  | {EFTransportProtocolConstant} protocol=TRANSPORTLAYERPROTOCOL
+  |	{EFApplicationProtocolConstant} protocol=APPLICATIONLAYERPROTOCOL
+  | {EFIPv6Constant} ipv6=EFIPV6SYNTAX
+  | {EFIPv4Constant} ipv4=EFIPv4SYNTAX
+  | {EFNetworkConstatn} network=EFNetworkSYNTAX
+  | {EFNetportConstant} port=EFNetportSYNTAX
   | {EFThis} 'this'
   | {EFSuper} 'super'
   | {EFNew} 'new' type=[EFRuleClass|QualifiedName] '(' ')'
@@ -107,7 +118,7 @@ EFPrimaryExpression returns EFExpression:
 EFSelectionExpression returns EFExpression:
     EFPrimaryExpression
     (
-        {EFMemberSelection.receiver=current} '::'
+        {EFMemberSelection.receiver=current} '->'
         member=[EFMember]
         ( '(' (args+=EFExpression (',' args+=EFExpression)*)? ')' )?
     )*
@@ -131,3 +142,54 @@ EFAnd: '&&' | 'and';
 EFNot: '!' | 'not';
 EFEqualOperators: '==' | '!=' | 'isequalto';
 EFRelOperators: '>=' | '<=' | '>' | '<' ;
+
+enum NETWORKLAYERPROTOCOL:
+	IPv4='IPv4'		|
+	IPv6="IPv6"		|
+	ARP='ARP' 		|
+	ICMP='ICMP'		|
+	NAT='NAT'		|
+	RIP='RIP' 		| 	//Routing Information Protocol
+	OSPF='OSPF'	  	| 	//Open Shortest Path Protocol
+	IPSEC='IPSEC' 	|	//Internet Protocol Security
+	IGMP='IGMP'
+;
+
+enum TRANSPORTLAYERPROTOCOL:
+	UDP='UDP' 	|
+	TCP='TCP' 	|
+	QUIC='QUIC' 	|
+	SCTP	='SCTP'	//Stream Control Transmission Protocol
+;
+
+enum APPLICATIONLAYERPROTOCOL:
+	HTTP='HTTP' 		|
+	HTTPS='HTTPS'	|
+	SMTP='SMTP'		|
+	POP3='POP3'		|
+	IMAP='IMAP'		|
+	FTP='FTP'		|
+	TFTP='TFTP'		|
+	SNMP='SNMP'		|
+	TELNET='TELNET'	|
+	SSH='SSH'		|
+	DNS='DNS'		|
+	DHCP='DHCP'
+;
+
+EFIPv4SYNTAX: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
+terminal EFIPV6SYNTAX:
+	(
+        '::'
+        | (HEX_BLOCK ('::' HEX_BLOCK?)?)
+        | (HEX_BLOCK (':' HEX_BLOCK)* '::' (HEX_BLOCK (':' HEX_BLOCK)*)?)
+    )
+;
+terminal HEX_BLOCK:
+    HEX_DIGIT HEX_DIGIT? HEX_DIGIT? HEX_DIGIT?  // da 1 a 4 hex
+;
+
+terminal HEX_DIGIT:
+    ('0'..'9' | 'a'..'f' | 'A'..'F');
+EFNetworkSYNTAX: EFIPv4SYNTAX '/'netmask=INT;
+EFNetportSYNTAX: ':'port=INT;

@@ -37,10 +37,11 @@
     <eLiterals name="PROTOCOL" value="3" literal="protocol"/>
     <eLiterals name="DIRECTION" value="4" literal="direction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EFVariableDeclaration" eSuperTypes="#//EFStatement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ruletype" eType="#//EFRuleClass"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativetype" eType="#//EFNetworkNativeType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EFDirectionNativeType">
+    <eLiterals name="IN" literal="in"/>
+    <eLiterals name="OUT" value="1" literal="out"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFVariableDeclaration" eSuperTypes="#//EFField #//EFStatement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//EFExpression"
         containment="true"/>
   </eClassifiers>
@@ -88,6 +89,37 @@
     <eLiterals name="TRANSPLEVEL" value="1" literal="TransportLayer"/>
     <eLiterals name="APPLEVEL" value="2" literal="ApplicationLayer"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NETWORKLAYERPROTOCOL">
+    <eLiterals name="IPv4" literal="IPv4"/>
+    <eLiterals name="IPv6" value="1" literal="IPv6"/>
+    <eLiterals name="ARP" value="2" literal="ARP"/>
+    <eLiterals name="ICMP" value="3" literal="ICMP"/>
+    <eLiterals name="NAT" value="4" literal="NAT"/>
+    <eLiterals name="RIP" value="5" literal="RIP"/>
+    <eLiterals name="OSPF" value="6" literal="OSPF"/>
+    <eLiterals name="IPSEC" value="7" literal="IPSEC"/>
+    <eLiterals name="IGMP" value="8" literal="IGMP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TRANSPORTLAYERPROTOCOL">
+    <eLiterals name="UDP" literal="UDP"/>
+    <eLiterals name="TCP" value="1" literal="TCP"/>
+    <eLiterals name="QUIC" value="2" literal="QUIC"/>
+    <eLiterals name="SCTP" value="3" literal="SCTP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="APPLICATIONLAYERPROTOCOL">
+    <eLiterals name="HTTP" literal="HTTP"/>
+    <eLiterals name="HTTPS" value="1" literal="HTTPS"/>
+    <eLiterals name="SMTP" value="2" literal="SMTP"/>
+    <eLiterals name="POP3" value="3" literal="POP3"/>
+    <eLiterals name="IMAP" value="4" literal="IMAP"/>
+    <eLiterals name="FTP" value="5" literal="FTP"/>
+    <eLiterals name="TFTP" value="6" literal="TFTP"/>
+    <eLiterals name="SNMP" value="7" literal="SNMP"/>
+    <eLiterals name="TELNET" value="8" literal="TELNET"/>
+    <eLiterals name="SSH" value="9" literal="SSH"/>
+    <eLiterals name="DNS" value="10" literal="DNS"/>
+    <eLiterals name="DHCP" value="11" literal="DHCP"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFAssignment" eSuperTypes="#//EFExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//EFExpression"
         containment="true"/>
@@ -133,6 +165,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFPrimitiveType" eSuperTypes="#//EFExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EFNetworkNativeType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFDirectionConstant" eSuperTypes="#//EFExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//EFDirectionNativeType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFNetworkProtocolConstant" eSuperTypes="#//EFExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="#//NETWORKLAYERPROTOCOL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFTransportProtocolConstant" eSuperTypes="#//EFExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="#//TRANSPORTLAYERPROTOCOL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFApplicationProtocolConstant" eSuperTypes="#//EFExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="#//APPLICATIONLAYERPROTOCOL"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFThis" eSuperTypes="#//EFExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="EFSuper" eSuperTypes="#//EFExpression"/>

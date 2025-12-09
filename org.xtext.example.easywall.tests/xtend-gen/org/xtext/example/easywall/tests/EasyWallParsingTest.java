@@ -99,4 +99,62 @@ public class EasyWallParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+
+  @Test
+  public void ruleINDirection() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var dir : direction = in;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void ruleOUTDirection() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var dir : direction = out;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }
