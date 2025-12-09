@@ -49,7 +49,7 @@ EFVariableDeclaration:
 	('set' | 'var') EFTypedDeclaration '=' expression=EFExpression ';'
 ;
 EFMethod:
-	'def' EFTypedDeclaration
+	'fun' EFTypedDeclaration
 	'(' (params+=EFParameter (',' params+=EFParameter)*)? ')'
 	body=EFBlock;
 EFParameter: EFTypedDeclaration;
@@ -177,19 +177,10 @@ enum APPLICATIONLAYERPROTOCOL:
 	DHCP='DHCP'
 ;
 
-EFIPv4SYNTAX: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
+EFIPv4SYNTAX returns EFExpression: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
 terminal EFIPV6SYNTAX:
-	(
-        '::'
-        | (HEX_BLOCK ('::' HEX_BLOCK?)?)
-        | (HEX_BLOCK (':' HEX_BLOCK)* '::' (HEX_BLOCK (':' HEX_BLOCK)*)?)
-    )
+	 ('0'..'9'|'a'..'f'|'A'..'F')+ (':' ('0'..'9'|'a'..'f'|'A'..'F')+)+
+	//{EFIPv6}(D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|A|B|C|D|E|F|':')+
 ;
-terminal HEX_BLOCK:
-    HEX_DIGIT HEX_DIGIT? HEX_DIGIT? HEX_DIGIT?  // da 1 a 4 hex
-;
-
-terminal HEX_DIGIT:
-    ('0'..'9' | 'a'..'f' | 'A'..'F');
-EFNetworkSYNTAX: EFIPv4SYNTAX '/'netmask=INT;
-EFNetportSYNTAX: ':'port=INT;
+EFNetworkSYNTAX returns EFExpression: EFIPv4SYNTAX '/'netmask=INT;
+EFNetportSYNTAX returns EFExpression: ':'netport=INT;

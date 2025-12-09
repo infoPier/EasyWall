@@ -327,6 +327,42 @@ public class EasyWallSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EasyWallPackage.EFI_PV6_CONSTANT:
+      {
+        EFIPv6Constant efiPv6Constant = (EFIPv6Constant)theEObject;
+        T result = caseEFIPv6Constant(efiPv6Constant);
+        if (result == null) result = caseEFExpression(efiPv6Constant);
+        if (result == null) result = caseEFStatement(efiPv6Constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EFI_PV4_CONSTANT:
+      {
+        EFIPv4Constant efiPv4Constant = (EFIPv4Constant)theEObject;
+        T result = caseEFIPv4Constant(efiPv4Constant);
+        if (result == null) result = caseEFExpression(efiPv4Constant);
+        if (result == null) result = caseEFStatement(efiPv4Constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_NETWORK_CONSTATN:
+      {
+        EFNetworkConstatn efNetworkConstatn = (EFNetworkConstatn)theEObject;
+        T result = caseEFNetworkConstatn(efNetworkConstatn);
+        if (result == null) result = caseEFExpression(efNetworkConstatn);
+        if (result == null) result = caseEFStatement(efNetworkConstatn);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_NETPORT_CONSTANT:
+      {
+        EFNetportConstant efNetportConstant = (EFNetportConstant)theEObject;
+        T result = caseEFNetportConstant(efNetportConstant);
+        if (result == null) result = caseEFExpression(efNetportConstant);
+        if (result == null) result = caseEFStatement(efNetportConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EasyWallPackage.EF_THIS:
       {
         EFThis efThis = (EFThis)theEObject;
@@ -886,6 +922,70 @@ public class EasyWallSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEFApplicationProtocolConstant(EFApplicationProtocolConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EFI Pv6 Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EFI Pv6 Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFIPv6Constant(EFIPv6Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EFI Pv4 Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EFI Pv4 Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFIPv4Constant(EFIPv4Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Network Constatn</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Network Constatn</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFNetworkConstatn(EFNetworkConstatn object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Netport Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Netport Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFNetportConstant(EFNetportConstant object)
   {
     return null;
   }

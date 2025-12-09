@@ -9,6 +9,17 @@ package org.xtext.example.easywall.easyWall;
  * A representation of the model object '<em><b>EF Expression</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getFirst <em>First</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getSecond <em>Second</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getThird <em>Third</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getFourth <em>Fourth</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getNetmask <em>Netmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getNetport <em>Netport</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression()
  * @model
@@ -16,4 +27,136 @@ package org.xtext.example.easywall.easyWall;
  */
 public interface EFExpression extends EFStatement
 {
+  /**
+   * Returns the value of the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>First</em>' attribute.
+   * @see #setFirst(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_First()
+   * @model
+   * @generated
+   */
+  int getFirst();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getFirst <em>First</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>First</em>' attribute.
+   * @see #getFirst()
+   * @generated
+   */
+  void setFirst(int value);
+
+  /**
+   * Returns the value of the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Second</em>' attribute.
+   * @see #setSecond(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Second()
+   * @model
+   * @generated
+   */
+  int getSecond();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getSecond <em>Second</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Second</em>' attribute.
+   * @see #getSecond()
+   * @generated
+   */
+  void setSecond(int value);
+
+  /**
+   * Returns the value of the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Third</em>' attribute.
+   * @see #setThird(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Third()
+   * @model
+   * @generated
+   */
+  int getThird();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getThird <em>Third</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Third</em>' attribute.
+   * @see #getThird()
+   * @generated
+   */
+  void setThird(int value);
+
+  /**
+   * Returns the value of the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fourth</em>' attribute.
+   * @see #setFourth(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Fourth()
+   * @model
+   * @generated
+   */
+  int getFourth();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getFourth <em>Fourth</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fourth</em>' attribute.
+   * @see #getFourth()
+   * @generated
+   */
+  void setFourth(int value);
+
+  /**
+   * Returns the value of the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Netmask</em>' attribute.
+   * @see #setNetmask(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Netmask()
+   * @model
+   * @generated
+   */
+  int getNetmask();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetmask <em>Netmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Netmask</em>' attribute.
+   * @see #getNetmask()
+   * @generated
+   */
+  void setNetmask(int value);
+
+  /**
+   * Returns the value of the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Netport</em>' attribute.
+   * @see #setNetport(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Netport()
+   * @model
+   * @generated
+   */
+  int getNetport();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetport <em>Netport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Netport</em>' attribute.
+   * @see #getNetport()
+   * @generated
+   */
+  void setNetport(int value);
+
 } // EFExpression

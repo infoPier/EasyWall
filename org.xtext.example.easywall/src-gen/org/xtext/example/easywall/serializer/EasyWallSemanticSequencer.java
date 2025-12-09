@@ -22,15 +22,20 @@ import org.xtext.example.easywall.easyWall.EFBlock;
 import org.xtext.example.easywall.easyWall.EFBoolConstant;
 import org.xtext.example.easywall.easyWall.EFDirectionConstant;
 import org.xtext.example.easywall.easyWall.EFEqualExpression;
+import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFFireClass;
 import org.xtext.example.easywall.easyWall.EFFunctionCall;
 import org.xtext.example.easywall.easyWall.EFHeader;
+import org.xtext.example.easywall.easyWall.EFIPv4Constant;
+import org.xtext.example.easywall.easyWall.EFIPv6Constant;
 import org.xtext.example.easywall.easyWall.EFIfStatement;
 import org.xtext.example.easywall.easyWall.EFImports;
 import org.xtext.example.easywall.easyWall.EFIntConstant;
 import org.xtext.example.easywall.easyWall.EFMemberSelection;
 import org.xtext.example.easywall.easyWall.EFMethod;
+import org.xtext.example.easywall.easyWall.EFNetportConstant;
+import org.xtext.example.easywall.easyWall.EFNetworkConstatn;
 import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFNew;
 import org.xtext.example.easywall.easyWall.EFNotExpression;
@@ -96,6 +101,20 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case EasyWallPackage.EF_EQUAL_EXPRESSION:
 				sequence_EFEqualExpression(context, (EFEqualExpression) semanticObject); 
 				return; 
+			case EasyWallPackage.EF_EXPRESSION:
+				if (rule == grammarAccess.getEFIPv4SYNTAXRule()) {
+					sequence_EFIPv4SYNTAX(context, (EFExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getEFNetworkSYNTAXRule()) {
+					sequence_EFIPv4SYNTAX_EFNetworkSYNTAX(context, (EFExpression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getEFNetportSYNTAXRule()) {
+					sequence_EFNetportSYNTAX(context, (EFExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case EasyWallPackage.EF_FIELD:
 				sequence_EFTypedDeclaration(context, (EFField) semanticObject); 
 				return; 
@@ -115,6 +134,12 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 					return; 
 				}
 				else break;
+			case EasyWallPackage.EFI_PV4_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFIPv4Constant) semanticObject); 
+				return; 
+			case EasyWallPackage.EFI_PV6_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFIPv6Constant) semanticObject); 
+				return; 
 			case EasyWallPackage.EF_IF_STATEMENT:
 				sequence_EFIfStatement(context, (EFIfStatement) semanticObject); 
 				return; 
@@ -129,6 +154,12 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case EasyWallPackage.EF_METHOD:
 				sequence_EFMethod_EFTypedDeclaration(context, (EFMethod) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_NETPORT_CONSTANT:
+				sequence_EFPrimaryExpression(context, (EFNetportConstant) semanticObject); 
+				return; 
+			case EasyWallPackage.EF_NETWORK_CONSTATN:
+				sequence_EFPrimaryExpression(context, (EFNetworkConstatn) semanticObject); 
 				return; 
 			case EasyWallPackage.EF_NETWORK_PROTOCOL_CONSTANT:
 				sequence_EFPrimaryExpression(context, (EFNetworkProtocolConstant) semanticObject); 
@@ -346,6 +377,67 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFIPv4SYNTAX returns EFExpression
+	 *
+	 * Constraint:
+	 *     (first=INT second=INT third=INT fourth=INT)
+	 * </pre>
+	 */
+	protected void sequence_EFIPv4SYNTAX(ISerializationContext context, EFExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FIRST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FIRST));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__SECOND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__SECOND));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__THIRD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__THIRD));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FOURTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FOURTH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getFirstINTTerminalRuleCall_0_0(), semanticObject.getFirst());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getSecondINTTerminalRuleCall_2_0(), semanticObject.getSecond());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getThirdINTTerminalRuleCall_4_0(), semanticObject.getThird());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getFourthINTTerminalRuleCall_6_0(), semanticObject.getFourth());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFNetworkSYNTAX returns EFExpression
+	 *
+	 * Constraint:
+	 *     (first=INT second=INT third=INT fourth=INT netmask=INT)
+	 * </pre>
+	 */
+	protected void sequence_EFIPv4SYNTAX_EFNetworkSYNTAX(ISerializationContext context, EFExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FIRST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FIRST));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__SECOND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__SECOND));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__THIRD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__THIRD));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FOURTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__FOURTH));
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__NETMASK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__NETMASK));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getFirstINTTerminalRuleCall_0_0(), semanticObject.getFirst());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getSecondINTTerminalRuleCall_2_0(), semanticObject.getSecond());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getThirdINTTerminalRuleCall_4_0(), semanticObject.getThird());
+		feeder.accept(grammarAccess.getEFIPv4SYNTAXAccess().getFourthINTTerminalRuleCall_6_0(), semanticObject.getFourth());
+		feeder.accept(grammarAccess.getEFNetworkSYNTAXAccess().getNetmaskINTTerminalRuleCall_2_0(), semanticObject.getNetmask());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     EFStatement returns EFIfStatement
 	 *     EFIfStatement returns EFIfStatement
 	 *
@@ -390,6 +482,26 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_EFMethod_EFTypedDeclaration(ISerializationContext context, EFMethod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFNetportSYNTAX returns EFExpression
+	 *
+	 * Constraint:
+	 *     netport=INT
+	 * </pre>
+	 */
+	protected void sequence_EFNetportSYNTAX(ISerializationContext context, EFExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__NETPORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_EXPRESSION__NETPORT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFNetportSYNTAXAccess().getNetportINTTerminalRuleCall_1_0(), semanticObject.getNetport());
+		feeder.finish();
 	}
 	
 	
@@ -486,7 +598,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EFB_RACKETS_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_11_2_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_15_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -587,6 +699,76 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     EFStatement returns EFIPv4Constant
+	 *     EFExpression returns EFIPv4Constant
+	 *     EFAssignment returns EFIPv4Constant
+	 *     EFAssignment.EFAssignment_1_0 returns EFIPv4Constant
+	 *     EFOrExpression returns EFIPv4Constant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFIPv4Constant
+	 *     EFAndExpression returns EFIPv4Constant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFIPv4Constant
+	 *     EFEqualExpression returns EFIPv4Constant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFIPv4Constant
+	 *     EFRelExpression returns EFIPv4Constant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFIPv4Constant
+	 *     EFUnaryExpression returns EFIPv4Constant
+	 *     EFPrimaryExpression returns EFIPv4Constant
+	 *     EFSelectionExpression returns EFIPv4Constant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFIPv4Constant
+	 *
+	 * Constraint:
+	 *     ipv4=EFIPv4SYNTAX
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFIPv4Constant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EFI_PV4_CONSTANT__IPV4) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EFI_PV4_CONSTANT__IPV4));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getIpv4EFIPv4SYNTAXParserRuleCall_9_1_0(), semanticObject.getIpv4());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFStatement returns EFIPv6Constant
+	 *     EFExpression returns EFIPv6Constant
+	 *     EFAssignment returns EFIPv6Constant
+	 *     EFAssignment.EFAssignment_1_0 returns EFIPv6Constant
+	 *     EFOrExpression returns EFIPv6Constant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFIPv6Constant
+	 *     EFAndExpression returns EFIPv6Constant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFIPv6Constant
+	 *     EFEqualExpression returns EFIPv6Constant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFIPv6Constant
+	 *     EFRelExpression returns EFIPv6Constant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFIPv6Constant
+	 *     EFUnaryExpression returns EFIPv6Constant
+	 *     EFPrimaryExpression returns EFIPv6Constant
+	 *     EFSelectionExpression returns EFIPv6Constant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFIPv6Constant
+	 *
+	 * Constraint:
+	 *     ipv6=EFIPV6SYNTAX
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFIPv6Constant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EFI_PV6_CONSTANT__IPV6) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EFI_PV6_CONSTANT__IPV6));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getIpv6EFIPV6SYNTAXTerminalRuleCall_8_1_0(), semanticObject.getIpv6());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     EFStatement returns EFIntConstant
 	 *     EFExpression returns EFIntConstant
 	 *     EFAssignment returns EFIntConstant
@@ -615,6 +797,76 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getValueINTTerminalRuleCall_1_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFStatement returns EFNetportConstant
+	 *     EFExpression returns EFNetportConstant
+	 *     EFAssignment returns EFNetportConstant
+	 *     EFAssignment.EFAssignment_1_0 returns EFNetportConstant
+	 *     EFOrExpression returns EFNetportConstant
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFNetportConstant
+	 *     EFAndExpression returns EFNetportConstant
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFNetportConstant
+	 *     EFEqualExpression returns EFNetportConstant
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFNetportConstant
+	 *     EFRelExpression returns EFNetportConstant
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFNetportConstant
+	 *     EFUnaryExpression returns EFNetportConstant
+	 *     EFPrimaryExpression returns EFNetportConstant
+	 *     EFSelectionExpression returns EFNetportConstant
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFNetportConstant
+	 *
+	 * Constraint:
+	 *     port=EFNetportSYNTAX
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFNetportConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_NETPORT_CONSTANT__PORT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_NETPORT_CONSTANT__PORT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getPortEFNetportSYNTAXParserRuleCall_11_1_0(), semanticObject.getPort());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     EFStatement returns EFNetworkConstatn
+	 *     EFExpression returns EFNetworkConstatn
+	 *     EFAssignment returns EFNetworkConstatn
+	 *     EFAssignment.EFAssignment_1_0 returns EFNetworkConstatn
+	 *     EFOrExpression returns EFNetworkConstatn
+	 *     EFOrExpression.EFOrExpression_1_0 returns EFNetworkConstatn
+	 *     EFAndExpression returns EFNetworkConstatn
+	 *     EFAndExpression.EFAndExpression_1_0 returns EFNetworkConstatn
+	 *     EFEqualExpression returns EFNetworkConstatn
+	 *     EFEqualExpression.EFEqualExpression_1_0 returns EFNetworkConstatn
+	 *     EFRelExpression returns EFNetworkConstatn
+	 *     EFRelExpression.EFRelExpression_1_0 returns EFNetworkConstatn
+	 *     EFUnaryExpression returns EFNetworkConstatn
+	 *     EFPrimaryExpression returns EFNetworkConstatn
+	 *     EFSelectionExpression returns EFNetworkConstatn
+	 *     EFSelectionExpression.EFMemberSelection_1_0 returns EFNetworkConstatn
+	 *
+	 * Constraint:
+	 *     network=EFNetworkSYNTAX
+	 * </pre>
+	 */
+	protected void sequence_EFPrimaryExpression(ISerializationContext context, EFNetworkConstatn semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EasyWallPackage.Literals.EF_NETWORK_CONSTATN__NETWORK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_NETWORK_CONSTATN__NETWORK));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getNetworkEFNetworkSYNTAXParserRuleCall_10_1_0(), semanticObject.getNetwork());
 		feeder.finish();
 	}
 	
@@ -684,7 +936,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_NEW__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassQualifiedNameParserRuleCall_10_2_0_1(), semanticObject.eGet(EasyWallPackage.Literals.EF_NEW__TYPE, false));
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassQualifiedNameParserRuleCall_14_2_0_1(), semanticObject.eGet(EasyWallPackage.Literals.EF_NEW__TYPE, false));
 		feeder.finish();
 	}
 	
@@ -818,7 +1070,7 @@ public class EasyWallSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EasyWallPackage.Literals.EF_SYMBOL_REF__SYMBOL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_13_1_0(), semanticObject.getSymbol());
+		feeder.accept(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_17_1_0(), semanticObject.getSymbol());
 		feeder.finish();
 	}
 	

@@ -303,6 +303,42 @@ public interface EasyWallFactory extends EFactory
   EFApplicationProtocolConstant createEFApplicationProtocolConstant();
 
   /**
+   * Returns a new object of class '<em>EFI Pv6 Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EFI Pv6 Constant</em>'.
+   * @generated
+   */
+  EFIPv6Constant createEFIPv6Constant();
+
+  /**
+   * Returns a new object of class '<em>EFI Pv4 Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EFI Pv4 Constant</em>'.
+   * @generated
+   */
+  EFIPv4Constant createEFIPv4Constant();
+
+  /**
+   * Returns a new object of class '<em>EF Network Constatn</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Network Constatn</em>'.
+   * @generated
+   */
+  EFNetworkConstatn createEFNetworkConstatn();
+
+  /**
+   * Returns a new object of class '<em>EF Netport Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EF Netport Constant</em>'.
+   * @generated
+   */
+  EFNetportConstant createEFNetportConstant();
+
+  /**
    * Returns a new object of class '<em>EF This</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

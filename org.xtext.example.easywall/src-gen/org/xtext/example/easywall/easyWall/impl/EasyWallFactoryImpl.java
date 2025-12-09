@@ -97,6 +97,10 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
       case EasyWallPackage.EF_NETWORK_PROTOCOL_CONSTANT: return createEFNetworkProtocolConstant();
       case EasyWallPackage.EF_TRANSPORT_PROTOCOL_CONSTANT: return createEFTransportProtocolConstant();
       case EasyWallPackage.EF_APPLICATION_PROTOCOL_CONSTANT: return createEFApplicationProtocolConstant();
+      case EasyWallPackage.EFI_PV6_CONSTANT: return createEFIPv6Constant();
+      case EasyWallPackage.EFI_PV4_CONSTANT: return createEFIPv4Constant();
+      case EasyWallPackage.EF_NETWORK_CONSTATN: return createEFNetworkConstatn();
+      case EasyWallPackage.EF_NETPORT_CONSTANT: return createEFNetportConstant();
       case EasyWallPackage.EF_THIS: return createEFThis();
       case EasyWallPackage.EF_SUPER: return createEFSuper();
       case EasyWallPackage.EF_NEW: return createEFNew();
@@ -533,6 +537,54 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
   {
     EFApplicationProtocolConstantImpl efApplicationProtocolConstant = new EFApplicationProtocolConstantImpl();
     return efApplicationProtocolConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFIPv6Constant createEFIPv6Constant()
+  {
+    EFIPv6ConstantImpl efiPv6Constant = new EFIPv6ConstantImpl();
+    return efiPv6Constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFIPv4Constant createEFIPv4Constant()
+  {
+    EFIPv4ConstantImpl efiPv4Constant = new EFIPv4ConstantImpl();
+    return efiPv4Constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFNetworkConstatn createEFNetworkConstatn()
+  {
+    EFNetworkConstatnImpl efNetworkConstatn = new EFNetworkConstatnImpl();
+    return efNetworkConstatn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFNetportConstant createEFNetportConstant()
+  {
+    EFNetportConstantImpl efNetportConstant = new EFNetportConstantImpl();
+    return efNetportConstant;
   }
 
   /**

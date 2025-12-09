@@ -31,14 +31,24 @@ public enum EFNetworkNativeType implements Enumerator
   NETWORK(0, "NETWORK", "network"),
 
   /**
-   * The '<em><b>IP</b></em>' literal object.
+   * The '<em><b>IPv4</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #IP_VALUE
+   * @see #IPV4_VALUE
    * @generated
    * @ordered
    */
-  IP(1, "IP", "netip"),
+  IPV4(1, "IPv4", "netip"),
+
+  /**
+   * The '<em><b>IPv6</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #IPV6_VALUE
+   * @generated
+   * @ordered
+   */
+  IPV6(2, "IPv6", "netipv6"),
 
   /**
    * The '<em><b>PORT</b></em>' literal object.
@@ -48,7 +58,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  PORT(2, "PORT", "netport"),
+  PORT(3, "PORT", "netport"),
 
   /**
    * The '<em><b>PROTOCOL</b></em>' literal object.
@@ -58,7 +68,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  PROTOCOL(3, "PROTOCOL", "protocol"),
+  PROTOCOL(4, "PROTOCOL", "protocol"),
 
   /**
    * The '<em><b>DIRECTION</b></em>' literal object.
@@ -68,7 +78,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  DIRECTION(4, "DIRECTION", "direction");
+  DIRECTION(5, "DIRECTION", "direction");
 
   /**
    * The '<em><b>NETWORK</b></em>' literal value.
@@ -82,15 +92,26 @@ public enum EFNetworkNativeType implements Enumerator
   public static final int NETWORK_VALUE = 0;
 
   /**
-   * The '<em><b>IP</b></em>' literal value.
+   * The '<em><b>IPv4</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #IP
-   * @model literal="netip"
+   * @see #IPV4
+   * @model name="IPv4" literal="netip"
    * @generated
    * @ordered
    */
-  public static final int IP_VALUE = 1;
+  public static final int IPV4_VALUE = 1;
+
+  /**
+   * The '<em><b>IPv6</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #IPV6
+   * @model name="IPv6" literal="netipv6"
+   * @generated
+   * @ordered
+   */
+  public static final int IPV6_VALUE = 2;
 
   /**
    * The '<em><b>PORT</b></em>' literal value.
@@ -101,7 +122,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int PORT_VALUE = 2;
+  public static final int PORT_VALUE = 3;
 
   /**
    * The '<em><b>PROTOCOL</b></em>' literal value.
@@ -112,7 +133,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int PROTOCOL_VALUE = 3;
+  public static final int PROTOCOL_VALUE = 4;
 
   /**
    * The '<em><b>DIRECTION</b></em>' literal value.
@@ -123,7 +144,7 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int DIRECTION_VALUE = 4;
+  public static final int DIRECTION_VALUE = 5;
 
   /**
    * An array of all the '<em><b>EF Network Native Type</b></em>' enumerators.
@@ -135,7 +156,8 @@ public enum EFNetworkNativeType implements Enumerator
     new EFNetworkNativeType[]
     {
       NETWORK,
-      IP,
+      IPV4,
+      IPV6,
       PORT,
       PROTOCOL,
       DIRECTION,
@@ -204,7 +226,8 @@ public enum EFNetworkNativeType implements Enumerator
     switch (value)
     {
       case NETWORK_VALUE: return NETWORK;
-      case IP_VALUE: return IP;
+      case IPV4_VALUE: return IPV4;
+      case IPV6_VALUE: return IPV6;
       case PORT_VALUE: return PORT;
       case PROTOCOL_VALUE: return PROTOCOL;
       case DIRECTION_VALUE: return DIRECTION;

@@ -231,6 +231,26 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
         return createEFApplicationProtocolConstantAdapter();
       }
       @Override
+      public Adapter caseEFIPv6Constant(EFIPv6Constant object)
+      {
+        return createEFIPv6ConstantAdapter();
+      }
+      @Override
+      public Adapter caseEFIPv4Constant(EFIPv4Constant object)
+      {
+        return createEFIPv4ConstantAdapter();
+      }
+      @Override
+      public Adapter caseEFNetworkConstatn(EFNetworkConstatn object)
+      {
+        return createEFNetworkConstatnAdapter();
+      }
+      @Override
+      public Adapter caseEFNetportConstant(EFNetportConstant object)
+      {
+        return createEFNetportConstantAdapter();
+      }
+      @Override
       public Adapter caseEFThis(EFThis object)
       {
         return createEFThisAdapter();
@@ -748,6 +768,66 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEFApplicationProtocolConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFIPv6Constant <em>EFI Pv6 Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFIPv6Constant
+   * @generated
+   */
+  public Adapter createEFIPv6ConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFIPv4Constant <em>EFI Pv4 Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFIPv4Constant
+   * @generated
+   */
+  public Adapter createEFIPv4ConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn <em>EF Network Constatn</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkConstatn
+   * @generated
+   */
+  public Adapter createEFNetworkConstatnAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFNetportConstant <em>EF Netport Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.easywall.easyWall.EFNetportConstant
+   * @generated
+   */
+  public Adapter createEFNetportConstantAdapter()
   {
     return null;
   }

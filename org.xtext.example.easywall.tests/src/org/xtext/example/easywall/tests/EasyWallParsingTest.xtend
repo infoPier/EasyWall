@@ -21,7 +21,7 @@ class EasyWallParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			firewall fire {}
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -35,7 +35,7 @@ class EasyWallParsingTest {
 		firewall MyFirewall {
 		    set ipAddress : netip;
 		    var portNumber : netport;
-		    def checkPort : netport (param : netport) {
+		    fun checkPort : netport (param : netport) {
 		        var result : netport = param;
 		        if (result == portNumber) {
 		            return result;
@@ -69,6 +69,53 @@ class EasyWallParsingTest {
 		import net.rules.*;
 		rule r at ApplicationLayer{
 		    var dir : direction = out;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void IPv4SyntaxTest(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var ip : netip = 192.168.0.1;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void IPv6SyntaxTest(){
+		/*
+		 * 2001:0db8:0300:0000:0000:0000:0000:0001
+		 * 2001:db8:3:0:0:0:0:1
+		 * 2001:db8::1
+		 * ::1
+		 * ::ffff:192.168.1.1
+		 * 2001:db8:85a3::8a2e:370:7334 
+		 */
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var ip : netipv6 = 2001:0db8:0300:0000:0000:0000:0000:0001;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void NetPortSyntaxTest(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var port : netport = :443;
 		}
 		''')
 		Assertions.assertNotNull(result)

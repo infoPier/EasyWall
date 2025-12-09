@@ -25,12 +25,16 @@ import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFFireClass;
 import org.xtext.example.easywall.easyWall.EFFunctionCall;
 import org.xtext.example.easywall.easyWall.EFHeader;
+import org.xtext.example.easywall.easyWall.EFIPv4Constant;
+import org.xtext.example.easywall.easyWall.EFIPv6Constant;
 import org.xtext.example.easywall.easyWall.EFIfStatement;
 import org.xtext.example.easywall.easyWall.EFImports;
 import org.xtext.example.easywall.easyWall.EFIntConstant;
 import org.xtext.example.easywall.easyWall.EFMember;
 import org.xtext.example.easywall.easyWall.EFMemberSelection;
 import org.xtext.example.easywall.easyWall.EFMethod;
+import org.xtext.example.easywall.easyWall.EFNetportConstant;
+import org.xtext.example.easywall.easyWall.EFNetworkConstatn;
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
 import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFNew;
@@ -279,6 +283,34 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   private EClass efApplicationProtocolConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass efiPv6ConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass efiPv4ConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass efNetworkConstatnEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass efNetportConstantEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -846,6 +878,72 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
+  public EAttribute getEFExpression_First()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFExpression_Second()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFExpression_Third()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFExpression_Fourth()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFExpression_Netmask()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFExpression_Netport()
+  {
+    return (EAttribute)efExpressionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEFRule()
   {
     return efRuleEClass;
@@ -1275,6 +1373,94 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
    * @generated
    */
   @Override
+  public EClass getEFIPv6Constant()
+  {
+    return efiPv6ConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEFIPv6Constant_Ipv6()
+  {
+    return (EAttribute)efiPv6ConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEFIPv4Constant()
+  {
+    return efiPv4ConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFIPv4Constant_Ipv4()
+  {
+    return (EReference)efiPv4ConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEFNetworkConstatn()
+  {
+    return efNetworkConstatnEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFNetworkConstatn_Network()
+  {
+    return (EReference)efNetworkConstatnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEFNetportConstant()
+  {
+    return efNetportConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEFNetportConstant_Port()
+  {
+    return (EReference)efNetportConstantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEFThis()
   {
     return efThisEClass;
@@ -1582,6 +1768,12 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     createEReference(efIfStatementEClass, EF_IF_STATEMENT__ELSE_BLOCK);
 
     efExpressionEClass = createEClass(EF_EXPRESSION);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__FIRST);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__SECOND);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__THIRD);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__FOURTH);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__NETMASK);
+    createEAttribute(efExpressionEClass, EF_EXPRESSION__NETPORT);
 
     efRuleEClass = createEClass(EF_RULE);
     createEReference(efRuleEClass, EF_RULE__RULES);
@@ -1637,6 +1829,18 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
 
     efApplicationProtocolConstantEClass = createEClass(EF_APPLICATION_PROTOCOL_CONSTANT);
     createEAttribute(efApplicationProtocolConstantEClass, EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL);
+
+    efiPv6ConstantEClass = createEClass(EFI_PV6_CONSTANT);
+    createEAttribute(efiPv6ConstantEClass, EFI_PV6_CONSTANT__IPV6);
+
+    efiPv4ConstantEClass = createEClass(EFI_PV4_CONSTANT);
+    createEReference(efiPv4ConstantEClass, EFI_PV4_CONSTANT__IPV4);
+
+    efNetworkConstatnEClass = createEClass(EF_NETWORK_CONSTATN);
+    createEReference(efNetworkConstatnEClass, EF_NETWORK_CONSTATN__NETWORK);
+
+    efNetportConstantEClass = createEClass(EF_NETPORT_CONSTANT);
+    createEReference(efNetportConstantEClass, EF_NETPORT_CONSTANT__PORT);
 
     efThisEClass = createEClass(EF_THIS);
 
@@ -1720,6 +1924,10 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     efNetworkProtocolConstantEClass.getESuperTypes().add(this.getEFExpression());
     efTransportProtocolConstantEClass.getESuperTypes().add(this.getEFExpression());
     efApplicationProtocolConstantEClass.getESuperTypes().add(this.getEFExpression());
+    efiPv6ConstantEClass.getESuperTypes().add(this.getEFExpression());
+    efiPv4ConstantEClass.getESuperTypes().add(this.getEFExpression());
+    efNetworkConstatnEClass.getESuperTypes().add(this.getEFExpression());
+    efNetportConstantEClass.getESuperTypes().add(this.getEFExpression());
     efThisEClass.getESuperTypes().add(this.getEFExpression());
     efSuperEClass.getESuperTypes().add(this.getEFExpression());
     efNewEClass.getESuperTypes().add(this.getEFExpression());
@@ -1780,6 +1988,12 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     initEReference(getEFIfStatement_ElseBlock(), this.getEFBlock(), null, "elseBlock", null, 0, 1, EFIfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efExpressionEClass, EFExpression.class, "EFExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEFExpression_First(), ecorePackage.getEInt(), "first", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFExpression_Second(), ecorePackage.getEInt(), "second", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFExpression_Third(), ecorePackage.getEInt(), "third", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFExpression_Fourth(), ecorePackage.getEInt(), "fourth", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFExpression_Netmask(), ecorePackage.getEInt(), "netmask", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEFExpression_Netport(), ecorePackage.getEInt(), "netport", null, 0, 1, EFExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(efRuleEClass, EFRule.class, "EFRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEFRule_Rules(), this.getEFRuleClass(), null, "rules", null, 0, 1, EFRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1836,6 +2050,18 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     initEClass(efApplicationProtocolConstantEClass, EFApplicationProtocolConstant.class, "EFApplicationProtocolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEFApplicationProtocolConstant_Protocol(), this.getAPPLICATIONLAYERPROTOCOL(), "protocol", null, 0, 1, EFApplicationProtocolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(efiPv6ConstantEClass, EFIPv6Constant.class, "EFIPv6Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEFIPv6Constant_Ipv6(), ecorePackage.getEString(), "ipv6", null, 0, 1, EFIPv6Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(efiPv4ConstantEClass, EFIPv4Constant.class, "EFIPv4Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEFIPv4Constant_Ipv4(), this.getEFExpression(), null, "ipv4", null, 0, 1, EFIPv4Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(efNetworkConstatnEClass, EFNetworkConstatn.class, "EFNetworkConstatn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEFNetworkConstatn_Network(), this.getEFExpression(), null, "network", null, 0, 1, EFNetworkConstatn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(efNetportConstantEClass, EFNetportConstant.class, "EFNetportConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEFNetportConstant_Port(), this.getEFExpression(), null, "port", null, 0, 1, EFNetportConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(efThisEClass, EFThis.class, "EFThis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(efSuperEClass, EFSuper.class, "EFSuper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1861,7 +2087,8 @@ public class EasyWallPackageImpl extends EPackageImpl implements EasyWallPackage
     // Initialize enums and add enum literals
     initEEnum(efNetworkNativeTypeEEnum, EFNetworkNativeType.class, "EFNetworkNativeType");
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.NETWORK);
-    addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.IP);
+    addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.IPV4);
+    addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.IPV6);
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.PORT);
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.PROTOCOL);
     addEEnumLiteral(efNetworkNativeTypeEEnum, EFNetworkNativeType.DIRECTION);

@@ -614,13 +614,67 @@ public interface EasyWallPackage extends EPackage
   int EF_EXPRESSION = 14;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__FIRST = EF_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__SECOND = EF_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__THIRD = EF_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__FOURTH = EF_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__NETMASK = EF_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__NETPORT = EF_STATEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>EF Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_EXPRESSION_FEATURE_COUNT = EF_STATEMENT_FEATURE_COUNT + 0;
+  int EF_EXPRESSION_FEATURE_COUNT = EF_STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFRuleImpl <em>EF Rule</em>}' class.
@@ -707,6 +761,60 @@ public interface EasyWallPackage extends EPackage
   int EF_ASSIGNMENT = 17;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -742,6 +850,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_OR_EXPRESSION = 18;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -781,6 +943,60 @@ public interface EasyWallPackage extends EPackage
   int EF_AND_EXPRESSION = 19;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -816,6 +1032,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_EQUAL_EXPRESSION = 20;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -855,6 +1125,60 @@ public interface EasyWallPackage extends EPackage
   int EF_REL_EXPRESSION = 21;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -892,6 +1216,60 @@ public interface EasyWallPackage extends EPackage
   int EF_NOT_EXPRESSION = 22;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -918,6 +1296,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_STRING_CONSTANT = 23;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -948,6 +1380,60 @@ public interface EasyWallPackage extends EPackage
   int EF_INT_CONSTANT = 24;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -974,6 +1460,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_BOOL_CONSTANT = 25;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1004,6 +1544,60 @@ public interface EasyWallPackage extends EPackage
   int EF_PRIMITIVE_TYPE = 26;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1030,6 +1624,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_DIRECTION_CONSTANT = 27;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -1060,6 +1708,60 @@ public interface EasyWallPackage extends EPackage
   int EF_NETWORK_PROTOCOL_CONSTANT = 28;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Protocol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1086,6 +1788,60 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   int EF_TRANSPORT_PROTOCOL_CONSTANT = 29;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Protocol</b></em>' attribute.
@@ -1116,6 +1872,60 @@ public interface EasyWallPackage extends EPackage
   int EF_APPLICATION_PROTOCOL_CONSTANT = 30;
 
   /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
    * The feature id for the '<em><b>Protocol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1134,6 +1944,334 @@ public interface EasyWallPackage extends EPackage
   int EF_APPLICATION_PROTOCOL_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFIPv6ConstantImpl <em>EFI Pv6 Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFIPv6ConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFIPv6Constant()
+   * @generated
+   */
+  int EFI_PV6_CONSTANT = 31;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
+   * The feature id for the '<em><b>Ipv6</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__IPV6 = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EFI Pv6 Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFIPv4ConstantImpl <em>EFI Pv4 Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFIPv4ConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFIPv4Constant()
+   * @generated
+   */
+  int EFI_PV4_CONSTANT = 32;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
+   * The feature id for the '<em><b>Ipv4</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__IPV4 = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EFI Pv4 Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetworkConstatnImpl <em>EF Network Constatn</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFNetworkConstatnImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkConstatn()
+   * @generated
+   */
+  int EF_NETWORK_CONSTATN = 33;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
+   * The feature id for the '<em><b>Network</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN__NETWORK = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Network Constatn</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTATN_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetportConstantImpl <em>EF Netport Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFNetportConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetportConstant()
+   * @generated
+   */
+  int EF_NETPORT_CONSTANT = 34;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
+   * The feature id for the '<em><b>Port</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__PORT = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Netport Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1141,7 +2279,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFThis()
    * @generated
    */
-  int EF_THIS = 31;
+  int EF_THIS = 35;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The number of structural features of the '<em>EF This</em>' class.
@@ -1160,7 +2352,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSuper()
    * @generated
    */
-  int EF_SUPER = 32;
+  int EF_SUPER = 36;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The number of structural features of the '<em>EF Super</em>' class.
@@ -1179,7 +2425,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNew()
    * @generated
    */
-  int EF_NEW = 33;
+  int EF_NEW = 37;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1207,7 +2507,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFBRacketsExpression()
    * @generated
    */
-  int EFB_RACKETS_EXPRESSION = 34;
+  int EFB_RACKETS_EXPRESSION = 38;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1235,7 +2589,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFFunctionCall()
    * @generated
    */
-  int EF_FUNCTION_CALL = 35;
+  int EF_FUNCTION_CALL = 39;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Function Name</b></em>' attribute.
@@ -1272,7 +2680,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSymbolRef()
    * @generated
    */
-  int EF_SYMBOL_REF = 36;
+  int EF_SYMBOL_REF = 40;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -1300,7 +2762,61 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFMemberSelection()
    * @generated
    */
-  int EF_MEMBER_SELECTION = 37;
+  int EF_MEMBER_SELECTION = 41;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__NETMASK = EF_EXPRESSION__NETMASK;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__NETPORT = EF_EXPRESSION__NETPORT;
 
   /**
    * The feature id for the '<em><b>Receiver</b></em>' containment reference.
@@ -1346,7 +2862,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkNativeType()
    * @generated
    */
-  int EF_NETWORK_NATIVE_TYPE = 38;
+  int EF_NETWORK_NATIVE_TYPE = 42;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFDirectionNativeType <em>EF Direction Native Type</em>}' enum.
@@ -1356,7 +2872,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionNativeType()
    * @generated
    */
-  int EF_DIRECTION_NATIVE_TYPE = 39;
+  int EF_DIRECTION_NATIVE_TYPE = 43;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFRulesTypes <em>EF Rules Types</em>}' enum.
@@ -1366,7 +2882,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFRulesTypes()
    * @generated
    */
-  int EF_RULES_TYPES = 40;
+  int EF_RULES_TYPES = 44;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL <em>NETWORKLAYERPROTOCOL</em>}' enum.
@@ -1376,7 +2892,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getNETWORKLAYERPROTOCOL()
    * @generated
    */
-  int NETWORKLAYERPROTOCOL = 41;
+  int NETWORKLAYERPROTOCOL = 45;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL <em>TRANSPORTLAYERPROTOCOL</em>}' enum.
@@ -1386,7 +2902,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getTRANSPORTLAYERPROTOCOL()
    * @generated
    */
-  int TRANSPORTLAYERPROTOCOL = 42;
+  int TRANSPORTLAYERPROTOCOL = 46;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL <em>APPLICATIONLAYERPROTOCOL</em>}' enum.
@@ -1396,7 +2912,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getAPPLICATIONLAYERPROTOCOL()
    * @generated
    */
-  int APPLICATIONLAYERPROTOCOL = 43;
+  int APPLICATIONLAYERPROTOCOL = 47;
 
 
   /**
@@ -1790,6 +3306,72 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   EClass getEFExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getFirst <em>First</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>First</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getFirst()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_First();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getSecond <em>Second</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Second</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getSecond()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Second();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getThird <em>Third</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Third</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getThird()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Third();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getFourth <em>Fourth</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fourth</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getFourth()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Fourth();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetmask <em>Netmask</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Netmask</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getNetmask()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Netmask();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetport <em>Netport</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Netport</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getNetport()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Netport();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFRule <em>EF Rule</em>}'.
@@ -2203,6 +3785,90 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   EAttribute getEFApplicationProtocolConstant_Protocol();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFIPv6Constant <em>EFI Pv6 Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EFI Pv6 Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFIPv6Constant
+   * @generated
+   */
+  EClass getEFIPv6Constant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFIPv6Constant#getIpv6 <em>Ipv6</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ipv6</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFIPv6Constant#getIpv6()
+   * @see #getEFIPv6Constant()
+   * @generated
+   */
+  EAttribute getEFIPv6Constant_Ipv6();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFIPv4Constant <em>EFI Pv4 Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EFI Pv4 Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFIPv4Constant
+   * @generated
+   */
+  EClass getEFIPv4Constant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFIPv4Constant#getIpv4 <em>Ipv4</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ipv4</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFIPv4Constant#getIpv4()
+   * @see #getEFIPv4Constant()
+   * @generated
+   */
+  EReference getEFIPv4Constant_Ipv4();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn <em>EF Network Constatn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Network Constatn</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkConstatn
+   * @generated
+   */
+  EClass getEFNetworkConstatn();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn#getNetwork <em>Network</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Network</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetworkConstatn#getNetwork()
+   * @see #getEFNetworkConstatn()
+   * @generated
+   */
+  EReference getEFNetworkConstatn_Network();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFNetportConstant <em>EF Netport Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Netport Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetportConstant
+   * @generated
+   */
+  EClass getEFNetportConstant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFNetportConstant#getPort <em>Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Port</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetportConstant#getPort()
+   * @see #getEFNetportConstant()
+   * @generated
+   */
+  EReference getEFNetportConstant_Port();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFThis <em>EF This</em>}'.
@@ -2772,6 +4438,54 @@ public interface EasyWallPackage extends EPackage
     EClass EF_EXPRESSION = eINSTANCE.getEFExpression();
 
     /**
+     * The meta object literal for the '<em><b>First</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__FIRST = eINSTANCE.getEFExpression_First();
+
+    /**
+     * The meta object literal for the '<em><b>Second</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__SECOND = eINSTANCE.getEFExpression_Second();
+
+    /**
+     * The meta object literal for the '<em><b>Third</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__THIRD = eINSTANCE.getEFExpression_Third();
+
+    /**
+     * The meta object literal for the '<em><b>Fourth</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__FOURTH = eINSTANCE.getEFExpression_Fourth();
+
+    /**
+     * The meta object literal for the '<em><b>Netmask</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__NETMASK = eINSTANCE.getEFExpression_Netmask();
+
+    /**
+     * The meta object literal for the '<em><b>Netport</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__NETPORT = eINSTANCE.getEFExpression_Netport();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFRuleImpl <em>EF Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3114,6 +4828,78 @@ public interface EasyWallPackage extends EPackage
      * @generated
      */
     EAttribute EF_APPLICATION_PROTOCOL_CONSTANT__PROTOCOL = eINSTANCE.getEFApplicationProtocolConstant_Protocol();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFIPv6ConstantImpl <em>EFI Pv6 Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFIPv6ConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFIPv6Constant()
+     * @generated
+     */
+    EClass EFI_PV6_CONSTANT = eINSTANCE.getEFIPv6Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Ipv6</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EFI_PV6_CONSTANT__IPV6 = eINSTANCE.getEFIPv6Constant_Ipv6();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFIPv4ConstantImpl <em>EFI Pv4 Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFIPv4ConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFIPv4Constant()
+     * @generated
+     */
+    EClass EFI_PV4_CONSTANT = eINSTANCE.getEFIPv4Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Ipv4</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EFI_PV4_CONSTANT__IPV4 = eINSTANCE.getEFIPv4Constant_Ipv4();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetworkConstatnImpl <em>EF Network Constatn</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFNetworkConstatnImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkConstatn()
+     * @generated
+     */
+    EClass EF_NETWORK_CONSTATN = eINSTANCE.getEFNetworkConstatn();
+
+    /**
+     * The meta object literal for the '<em><b>Network</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EF_NETWORK_CONSTATN__NETWORK = eINSTANCE.getEFNetworkConstatn_Network();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetportConstantImpl <em>EF Netport Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFNetportConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetportConstant()
+     * @generated
+     */
+    EClass EF_NETPORT_CONSTANT = eINSTANCE.getEFNetportConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Port</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EF_NETPORT_CONSTANT__PORT = eINSTANCE.getEFNetportConstant_Port();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.

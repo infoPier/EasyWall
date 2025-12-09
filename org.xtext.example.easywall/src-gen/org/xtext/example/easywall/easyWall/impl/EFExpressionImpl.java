@@ -3,7 +3,11 @@
  */
 package org.xtext.example.easywall.easyWall.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
@@ -12,11 +16,142 @@ import org.xtext.example.easywall.easyWall.EasyWallPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>EF Expression</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getFirst <em>First</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getSecond <em>Second</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getThird <em>Third</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getFourth <em>Fourth</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getNetmask <em>Netmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getNetport <em>Netport</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class EFExpressionImpl extends EFStatementImpl implements EFExpression
 {
+  /**
+   * The default value of the '{@link #getFirst() <em>First</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFirst()
+   * @generated
+   * @ordered
+   */
+  protected static final int FIRST_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getFirst() <em>First</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFirst()
+   * @generated
+   * @ordered
+   */
+  protected int first = FIRST_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSecond() <em>Second</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSecond()
+   * @generated
+   * @ordered
+   */
+  protected static final int SECOND_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getSecond() <em>Second</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSecond()
+   * @generated
+   * @ordered
+   */
+  protected int second = SECOND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getThird() <em>Third</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThird()
+   * @generated
+   * @ordered
+   */
+  protected static final int THIRD_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getThird() <em>Third</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThird()
+   * @generated
+   * @ordered
+   */
+  protected int third = THIRD_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFourth() <em>Fourth</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFourth()
+   * @generated
+   * @ordered
+   */
+  protected static final int FOURTH_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getFourth() <em>Fourth</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFourth()
+   * @generated
+   * @ordered
+   */
+  protected int fourth = FOURTH_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNetmask() <em>Netmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNetmask()
+   * @generated
+   * @ordered
+   */
+  protected static final int NETMASK_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getNetmask() <em>Netmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNetmask()
+   * @generated
+   * @ordered
+   */
+  protected int netmask = NETMASK_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNetport() <em>Netport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNetport()
+   * @generated
+   * @ordered
+   */
+  protected static final int NETPORT_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getNetport() <em>Netport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNetport()
+   * @generated
+   * @ordered
+   */
+  protected int netport = NETPORT_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +171,299 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
   protected EClass eStaticClass()
   {
     return EasyWallPackage.Literals.EF_EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getFirst()
+  {
+    return first;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFirst(int newFirst)
+  {
+    int oldFirst = first;
+    first = newFirst;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__FIRST, oldFirst, first));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getSecond()
+  {
+    return second;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSecond(int newSecond)
+  {
+    int oldSecond = second;
+    second = newSecond;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__SECOND, oldSecond, second));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getThird()
+  {
+    return third;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setThird(int newThird)
+  {
+    int oldThird = third;
+    third = newThird;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__THIRD, oldThird, third));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getFourth()
+  {
+    return fourth;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFourth(int newFourth)
+  {
+    int oldFourth = fourth;
+    fourth = newFourth;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__FOURTH, oldFourth, fourth));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getNetmask()
+  {
+    return netmask;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNetmask(int newNetmask)
+  {
+    int oldNetmask = netmask;
+    netmask = newNetmask;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__NETMASK, oldNetmask, netmask));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getNetport()
+  {
+    return netport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNetport(int newNetport)
+  {
+    int oldNetport = netport;
+    netport = newNetport;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__NETPORT, oldNetport, netport));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_EXPRESSION__FIRST:
+        return getFirst();
+      case EasyWallPackage.EF_EXPRESSION__SECOND:
+        return getSecond();
+      case EasyWallPackage.EF_EXPRESSION__THIRD:
+        return getThird();
+      case EasyWallPackage.EF_EXPRESSION__FOURTH:
+        return getFourth();
+      case EasyWallPackage.EF_EXPRESSION__NETMASK:
+        return getNetmask();
+      case EasyWallPackage.EF_EXPRESSION__NETPORT:
+        return getNetport();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_EXPRESSION__FIRST:
+        setFirst((Integer)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__SECOND:
+        setSecond((Integer)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__THIRD:
+        setThird((Integer)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__FOURTH:
+        setFourth((Integer)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__NETMASK:
+        setNetmask((Integer)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__NETPORT:
+        setNetport((Integer)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_EXPRESSION__FIRST:
+        setFirst(FIRST_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__SECOND:
+        setSecond(SECOND_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__THIRD:
+        setThird(THIRD_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__FOURTH:
+        setFourth(FOURTH_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__NETMASK:
+        setNetmask(NETMASK_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__NETPORT:
+        setNetport(NETPORT_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case EasyWallPackage.EF_EXPRESSION__FIRST:
+        return first != FIRST_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__SECOND:
+        return second != SECOND_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__THIRD:
+        return third != THIRD_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__FOURTH:
+        return fourth != FOURTH_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__NETMASK:
+        return netmask != NETMASK_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__NETPORT:
+        return netport != NETPORT_EDEFAULT;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (first: ");
+    result.append(first);
+    result.append(", second: ");
+    result.append(second);
+    result.append(", third: ");
+    result.append(third);
+    result.append(", fourth: ");
+    result.append(fourth);
+    result.append(", netmask: ");
+    result.append(netmask);
+    result.append(", netport: ");
+    result.append(netport);
+    result.append(')');
+    return result.toString();
   }
 
 } //EFExpressionImpl

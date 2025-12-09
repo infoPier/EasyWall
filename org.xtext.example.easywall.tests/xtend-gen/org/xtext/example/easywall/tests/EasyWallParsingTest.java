@@ -28,7 +28,7 @@ public class EasyWallParsingTest {
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Hello Xtext!");
+      _builder.append("firewall fire {}");
       _builder.newLine();
       final EFProgram result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -61,7 +61,7 @@ public class EasyWallParsingTest {
       _builder.append("var portNumber : netport;");
       _builder.newLine();
       _builder.append("    ");
-      _builder.append("def checkPort : netport (param : netport) {");
+      _builder.append("fun checkPort : netport (param : netport) {");
       _builder.newLine();
       _builder.append("        ");
       _builder.append("var result : netport = param;");
@@ -141,6 +141,93 @@ public class EasyWallParsingTest {
       _builder.newLine();
       _builder.append("    ");
       _builder.append("var dir : direction = out;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void IPv4SyntaxTest() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var ip : netip = 192.168.0.1;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void IPv6SyntaxTest() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var ip : netipv6 = 2001:0db8:0300:0000:0000:0000:0000:0001;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void NetPortSyntaxTest() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var port : netport = :443;");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();

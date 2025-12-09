@@ -96,15 +96,22 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_10(), "rule__EFPrimaryExpression__Group_10__0");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_11(), "rule__EFPrimaryExpression__Group_11__0");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_12(), "rule__EFPrimaryExpression__Group_12__0");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_12_3(), "rule__EFPrimaryExpression__Group_12_3__0");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_12_3_1(), "rule__EFPrimaryExpression__Group_12_3_1__0");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_13(), "rule__EFPrimaryExpression__Group_13__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_14(), "rule__EFPrimaryExpression__Group_14__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_15(), "rule__EFPrimaryExpression__Group_15__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_16(), "rule__EFPrimaryExpression__Group_16__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_16_3(), "rule__EFPrimaryExpression__Group_16_3__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_16_3_1(), "rule__EFPrimaryExpression__Group_16_3_1__0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getGroup_17(), "rule__EFPrimaryExpression__Group_17__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup(), "rule__EFSelectionExpression__Group__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1(), "rule__EFSelectionExpression__Group_1__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1_3(), "rule__EFSelectionExpression__Group_1_3__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1_3_1(), "rule__EFSelectionExpression__Group_1_3_1__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1_3_1_1(), "rule__EFSelectionExpression__Group_1_3_1_1__0");
 			builder.put(grammarAccess.getEFRuleClassAccess().getGroup(), "rule__EFRuleClass__Group__0");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getGroup(), "rule__EFIPv4SYNTAX__Group__0");
+			builder.put(grammarAccess.getEFNetworkSYNTAXAccess().getGroup(), "rule__EFNetworkSYNTAX__Group__0");
+			builder.put(grammarAccess.getEFNetportSYNTAXAccess().getGroup(), "rule__EFNetportSYNTAX__Group__0");
 			builder.put(grammarAccess.getEFProgramAccess().getRuleAssignment_1_0(), "rule__EFProgram__RuleAssignment_1_0");
 			builder.put(grammarAccess.getEFProgramAccess().getFirewallAssignment_1_1(), "rule__EFProgram__FirewallAssignment_1_1");
 			builder.put(grammarAccess.getEFHeaderAccess().getNameAssignment_1_1(), "rule__EFHeader__NameAssignment_1_1");
@@ -140,12 +147,16 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getProtocolAssignment_5_1(), "rule__EFPrimaryExpression__ProtocolAssignment_5_1");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getProtocolAssignment_6_1(), "rule__EFPrimaryExpression__ProtocolAssignment_6_1");
 			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getProtocolAssignment_7_1(), "rule__EFPrimaryExpression__ProtocolAssignment_7_1");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getTypeAssignment_10_2(), "rule__EFPrimaryExpression__TypeAssignment_10_2");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getExpressionAssignment_11_2(), "rule__EFPrimaryExpression__ExpressionAssignment_11_2");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameAssignment_12_1(), "rule__EFPrimaryExpression__FunctionNameAssignment_12_1");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getArgsAssignment_12_3_0(), "rule__EFPrimaryExpression__ArgsAssignment_12_3_0");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getArgsAssignment_12_3_1_1(), "rule__EFPrimaryExpression__ArgsAssignment_12_3_1_1");
-			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getSymbolAssignment_13_1(), "rule__EFPrimaryExpression__SymbolAssignment_13_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getIpv6Assignment_8_1(), "rule__EFPrimaryExpression__Ipv6Assignment_8_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getIpv4Assignment_9_1(), "rule__EFPrimaryExpression__Ipv4Assignment_9_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getNetworkAssignment_10_1(), "rule__EFPrimaryExpression__NetworkAssignment_10_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getPortAssignment_11_1(), "rule__EFPrimaryExpression__PortAssignment_11_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getTypeAssignment_14_2(), "rule__EFPrimaryExpression__TypeAssignment_14_2");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getExpressionAssignment_15_2(), "rule__EFPrimaryExpression__ExpressionAssignment_15_2");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameAssignment_16_1(), "rule__EFPrimaryExpression__FunctionNameAssignment_16_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getArgsAssignment_16_3_0(), "rule__EFPrimaryExpression__ArgsAssignment_16_3_0");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getArgsAssignment_16_3_1_1(), "rule__EFPrimaryExpression__ArgsAssignment_16_3_1_1");
+			builder.put(grammarAccess.getEFPrimaryExpressionAccess().getSymbolAssignment_17_1(), "rule__EFPrimaryExpression__SymbolAssignment_17_1");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getMemberAssignment_1_2(), "rule__EFSelectionExpression__MemberAssignment_1_2");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getArgsAssignment_1_3_1_0(), "rule__EFSelectionExpression__ArgsAssignment_1_3_1_0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getArgsAssignment_1_3_1_1_1(), "rule__EFSelectionExpression__ArgsAssignment_1_3_1_1_1");
@@ -153,6 +164,12 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFRuleClassAccess().getNameAssignment_1(), "rule__EFRuleClass__NameAssignment_1");
 			builder.put(grammarAccess.getEFRuleClassAccess().getTypeAssignment_3(), "rule__EFRuleClass__TypeAssignment_3");
 			builder.put(grammarAccess.getEFRuleClassAccess().getMembersAssignment_5(), "rule__EFRuleClass__MembersAssignment_5");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFirstAssignment_0(), "rule__EFIPv4SYNTAX__FirstAssignment_0");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getSecondAssignment_2(), "rule__EFIPv4SYNTAX__SecondAssignment_2");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getThirdAssignment_4(), "rule__EFIPv4SYNTAX__ThirdAssignment_4");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFourthAssignment_6(), "rule__EFIPv4SYNTAX__FourthAssignment_6");
+			builder.put(grammarAccess.getEFNetworkSYNTAXAccess().getNetmaskAssignment_2(), "rule__EFNetworkSYNTAX__NetmaskAssignment_2");
+			builder.put(grammarAccess.getEFNetportSYNTAXAccess().getNetportAssignment_1(), "rule__EFNetportSYNTAX__NetportAssignment_1");
 		}
 	}
 	

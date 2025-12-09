@@ -8,7 +8,8 @@
       fileExtensions="fire" ecorePackage="EasyWall.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//EFNetworkNativeType">
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/NETWORK"/>
-      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/IP"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/IPv4"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/IPv6"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PORT"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PROTOCOL"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/DIRECTION"/>
@@ -100,7 +101,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFIfStatement/thenBlock"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFIfStatement/elseBlock"/>
     </genClasses>
-    <genClasses ecoreClass="EasyWall.ecore#//EFExpression"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/first"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/second"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/third"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/fourth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/netmask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/netport"/>
+    </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFRule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFRule/rules"/>
     </genClasses>
@@ -155,6 +163,18 @@
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFApplicationProtocolConstant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFApplicationProtocolConstant/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFIPv6Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFIPv6Constant/ipv6"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFIPv4Constant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFIPv4Constant/ipv4"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFNetworkConstatn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetworkConstatn/network"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFNetportConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetportConstant/port"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFThis"/>
     <genClasses ecoreClass="EasyWall.ecore#//EFSuper"/>
