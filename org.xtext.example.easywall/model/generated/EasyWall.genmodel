@@ -106,7 +106,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/second"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/third"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/fourth"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/netmask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/localhost"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFExpression/rawip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/rawnetmask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/varip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/varnetmask"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/netport"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFRule">
@@ -170,8 +175,8 @@
     <genClasses ecoreClass="EasyWall.ecore#//EFIPv4Constant">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFIPv4Constant/ipv4"/>
     </genClasses>
-    <genClasses ecoreClass="EasyWall.ecore#//EFNetworkConstatn">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetworkConstatn/network"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFNetworkConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetworkConstant/network"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFNetportConstant">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetportConstant/port"/>

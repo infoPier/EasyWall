@@ -17,7 +17,12 @@ package org.xtext.example.easywall.easyWall;
  *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getSecond <em>Second</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getThird <em>Third</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getFourth <em>Fourth</em>}</li>
- *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getNetmask <em>Netmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getAny <em>Any</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getLocalhost <em>Localhost</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getRawip <em>Rawip</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getRawnetmask <em>Rawnetmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getVarip <em>Varip</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask <em>Varnetmask</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.EFExpression#getNetport <em>Netport</em>}</li>
  * </ul>
  *
@@ -116,26 +121,136 @@ public interface EFExpression extends EFStatement
   void setFourth(int value);
 
   /**
-   * Returns the value of the '<em><b>Netmask</b></em>' attribute.
+   * Returns the value of the '<em><b>Any</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Netmask</em>' attribute.
-   * @see #setNetmask(int)
-   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Netmask()
+   * @return the value of the '<em>Any</em>' attribute.
+   * @see #setAny(String)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Any()
    * @model
    * @generated
    */
-  int getNetmask();
+  String getAny();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetmask <em>Netmask</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getAny <em>Any</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Netmask</em>' attribute.
-   * @see #getNetmask()
+   * @param value the new value of the '<em>Any</em>' attribute.
+   * @see #getAny()
    * @generated
    */
-  void setNetmask(int value);
+  void setAny(String value);
+
+  /**
+   * Returns the value of the '<em><b>Localhost</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Localhost</em>' attribute.
+   * @see #setLocalhost(String)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Localhost()
+   * @model
+   * @generated
+   */
+  String getLocalhost();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getLocalhost <em>Localhost</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Localhost</em>' attribute.
+   * @see #getLocalhost()
+   * @generated
+   */
+  void setLocalhost(String value);
+
+  /**
+   * Returns the value of the '<em><b>Rawip</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rawip</em>' containment reference.
+   * @see #setRawip(EFExpression)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Rawip()
+   * @model containment="true"
+   * @generated
+   */
+  EFExpression getRawip();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getRawip <em>Rawip</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Rawip</em>' containment reference.
+   * @see #getRawip()
+   * @generated
+   */
+  void setRawip(EFExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Rawnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rawnetmask</em>' attribute.
+   * @see #setRawnetmask(int)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Rawnetmask()
+   * @model
+   * @generated
+   */
+  int getRawnetmask();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getRawnetmask <em>Rawnetmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Rawnetmask</em>' attribute.
+   * @see #getRawnetmask()
+   * @generated
+   */
+  void setRawnetmask(int value);
+
+  /**
+   * Returns the value of the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Varip</em>' attribute.
+   * @see #setVarip(String)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Varip()
+   * @model
+   * @generated
+   */
+  String getVarip();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarip <em>Varip</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Varip</em>' attribute.
+   * @see #getVarip()
+   * @generated
+   */
+  void setVarip(String value);
+
+  /**
+   * Returns the value of the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Varnetmask</em>' attribute.
+   * @see #setVarnetmask(String)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFExpression_Varnetmask()
+   * @model
+   * @generated
+   */
+  String getVarnetmask();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask <em>Varnetmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Varnetmask</em>' attribute.
+   * @see #getVarnetmask()
+   * @generated
+   */
+  void setVarnetmask(String value);
 
   /**
    * Returns the value of the '<em><b>Netport</b></em>' attribute.

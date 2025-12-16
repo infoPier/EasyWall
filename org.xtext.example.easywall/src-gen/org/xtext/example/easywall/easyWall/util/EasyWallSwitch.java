@@ -345,12 +345,12 @@ public class EasyWallSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EasyWallPackage.EF_NETWORK_CONSTATN:
+      case EasyWallPackage.EF_NETWORK_CONSTANT:
       {
-        EFNetworkConstatn efNetworkConstatn = (EFNetworkConstatn)theEObject;
-        T result = caseEFNetworkConstatn(efNetworkConstatn);
-        if (result == null) result = caseEFExpression(efNetworkConstatn);
-        if (result == null) result = caseEFStatement(efNetworkConstatn);
+        EFNetworkConstant efNetworkConstant = (EFNetworkConstant)theEObject;
+        T result = caseEFNetworkConstant(efNetworkConstant);
+        if (result == null) result = caseEFExpression(efNetworkConstant);
+        if (result == null) result = caseEFStatement(efNetworkConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -959,17 +959,17 @@ public class EasyWallSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>EF Network Constatn</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>EF Network Constant</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>EF Network Constatn</em>'.
+   * @return the result of interpreting the object as an instance of '<em>EF Network Constant</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEFNetworkConstatn(EFNetworkConstatn object)
+  public T caseEFNetworkConstant(EFNetworkConstant object)
   {
     return null;
   }

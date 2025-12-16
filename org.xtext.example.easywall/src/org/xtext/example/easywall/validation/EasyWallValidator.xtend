@@ -14,6 +14,10 @@ import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant
 import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant
 import org.xtext.example.easywall.easyWall.EFRulesTypes
 import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant
+import org.xtext.example.easywall.easyWall.EFIPv4Constant
+import org.xtext.example.easywall.easyWall.EFNetworkConstant
+import org.eclipse.xtext.EcoreUtil2
+import org.xtext.example.easywall.easyWall.EFfirewall
 
 /**
  * This class contains custom validation rules. 
@@ -27,10 +31,10 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 	public static val MISSING_DIRECTION = ISSUE_CODE_PREFIX + "MissingDirection";
 	public static val BAD_DIRECTION = ISSUE_CODE_PREFIX + "BadDirection";
 	public static val PROTOCOL_RULELAYER_MISMATCH = ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch";
-	
-	/* TODO */
 	public static val IP_SYNTAX = ISSUE_CODE_PREFIX + "IPSyntax";
 	public static val NETWORK_SYNTAX = ISSUE_CODE_PREFIX + "NetworkSyntax";
+
+	/* TODO */
 	public static val NETPORT_SYNTAX = ISSUE_CODE_PREFIX + "NetPortSyntax";
 	
 	@Inject extension EasyWallUtils
@@ -87,6 +91,7 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 			}
 	}	
 	
+	@Check
 	def checkProtocolMismatch(EFVariableDeclaration decl){
 		var layer = decl.ruletype
 		
@@ -112,6 +117,77 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 						EasyWallPackage.eINSTANCE.EFAssignment_Right,
 						PROTOCOL_RULELAYER_MISMATCH)
 			}
+		}
+	}
+	
+	@Check
+	def checkIPSyntax(EFIPv4Constant ip){
+		if(ip.ipv4.any.isNullOrEmpty && ip.ipv4.localhost.isNullOrEmpty){
+			utilitaryCheckIP(ip.ipv4.first, ip.ipv4.second, ip.ipv4.third, ip.ipv4.fourth)
+		}
+	}
+	
+	@Check
+	def checkNetworkSyntax(EFNetworkConstant net){
+		if(!net.any.isNullOrEmpty() || !net.localhost.isNullOrEmpty){
+			error("IPv4 constant must not be either \"any\" or \"localhost\" if it is used in a network type variable",
+				EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
+				NETWORK_SYNTAX
+			)
+		}	
+		else {	
+			
+			if(net.rawip !== null && net.varnetmask !== null){
+				checkEFRAWIPVARNETSYNTAX(net.rawip.first, net.rawip.second, net.rawip.third, net.rawip.fourth, net.varnetmask, net)
+			}
+			else if(net.varip !== null && net.varnetmask !== null){
+				checkEFVARNETSYNTAX(net.varip, net.varnetmask)
+			}
+			else{
+				if(net.varip !== null){
+					checkEFVARIPRAWNETSYNTAX(net.varip, net.rawnetmask)
+				}
+				else{
+					checkEFRAWNETSYNTAX(net.rawip.first, net.rawip.second, net.rawip.third, net.rawip.fourth, net.rawnetmask)
+				}
+			}
+		}
+	}	
+	private def checkEFRAWNETSYNTAX(int first, int second, int third, int fourth, int netmask){
+		utilitaryCheckIP(first, second, third, fourth)
+		if(netmask < 0 || netmask > 32){
+			error("Netmask must be in the following interval: [0,32]",
+				EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
+				NETWORK_SYNTAX
+			)
+		}
+	}
+	private def checkEFVARNETSYNTAX(String ipvarName, String netmaskVarName){} //TODO
+	private def checkEFRAWIPVARNETSYNTAX(int first, int second, int third, int fourth,String netmaskVarName, EFNetworkConstant net){
+		utilitaryCheckIP(first, second, third, fourth)
+		var container = (EcoreUtil2.getContainerOfType(net, EFfirewall) === null) ? 
+						EcoreUtil2.getContainerOfType(net, EFRule) 
+						: EcoreUtil2.getContainerOfType(net, EFfirewall);
+		if(container instanceof EFRule){
+			if(!container.ruleFields.exists[name == netmaskVarName]){
+				error("Netmask variable does not exist",
+					EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
+					NETWORK_SYNTAX
+				)
+			}
+		}
+		//TODO: devo decidere se farlo anche per EFfirewall o dare direttamente errore
+	}
+	private def checkEFVARIPRAWNETSYNTAX(String ipvarName, int subnet){ //TODO
+		
+	}
+	
+	private def utilitaryCheckIP(int first, int second, int third, int fourth){
+		if(first > 255 || second > 255 || third > 255 || fourth > 255){
+			error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255",
+				EasyWallPackage.eINSTANCE.EFIPv4Constant_Ipv4,
+				IP_SYNTAX
+			)
 		}
 	}
 }

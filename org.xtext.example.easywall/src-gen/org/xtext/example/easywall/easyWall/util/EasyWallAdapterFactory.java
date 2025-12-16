@@ -241,9 +241,9 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
         return createEFIPv4ConstantAdapter();
       }
       @Override
-      public Adapter caseEFNetworkConstatn(EFNetworkConstatn object)
+      public Adapter caseEFNetworkConstant(EFNetworkConstant object)
       {
-        return createEFNetworkConstatnAdapter();
+        return createEFNetworkConstantAdapter();
       }
       @Override
       public Adapter caseEFNetportConstant(EFNetportConstant object)
@@ -803,16 +803,16 @@ public class EasyWallAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn <em>EF Network Constatn</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.easywall.easyWall.EFNetworkConstant <em>EF Network Constant</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.easywall.easyWall.EFNetworkConstatn
+   * @see org.xtext.example.easywall.easyWall.EFNetworkConstant
    * @generated
    */
-  public Adapter createEFNetworkConstatnAdapter()
+  public Adapter createEFNetworkConstantAdapter()
   {
     return null;
   }

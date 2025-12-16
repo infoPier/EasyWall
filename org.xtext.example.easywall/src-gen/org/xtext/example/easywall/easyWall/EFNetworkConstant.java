@@ -6,21 +6,21 @@ package org.xtext.example.easywall.easyWall;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>EF Network Constatn</b></em>'.
+ * A representation of the model object '<em><b>EF Network Constant</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn#getNetwork <em>Network</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFNetworkConstant#getNetwork <em>Network</em>}</li>
  * </ul>
  *
- * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFNetworkConstatn()
+ * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFNetworkConstant()
  * @model
  * @generated
  */
-public interface EFNetworkConstatn extends EFExpression
+public interface EFNetworkConstant extends EFExpression
 {
   /**
    * Returns the value of the '<em><b>Network</b></em>' containment reference.
@@ -28,14 +28,14 @@ public interface EFNetworkConstatn extends EFExpression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Network</em>' containment reference.
    * @see #setNetwork(EFExpression)
-   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFNetworkConstatn_Network()
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFNetworkConstant_Network()
    * @model containment="true"
    * @generated
    */
   EFExpression getNetwork();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFNetworkConstatn#getNetwork <em>Network</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFNetworkConstant#getNetwork <em>Network</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Network</em>' containment reference.
@@ -44,4 +44,4 @@ public interface EFNetworkConstatn extends EFExpression
    */
   void setNetwork(EFExpression value);
 
-} // EFNetworkConstatn
+} // EFNetworkConstant

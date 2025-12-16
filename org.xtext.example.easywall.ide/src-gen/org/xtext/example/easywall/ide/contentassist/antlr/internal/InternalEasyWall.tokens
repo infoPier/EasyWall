@@ -44,6 +44,7 @@
 'TransportLayer'=38
 'UDP'=49
 'and'=19
+'any'=88
 'at'=86
 'direction'=34
 'else'=81
@@ -54,6 +55,7 @@
 'import'=67
 'in'=35
 'isequalto'=24
+'localhost'=89
 'netip'=30
 'netipv6'=31
 'netport'=32
@@ -158,3 +160,5 @@ T__84=84
 T__85=85
 T__86=86
 T__87=87
+T__88=88
+T__89=89

@@ -12,23 +12,23 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.easywall.easyWall.EFExpression;
-import org.xtext.example.easywall.easyWall.EFNetworkConstatn;
+import org.xtext.example.easywall.easyWall.EFNetworkConstant;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>EF Network Constatn</b></em>'.
+ * An implementation of the model object '<em><b>EF Network Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFNetworkConstatnImpl#getNetwork <em>Network</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFNetworkConstantImpl#getNetwork <em>Network</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetworkConstatn
+public class EFNetworkConstantImpl extends EFExpressionImpl implements EFNetworkConstant
 {
   /**
    * The cached value of the '{@link #getNetwork() <em>Network</em>}' containment reference.
@@ -45,7 +45,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EFNetworkConstatnImpl()
+  protected EFNetworkConstantImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   @Override
   protected EClass eStaticClass()
   {
-    return EasyWallPackage.Literals.EF_NETWORK_CONSTATN;
+    return EasyWallPackage.Literals.EF_NETWORK_CONSTANT;
   }
 
   /**
@@ -83,7 +83,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
     network = newNetwork;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK, oldNetwork, newNetwork);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK, oldNetwork, newNetwork);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
     {
       NotificationChain msgs = null;
       if (network != null)
-        msgs = ((InternalEObject)network).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK, null, msgs);
+        msgs = ((InternalEObject)network).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK, null, msgs);
       if (newNetwork != null)
-        msgs = ((InternalEObject)newNetwork).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK, null, msgs);
+        msgs = ((InternalEObject)newNetwork).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK, null, msgs);
       msgs = basicSetNetwork(newNetwork, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK, newNetwork, newNetwork));
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK, newNetwork, newNetwork));
   }
 
   /**
@@ -121,7 +121,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK:
+      case EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK:
         return basicSetNetwork(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK:
+      case EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK:
         return getNetwork();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK:
+      case EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK:
         setNetwork((EFExpression)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK:
+      case EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK:
         setNetwork((EFExpression)null);
         return;
     }
@@ -187,10 +187,10 @@ public class EFNetworkConstatnImpl extends EFExpressionImpl implements EFNetwork
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_NETWORK_CONSTATN__NETWORK:
+      case EasyWallPackage.EF_NETWORK_CONSTANT__NETWORK:
         return network != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //EFNetworkConstatnImpl
+} //EFNetworkConstantImpl

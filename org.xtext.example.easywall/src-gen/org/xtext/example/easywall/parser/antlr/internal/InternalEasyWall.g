@@ -1808,7 +1808,7 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFNetworkConstatnAction_10_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFNetworkConstantAction_10_0(),
 						$current);
 				}
 			)
@@ -2392,85 +2392,117 @@ ruleEFIPv4SYNTAX returns [EObject current=null]
 	(
 		(
 			(
-				lv_first_0_0=RULE_INT
+				(
+					lv_first_0_0=RULE_INT
+					{
+						newLeafNode(lv_first_0_0, grammarAccess.getEFIPv4SYNTAXAccess().getFirstINTTerminalRuleCall_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"first",
+							lv_first_0_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_1='.'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_0_1());
+			}
+			(
+				(
+					lv_second_2_0=RULE_INT
+					{
+						newLeafNode(lv_second_2_0, grammarAccess.getEFIPv4SYNTAXAccess().getSecondINTTerminalRuleCall_0_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"second",
+							lv_second_2_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_3='.'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_0_3());
+			}
+			(
+				(
+					lv_third_4_0=RULE_INT
+					{
+						newLeafNode(lv_third_4_0, grammarAccess.getEFIPv4SYNTAXAccess().getThirdINTTerminalRuleCall_0_4_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"third",
+							lv_third_4_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			otherlv_5='.'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_0_5());
+			}
+			(
+				(
+					lv_fourth_6_0=RULE_INT
+					{
+						newLeafNode(lv_fourth_6_0, grammarAccess.getEFIPv4SYNTAXAccess().getFourthINTTerminalRuleCall_0_6_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"fourth",
+							lv_fourth_6_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				lv_any_7_0='any'
 				{
-					newLeafNode(lv_first_0_0, grammarAccess.getEFIPv4SYNTAXAccess().getFirstINTTerminalRuleCall_0_0());
+					newLeafNode(lv_any_7_0, grammarAccess.getEFIPv4SYNTAXAccess().getAnyAnyKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"first",
-						lv_first_0_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+					setWithLastConsumed($current, "any", lv_any_7_0, "any");
 				}
 			)
 		)
-		otherlv_1='.'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_1());
-		}
+		    |
 		(
 			(
-				lv_second_2_0=RULE_INT
+				lv_localhost_8_0='localhost'
 				{
-					newLeafNode(lv_second_2_0, grammarAccess.getEFIPv4SYNTAXAccess().getSecondINTTerminalRuleCall_2_0());
+					newLeafNode(lv_localhost_8_0, grammarAccess.getEFIPv4SYNTAXAccess().getLocalhostLocalhostKeyword_2_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
 					}
-					setWithLastConsumed(
-						$current,
-						"second",
-						lv_second_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_3='.'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_3());
-		}
-		(
-			(
-				lv_third_4_0=RULE_INT
-				{
-					newLeafNode(lv_third_4_0, grammarAccess.getEFIPv4SYNTAXAccess().getThirdINTTerminalRuleCall_4_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"third",
-						lv_third_4_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-		otherlv_5='.'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getEFIPv4SYNTAXAccess().getFullStopKeyword_5());
-		}
-		(
-			(
-				lv_fourth_6_0=RULE_INT
-				{
-					newLeafNode(lv_fourth_6_0, grammarAccess.getEFIPv4SYNTAXAccess().getFourthINTTerminalRuleCall_6_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFIPv4SYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"fourth",
-						lv_fourth_6_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+					setWithLastConsumed($current, "localhost", lv_localhost_8_0, "localhost");
 				}
 			)
 		)
@@ -2494,31 +2526,274 @@ ruleEFNetworkSYNTAX returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFIPv4SYNTAXParserRuleCall_0());
+			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFRAWNETSYNTAXParserRuleCall_0());
 		}
-		this_EFIPv4SYNTAX_0=ruleEFIPv4SYNTAX
+		this_EFRAWNETSYNTAX_0=ruleEFRAWNETSYNTAX
 		{
-			$current = $this_EFIPv4SYNTAX_0.current;
+			$current = $this_EFRAWNETSYNTAX_0.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFVARNETSYNTAXParserRuleCall_1());
+		}
+		this_EFVARNETSYNTAX_1=ruleEFVARNETSYNTAX
+		{
+			$current = $this_EFVARNETSYNTAX_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFRAWIPVARNETSYNTAXParserRuleCall_2());
+		}
+		this_EFRAWIPVARNETSYNTAX_2=ruleEFRAWIPVARNETSYNTAX
+		{
+			$current = $this_EFRAWIPVARNETSYNTAX_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFVARIPRAWNETSYNTAXParserRuleCall_3());
+		}
+		this_EFVARIPRAWNETSYNTAX_3=ruleEFVARIPRAWNETSYNTAX
+		{
+			$current = $this_EFVARIPRAWNETSYNTAX_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleEFRAWNETSYNTAX
+entryRuleEFRAWNETSYNTAX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFRAWNETSYNTAXRule()); }
+	iv_ruleEFRAWNETSYNTAX=ruleEFRAWNETSYNTAX
+	{ $current=$iv_ruleEFRAWNETSYNTAX.current; }
+	EOF;
+
+// Rule EFRAWNETSYNTAX
+ruleEFRAWNETSYNTAX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEFRAWNETSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_0_0());
+				}
+				lv_rawip_0_0=ruleEFIPv4SYNTAX
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEFRAWNETSYNTAXRule());
+					}
+					set(
+						$current,
+						"rawip",
+						lv_rawip_0_0,
+						"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		otherlv_1='/'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getEFNetworkSYNTAXAccess().getSolidusKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getEFRAWNETSYNTAXAccess().getSolidusKeyword_1());
 		}
 		(
 			(
-				lv_netmask_2_0=RULE_INT
+				lv_rawnetmask_2_0=RULE_INT
 				{
-					newLeafNode(lv_netmask_2_0, grammarAccess.getEFNetworkSYNTAXAccess().getNetmaskINTTerminalRuleCall_2_0());
+					newLeafNode(lv_rawnetmask_2_0, grammarAccess.getEFRAWNETSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						$current = createModelElement(grammarAccess.getEFRAWNETSYNTAXRule());
 					}
 					setWithLastConsumed(
 						$current,
-						"netmask",
-						lv_netmask_2_0,
+						"rawnetmask",
+						lv_rawnetmask_2_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEFVARNETSYNTAX
+entryRuleEFVARNETSYNTAX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFVARNETSYNTAXRule()); }
+	iv_ruleEFVARNETSYNTAX=ruleEFVARNETSYNTAX
+	{ $current=$iv_ruleEFVARNETSYNTAX.current; }
+	EOF;
+
+// Rule EFVARNETSYNTAX
+ruleEFVARNETSYNTAX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_varip_0_0=RULE_ID
+				{
+					newLeafNode(lv_varip_0_0, grammarAccess.getEFVARNETSYNTAXAccess().getVaripIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEFVARNETSYNTAXRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"varip",
+						lv_varip_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='/'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEFVARNETSYNTAXAccess().getSolidusKeyword_1());
+		}
+		(
+			(
+				lv_varnetmask_2_0=RULE_ID
+				{
+					newLeafNode(lv_varnetmask_2_0, grammarAccess.getEFVARNETSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEFVARNETSYNTAXRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"varnetmask",
+						lv_varnetmask_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEFRAWIPVARNETSYNTAX
+entryRuleEFRAWIPVARNETSYNTAX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFRAWIPVARNETSYNTAXRule()); }
+	iv_ruleEFRAWIPVARNETSYNTAX=ruleEFRAWIPVARNETSYNTAX
+	{ $current=$iv_ruleEFRAWIPVARNETSYNTAX.current; }
+	EOF;
+
+// Rule EFRAWIPVARNETSYNTAX
+ruleEFRAWIPVARNETSYNTAX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_0_0());
+				}
+				lv_rawip_0_0=ruleEFIPv4SYNTAX
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEFRAWIPVARNETSYNTAXRule());
+					}
+					set(
+						$current,
+						"rawip",
+						lv_rawip_0_0,
+						"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='/'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getSolidusKeyword_1());
+		}
+		(
+			(
+				lv_varnetmask_2_0=RULE_ID
+				{
+					newLeafNode(lv_varnetmask_2_0, grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEFRAWIPVARNETSYNTAXRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"varnetmask",
+						lv_varnetmask_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEFVARIPRAWNETSYNTAX
+entryRuleEFVARIPRAWNETSYNTAX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFVARIPRAWNETSYNTAXRule()); }
+	iv_ruleEFVARIPRAWNETSYNTAX=ruleEFVARIPRAWNETSYNTAX
+	{ $current=$iv_ruleEFVARIPRAWNETSYNTAX.current; }
+	EOF;
+
+// Rule EFVARIPRAWNETSYNTAX
+ruleEFVARIPRAWNETSYNTAX returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_varip_0_0=RULE_ID
+				{
+					newLeafNode(lv_varip_0_0, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getVaripIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEFVARIPRAWNETSYNTAXRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"varip",
+						lv_varip_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='/'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getSolidusKeyword_1());
+		}
+		(
+			(
+				lv_rawnetmask_2_0=RULE_INT
+				{
+					newLeafNode(lv_rawnetmask_2_0, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getEFVARIPRAWNETSYNTAXRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"rawnetmask",
+						lv_rawnetmask_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)

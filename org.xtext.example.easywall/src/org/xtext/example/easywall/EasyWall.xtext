@@ -106,7 +106,7 @@ EFPrimaryExpression returns EFExpression:
   |	{EFApplicationProtocolConstant} protocol=APPLICATIONLAYERPROTOCOL
   | {EFIPv6Constant} ipv6=EFIPV6SYNTAX
   | {EFIPv4Constant} ipv4=EFIPv4SYNTAX
-  | {EFNetworkConstatn} network=EFNetworkSYNTAX
+  | {EFNetworkConstant} network=EFNetworkSYNTAX
   | {EFNetportConstant} port=EFNetportSYNTAX
   | {EFThis} 'this'
   | {EFSuper} 'super'
@@ -177,10 +177,14 @@ enum APPLICATIONLAYERPROTOCOL:
 	DHCP='DHCP'
 ;
 
-EFIPv4SYNTAX returns EFExpression: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
+EFIPv4SYNTAX returns EFExpression: (first=INT '.' second=INT '.' third=INT '.' fourth=INT) | any='any' | localhost='localhost';
 terminal EFIPV6SYNTAX:
 	 ('0'..'9'|'a'..'f'|'A'..'F')+ (':' ('0'..'9'|'a'..'f'|'A'..'F')+)+
 	//{EFIPv6}(D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|A|B|C|D|E|F|':')+
 ;
-EFNetworkSYNTAX returns EFExpression: EFIPv4SYNTAX '/'netmask=INT;
+EFNetworkSYNTAX returns EFExpression: EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX;
+EFRAWNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/'rawnetmask=INT;
+EFVARNETSYNTAX returns EFExpression: varip=ID '/' varnetmask=ID;
+EFRAWIPVARNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/' varnetmask=ID;
+EFVARIPRAWNETSYNTAX returns EFExpression: varip=ID '/' rawnetmask=INT;
 EFNetportSYNTAX returns EFExpression: ':'netport=INT;

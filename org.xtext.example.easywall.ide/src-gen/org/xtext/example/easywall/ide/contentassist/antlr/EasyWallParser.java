@@ -47,6 +47,8 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFNotAccess().getAlternatives(), "rule__EFNot__Alternatives");
 			builder.put(grammarAccess.getEFEqualOperatorsAccess().getAlternatives(), "rule__EFEqualOperators__Alternatives");
 			builder.put(grammarAccess.getEFRelOperatorsAccess().getAlternatives(), "rule__EFRelOperators__Alternatives");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getAlternatives(), "rule__EFIPv4SYNTAX__Alternatives");
+			builder.put(grammarAccess.getEFNetworkSYNTAXAccess().getAlternatives(), "rule__EFNetworkSYNTAX__Alternatives");
 			builder.put(grammarAccess.getEFNetworkNativeTypeAccess().getAlternatives(), "rule__EFNetworkNativeType__Alternatives");
 			builder.put(grammarAccess.getEFDirectionNativeTypeAccess().getAlternatives(), "rule__EFDirectionNativeType__Alternatives");
 			builder.put(grammarAccess.getEFRulesTypesAccess().getAlternatives(), "rule__EFRulesTypes__Alternatives");
@@ -109,8 +111,11 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1_3_1(), "rule__EFSelectionExpression__Group_1_3_1__0");
 			builder.put(grammarAccess.getEFSelectionExpressionAccess().getGroup_1_3_1_1(), "rule__EFSelectionExpression__Group_1_3_1_1__0");
 			builder.put(grammarAccess.getEFRuleClassAccess().getGroup(), "rule__EFRuleClass__Group__0");
-			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getGroup(), "rule__EFIPv4SYNTAX__Group__0");
-			builder.put(grammarAccess.getEFNetworkSYNTAXAccess().getGroup(), "rule__EFNetworkSYNTAX__Group__0");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getGroup_0(), "rule__EFIPv4SYNTAX__Group_0__0");
+			builder.put(grammarAccess.getEFRAWNETSYNTAXAccess().getGroup(), "rule__EFRAWNETSYNTAX__Group__0");
+			builder.put(grammarAccess.getEFVARNETSYNTAXAccess().getGroup(), "rule__EFVARNETSYNTAX__Group__0");
+			builder.put(grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getGroup(), "rule__EFRAWIPVARNETSYNTAX__Group__0");
+			builder.put(grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getGroup(), "rule__EFVARIPRAWNETSYNTAX__Group__0");
 			builder.put(grammarAccess.getEFNetportSYNTAXAccess().getGroup(), "rule__EFNetportSYNTAX__Group__0");
 			builder.put(grammarAccess.getEFProgramAccess().getRuleAssignment_1_0(), "rule__EFProgram__RuleAssignment_1_0");
 			builder.put(grammarAccess.getEFProgramAccess().getFirewallAssignment_1_1(), "rule__EFProgram__FirewallAssignment_1_1");
@@ -164,11 +169,20 @@ public class EasyWallParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEFRuleClassAccess().getNameAssignment_1(), "rule__EFRuleClass__NameAssignment_1");
 			builder.put(grammarAccess.getEFRuleClassAccess().getTypeAssignment_3(), "rule__EFRuleClass__TypeAssignment_3");
 			builder.put(grammarAccess.getEFRuleClassAccess().getMembersAssignment_5(), "rule__EFRuleClass__MembersAssignment_5");
-			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFirstAssignment_0(), "rule__EFIPv4SYNTAX__FirstAssignment_0");
-			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getSecondAssignment_2(), "rule__EFIPv4SYNTAX__SecondAssignment_2");
-			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getThirdAssignment_4(), "rule__EFIPv4SYNTAX__ThirdAssignment_4");
-			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFourthAssignment_6(), "rule__EFIPv4SYNTAX__FourthAssignment_6");
-			builder.put(grammarAccess.getEFNetworkSYNTAXAccess().getNetmaskAssignment_2(), "rule__EFNetworkSYNTAX__NetmaskAssignment_2");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFirstAssignment_0_0(), "rule__EFIPv4SYNTAX__FirstAssignment_0_0");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getSecondAssignment_0_2(), "rule__EFIPv4SYNTAX__SecondAssignment_0_2");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getThirdAssignment_0_4(), "rule__EFIPv4SYNTAX__ThirdAssignment_0_4");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getFourthAssignment_0_6(), "rule__EFIPv4SYNTAX__FourthAssignment_0_6");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getAnyAssignment_1(), "rule__EFIPv4SYNTAX__AnyAssignment_1");
+			builder.put(grammarAccess.getEFIPv4SYNTAXAccess().getLocalhostAssignment_2(), "rule__EFIPv4SYNTAX__LocalhostAssignment_2");
+			builder.put(grammarAccess.getEFRAWNETSYNTAXAccess().getRawipAssignment_0(), "rule__EFRAWNETSYNTAX__RawipAssignment_0");
+			builder.put(grammarAccess.getEFRAWNETSYNTAXAccess().getRawnetmaskAssignment_2(), "rule__EFRAWNETSYNTAX__RawnetmaskAssignment_2");
+			builder.put(grammarAccess.getEFVARNETSYNTAXAccess().getVaripAssignment_0(), "rule__EFVARNETSYNTAX__VaripAssignment_0");
+			builder.put(grammarAccess.getEFVARNETSYNTAXAccess().getVarnetmaskAssignment_2(), "rule__EFVARNETSYNTAX__VarnetmaskAssignment_2");
+			builder.put(grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getRawipAssignment_0(), "rule__EFRAWIPVARNETSYNTAX__RawipAssignment_0");
+			builder.put(grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getVarnetmaskAssignment_2(), "rule__EFRAWIPVARNETSYNTAX__VarnetmaskAssignment_2");
+			builder.put(grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getVaripAssignment_0(), "rule__EFVARIPRAWNETSYNTAX__VaripAssignment_0");
+			builder.put(grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getRawnetmaskAssignment_2(), "rule__EFVARIPRAWNETSYNTAX__RawnetmaskAssignment_2");
 			builder.put(grammarAccess.getEFNetportSYNTAXAccess().getNetportAssignment_1(), "rule__EFNetportSYNTAX__NetportAssignment_1");
 		}
 	}

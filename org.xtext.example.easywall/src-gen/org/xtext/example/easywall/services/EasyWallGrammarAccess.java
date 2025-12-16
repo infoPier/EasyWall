@@ -934,7 +934,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final Assignment cIpv4Assignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final RuleCall cIpv4EFIPv4SYNTAXParserRuleCall_9_1_0 = (RuleCall)cIpv4Assignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
-		private final Action cEFNetworkConstatnAction_10_0 = (Action)cGroup_10.eContents().get(0);
+		private final Action cEFNetworkConstantAction_10_0 = (Action)cGroup_10.eContents().get(0);
 		private final Assignment cNetworkAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
 		private final RuleCall cNetworkEFNetworkSYNTAXParserRuleCall_10_1_0 = (RuleCall)cNetworkAssignment_10_1.eContents().get(0);
 		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
@@ -990,7 +990,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//  |    {EFApplicationProtocolConstant} protocol=APPLICATIONLAYERPROTOCOL
 		//  | {EFIPv6Constant} ipv6=EFIPV6SYNTAX
 		//  | {EFIPv4Constant} ipv4=EFIPv4SYNTAX
-		//  | {EFNetworkConstatn} network=EFNetworkSYNTAX
+		//  | {EFNetworkConstant} network=EFNetworkSYNTAX
 		//  | {EFNetportConstant} port=EFNetportSYNTAX
 		//  | {EFThis} 'this'
 		//  | {EFSuper} 'super'
@@ -1011,7 +1011,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//|    {EFApplicationProtocolConstant} protocol=APPLICATIONLAYERPROTOCOL
 		//| {EFIPv6Constant} ipv6=EFIPV6SYNTAX
 		//| {EFIPv4Constant} ipv4=EFIPv4SYNTAX
-		//| {EFNetworkConstatn} network=EFNetworkSYNTAX
+		//| {EFNetworkConstant} network=EFNetworkSYNTAX
 		//| {EFNetportConstant} port=EFNetportSYNTAX
 		//| {EFThis} 'this'
 		//| {EFSuper} 'super'
@@ -1147,11 +1147,11 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//EFIPv4SYNTAX
 		public RuleCall getIpv4EFIPv4SYNTAXParserRuleCall_9_1_0() { return cIpv4EFIPv4SYNTAXParserRuleCall_9_1_0; }
 		
-		//{EFNetworkConstatn} network=EFNetworkSYNTAX
+		//{EFNetworkConstant} network=EFNetworkSYNTAX
 		public Group getGroup_10() { return cGroup_10; }
 		
-		//{EFNetworkConstatn}
-		public Action getEFNetworkConstatnAction_10_0() { return cEFNetworkConstatnAction_10_0; }
+		//{EFNetworkConstant}
+		public Action getEFNetworkConstantAction_10_0() { return cEFNetworkConstantAction_10_0; }
 		
 		//network=EFNetworkSYNTAX
 		public Assignment getNetworkAssignment_10_1() { return cNetworkAssignment_10_1; }
@@ -1555,83 +1555,223 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	}
 	public class EFIPv4SYNTAXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cFirstAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cFirstINTTerminalRuleCall_0_0 = (RuleCall)cFirstAssignment_0.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cSecondAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSecondINTTerminalRuleCall_2_0 = (RuleCall)cSecondAssignment_2.eContents().get(0);
-		private final Keyword cFullStopKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cThirdAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cThirdINTTerminalRuleCall_4_0 = (RuleCall)cThirdAssignment_4.eContents().get(0);
-		private final Keyword cFullStopKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cFourthAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cFourthINTTerminalRuleCall_6_0 = (RuleCall)cFourthAssignment_6.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cFirstAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cFirstINTTerminalRuleCall_0_0_0 = (RuleCall)cFirstAssignment_0_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cSecondAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cSecondINTTerminalRuleCall_0_2_0 = (RuleCall)cSecondAssignment_0_2.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cThirdAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final RuleCall cThirdINTTerminalRuleCall_0_4_0 = (RuleCall)cThirdAssignment_0_4.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
+		private final Assignment cFourthAssignment_0_6 = (Assignment)cGroup_0.eContents().get(6);
+		private final RuleCall cFourthINTTerminalRuleCall_0_6_0 = (RuleCall)cFourthAssignment_0_6.eContents().get(0);
+		private final Assignment cAnyAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cAnyAnyKeyword_1_0 = (Keyword)cAnyAssignment_1.eContents().get(0);
+		private final Assignment cLocalhostAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cLocalhostLocalhostKeyword_2_0 = (Keyword)cLocalhostAssignment_2.eContents().get(0);
 		
-		//EFIPv4SYNTAX returns EFExpression: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
+		//EFIPv4SYNTAX returns EFExpression: (first=INT '.' second=INT '.' third=INT '.' fourth=INT) | any='any' | localhost='localhost';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//first=INT '.' second=INT '.' third=INT '.' fourth=INT
-		public Group getGroup() { return cGroup; }
+		//(first=INT '.' second=INT '.' third=INT '.' fourth=INT) | any='any' | localhost='localhost'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//(first=INT '.' second=INT '.' third=INT '.' fourth=INT)
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//first=INT
-		public Assignment getFirstAssignment_0() { return cFirstAssignment_0; }
+		public Assignment getFirstAssignment_0_0() { return cFirstAssignment_0_0; }
 		
 		//INT
-		public RuleCall getFirstINTTerminalRuleCall_0_0() { return cFirstINTTerminalRuleCall_0_0; }
+		public RuleCall getFirstINTTerminalRuleCall_0_0_0() { return cFirstINTTerminalRuleCall_0_0_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
 		
 		//second=INT
-		public Assignment getSecondAssignment_2() { return cSecondAssignment_2; }
+		public Assignment getSecondAssignment_0_2() { return cSecondAssignment_0_2; }
 		
 		//INT
-		public RuleCall getSecondINTTerminalRuleCall_2_0() { return cSecondINTTerminalRuleCall_2_0; }
+		public RuleCall getSecondINTTerminalRuleCall_0_2_0() { return cSecondINTTerminalRuleCall_0_2_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
+		public Keyword getFullStopKeyword_0_3() { return cFullStopKeyword_0_3; }
 		
 		//third=INT
-		public Assignment getThirdAssignment_4() { return cThirdAssignment_4; }
+		public Assignment getThirdAssignment_0_4() { return cThirdAssignment_0_4; }
 		
 		//INT
-		public RuleCall getThirdINTTerminalRuleCall_4_0() { return cThirdINTTerminalRuleCall_4_0; }
+		public RuleCall getThirdINTTerminalRuleCall_0_4_0() { return cThirdINTTerminalRuleCall_0_4_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_5() { return cFullStopKeyword_5; }
+		public Keyword getFullStopKeyword_0_5() { return cFullStopKeyword_0_5; }
 		
 		//fourth=INT
-		public Assignment getFourthAssignment_6() { return cFourthAssignment_6; }
+		public Assignment getFourthAssignment_0_6() { return cFourthAssignment_0_6; }
 		
 		//INT
-		public RuleCall getFourthINTTerminalRuleCall_6_0() { return cFourthINTTerminalRuleCall_6_0; }
+		public RuleCall getFourthINTTerminalRuleCall_0_6_0() { return cFourthINTTerminalRuleCall_0_6_0; }
+		
+		//any='any'
+		public Assignment getAnyAssignment_1() { return cAnyAssignment_1; }
+		
+		//'any'
+		public Keyword getAnyAnyKeyword_1_0() { return cAnyAnyKeyword_1_0; }
+		
+		//localhost='localhost'
+		public Assignment getLocalhostAssignment_2() { return cLocalhostAssignment_2; }
+		
+		//'localhost'
+		public Keyword getLocalhostLocalhostKeyword_2_0() { return cLocalhostLocalhostKeyword_2_0; }
 	}
 	public class EFNetworkSYNTAXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFNetworkSYNTAX");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cEFIPv4SYNTAXParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNetmaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNetmaskINTTerminalRuleCall_2_0 = (RuleCall)cNetmaskAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cEFRAWNETSYNTAXParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEFVARNETSYNTAXParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cEFRAWIPVARNETSYNTAXParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEFVARIPRAWNETSYNTAXParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//EFNetworkSYNTAX returns EFExpression: EFIPv4SYNTAX '/'netmask=INT;
+		//EFNetworkSYNTAX returns EFExpression: EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//EFIPv4SYNTAX '/'netmask=INT
+		//EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//EFRAWNETSYNTAX
+		public RuleCall getEFRAWNETSYNTAXParserRuleCall_0() { return cEFRAWNETSYNTAXParserRuleCall_0; }
+		
+		//EFVARNETSYNTAX
+		public RuleCall getEFVARNETSYNTAXParserRuleCall_1() { return cEFVARNETSYNTAXParserRuleCall_1; }
+		
+		//EFRAWIPVARNETSYNTAX
+		public RuleCall getEFRAWIPVARNETSYNTAXParserRuleCall_2() { return cEFRAWIPVARNETSYNTAXParserRuleCall_2; }
+		
+		//EFVARIPRAWNETSYNTAX
+		public RuleCall getEFVARIPRAWNETSYNTAXParserRuleCall_3() { return cEFVARIPRAWNETSYNTAXParserRuleCall_3; }
+	}
+	public class EFRAWNETSYNTAXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFRAWNETSYNTAX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRawipAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRawipEFIPv4SYNTAXParserRuleCall_0_0 = (RuleCall)cRawipAssignment_0.eContents().get(0);
+		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRawnetmaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRawnetmaskINTTerminalRuleCall_2_0 = (RuleCall)cRawnetmaskAssignment_2.eContents().get(0);
+		
+		//EFRAWNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/'rawnetmask=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//rawip=EFIPv4SYNTAX '/'rawnetmask=INT
 		public Group getGroup() { return cGroup; }
 		
+		//rawip=EFIPv4SYNTAX
+		public Assignment getRawipAssignment_0() { return cRawipAssignment_0; }
+		
 		//EFIPv4SYNTAX
-		public RuleCall getEFIPv4SYNTAXParserRuleCall_0() { return cEFIPv4SYNTAXParserRuleCall_0; }
+		public RuleCall getRawipEFIPv4SYNTAXParserRuleCall_0_0() { return cRawipEFIPv4SYNTAXParserRuleCall_0_0; }
 		
 		//'/'
 		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
 		
-		//netmask=INT
-		public Assignment getNetmaskAssignment_2() { return cNetmaskAssignment_2; }
+		//rawnetmask=INT
+		public Assignment getRawnetmaskAssignment_2() { return cRawnetmaskAssignment_2; }
 		
 		//INT
-		public RuleCall getNetmaskINTTerminalRuleCall_2_0() { return cNetmaskINTTerminalRuleCall_2_0; }
+		public RuleCall getRawnetmaskINTTerminalRuleCall_2_0() { return cRawnetmaskINTTerminalRuleCall_2_0; }
+	}
+	public class EFVARNETSYNTAXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFVARNETSYNTAX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVaripAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVaripIDTerminalRuleCall_0_0 = (RuleCall)cVaripAssignment_0.eContents().get(0);
+		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cVarnetmaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cVarnetmaskIDTerminalRuleCall_2_0 = (RuleCall)cVarnetmaskAssignment_2.eContents().get(0);
+		
+		//EFVARNETSYNTAX returns EFExpression: varip=ID '/' varnetmask=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//varip=ID '/' varnetmask=ID
+		public Group getGroup() { return cGroup; }
+		
+		//varip=ID
+		public Assignment getVaripAssignment_0() { return cVaripAssignment_0; }
+		
+		//ID
+		public RuleCall getVaripIDTerminalRuleCall_0_0() { return cVaripIDTerminalRuleCall_0_0; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
+		
+		//varnetmask=ID
+		public Assignment getVarnetmaskAssignment_2() { return cVarnetmaskAssignment_2; }
+		
+		//ID
+		public RuleCall getVarnetmaskIDTerminalRuleCall_2_0() { return cVarnetmaskIDTerminalRuleCall_2_0; }
+	}
+	public class EFRAWIPVARNETSYNTAXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFRAWIPVARNETSYNTAX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRawipAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRawipEFIPv4SYNTAXParserRuleCall_0_0 = (RuleCall)cRawipAssignment_0.eContents().get(0);
+		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cVarnetmaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cVarnetmaskIDTerminalRuleCall_2_0 = (RuleCall)cVarnetmaskAssignment_2.eContents().get(0);
+		
+		//EFRAWIPVARNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/' varnetmask=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//rawip=EFIPv4SYNTAX '/' varnetmask=ID
+		public Group getGroup() { return cGroup; }
+		
+		//rawip=EFIPv4SYNTAX
+		public Assignment getRawipAssignment_0() { return cRawipAssignment_0; }
+		
+		//EFIPv4SYNTAX
+		public RuleCall getRawipEFIPv4SYNTAXParserRuleCall_0_0() { return cRawipEFIPv4SYNTAXParserRuleCall_0_0; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
+		
+		//varnetmask=ID
+		public Assignment getVarnetmaskAssignment_2() { return cVarnetmaskAssignment_2; }
+		
+		//ID
+		public RuleCall getVarnetmaskIDTerminalRuleCall_2_0() { return cVarnetmaskIDTerminalRuleCall_2_0; }
+	}
+	public class EFVARIPRAWNETSYNTAXElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFVARIPRAWNETSYNTAX");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVaripAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVaripIDTerminalRuleCall_0_0 = (RuleCall)cVaripAssignment_0.eContents().get(0);
+		private final Keyword cSolidusKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRawnetmaskAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRawnetmaskINTTerminalRuleCall_2_0 = (RuleCall)cRawnetmaskAssignment_2.eContents().get(0);
+		
+		//EFVARIPRAWNETSYNTAX returns EFExpression: varip=ID '/' rawnetmask=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//varip=ID '/' rawnetmask=INT
+		public Group getGroup() { return cGroup; }
+		
+		//varip=ID
+		public Assignment getVaripAssignment_0() { return cVaripAssignment_0; }
+		
+		//ID
+		public RuleCall getVaripIDTerminalRuleCall_0_0() { return cVaripIDTerminalRuleCall_0_0; }
+		
+		//'/'
+		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
+		
+		//rawnetmask=INT
+		public Assignment getRawnetmaskAssignment_2() { return cRawnetmaskAssignment_2; }
+		
+		//INT
+		public RuleCall getRawnetmaskINTTerminalRuleCall_2_0() { return cRawnetmaskINTTerminalRuleCall_2_0; }
 	}
 	public class EFNetportSYNTAXElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFNetportSYNTAX");
@@ -2107,6 +2247,10 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	private final EFIPv4SYNTAXElements pEFIPv4SYNTAX;
 	private final TerminalRule tEFIPV6SYNTAX;
 	private final EFNetworkSYNTAXElements pEFNetworkSYNTAX;
+	private final EFRAWNETSYNTAXElements pEFRAWNETSYNTAX;
+	private final EFVARNETSYNTAXElements pEFVARNETSYNTAX;
+	private final EFRAWIPVARNETSYNTAXElements pEFRAWIPVARNETSYNTAX;
+	private final EFVARIPRAWNETSYNTAXElements pEFVARIPRAWNETSYNTAX;
 	private final EFNetportSYNTAXElements pEFNetportSYNTAX;
 	
 	private final Grammar grammar;
@@ -2161,6 +2305,10 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		this.pEFIPv4SYNTAX = new EFIPv4SYNTAXElements();
 		this.tEFIPV6SYNTAX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.easywall.EasyWall.EFIPV6SYNTAX");
 		this.pEFNetworkSYNTAX = new EFNetworkSYNTAXElements();
+		this.pEFRAWNETSYNTAX = new EFRAWNETSYNTAXElements();
+		this.pEFVARNETSYNTAX = new EFVARNETSYNTAXElements();
+		this.pEFRAWIPVARNETSYNTAX = new EFRAWIPVARNETSYNTAXElements();
+		this.pEFVARIPRAWNETSYNTAX = new EFVARIPRAWNETSYNTAXElements();
 		this.pEFNetportSYNTAX = new EFNetportSYNTAXElements();
 	}
 	
@@ -2508,7 +2656,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//  |    {EFApplicationProtocolConstant} protocol=APPLICATIONLAYERPROTOCOL
 	//  | {EFIPv6Constant} ipv6=EFIPV6SYNTAX
 	//  | {EFIPv4Constant} ipv4=EFIPv4SYNTAX
-	//  | {EFNetworkConstatn} network=EFNetworkSYNTAX
+	//  | {EFNetworkConstant} network=EFNetworkSYNTAX
 	//  | {EFNetportConstant} port=EFNetportSYNTAX
 	//  | {EFThis} 'this'
 	//  | {EFSuper} 'super'
@@ -2679,7 +2827,7 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		return getAPPLICATIONLAYERPROTOCOLAccess().getRule();
 	}
 	
-	//EFIPv4SYNTAX returns EFExpression: first=INT '.' second=INT '.' third=INT '.' fourth=INT;
+	//EFIPv4SYNTAX returns EFExpression: (first=INT '.' second=INT '.' third=INT '.' fourth=INT) | any='any' | localhost='localhost';
 	public EFIPv4SYNTAXElements getEFIPv4SYNTAXAccess() {
 		return pEFIPv4SYNTAX;
 	}
@@ -2696,13 +2844,49 @@ public class EasyWallGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		return tEFIPV6SYNTAX;
 	}
 	
-	//EFNetworkSYNTAX returns EFExpression: EFIPv4SYNTAX '/'netmask=INT;
+	//EFNetworkSYNTAX returns EFExpression: EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX;
 	public EFNetworkSYNTAXElements getEFNetworkSYNTAXAccess() {
 		return pEFNetworkSYNTAX;
 	}
 	
 	public ParserRule getEFNetworkSYNTAXRule() {
 		return getEFNetworkSYNTAXAccess().getRule();
+	}
+	
+	//EFRAWNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/'rawnetmask=INT;
+	public EFRAWNETSYNTAXElements getEFRAWNETSYNTAXAccess() {
+		return pEFRAWNETSYNTAX;
+	}
+	
+	public ParserRule getEFRAWNETSYNTAXRule() {
+		return getEFRAWNETSYNTAXAccess().getRule();
+	}
+	
+	//EFVARNETSYNTAX returns EFExpression: varip=ID '/' varnetmask=ID;
+	public EFVARNETSYNTAXElements getEFVARNETSYNTAXAccess() {
+		return pEFVARNETSYNTAX;
+	}
+	
+	public ParserRule getEFVARNETSYNTAXRule() {
+		return getEFVARNETSYNTAXAccess().getRule();
+	}
+	
+	//EFRAWIPVARNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/' varnetmask=ID;
+	public EFRAWIPVARNETSYNTAXElements getEFRAWIPVARNETSYNTAXAccess() {
+		return pEFRAWIPVARNETSYNTAX;
+	}
+	
+	public ParserRule getEFRAWIPVARNETSYNTAXRule() {
+		return getEFRAWIPVARNETSYNTAXAccess().getRule();
+	}
+	
+	//EFVARIPRAWNETSYNTAX returns EFExpression: varip=ID '/' rawnetmask=INT;
+	public EFVARIPRAWNETSYNTAXElements getEFVARIPRAWNETSYNTAXAccess() {
+		return pEFVARIPRAWNETSYNTAX;
+	}
+	
+	public ParserRule getEFVARIPRAWNETSYNTAXRule() {
+		return getEFVARIPRAWNETSYNTAXAccess().getRule();
 	}
 	
 	//EFNetportSYNTAX returns EFExpression: ':'netport=INT;

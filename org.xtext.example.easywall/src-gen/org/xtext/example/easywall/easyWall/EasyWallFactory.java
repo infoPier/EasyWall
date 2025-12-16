@@ -321,13 +321,13 @@ public interface EasyWallFactory extends EFactory
   EFIPv4Constant createEFIPv4Constant();
 
   /**
-   * Returns a new object of class '<em>EF Network Constatn</em>'.
+   * Returns a new object of class '<em>EF Network Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>EF Network Constatn</em>'.
+   * @return a new object of class '<em>EF Network Constant</em>'.
    * @generated
    */
-  EFNetworkConstatn createEFNetworkConstatn();
+  EFNetworkConstant createEFNetworkConstant();
 
   /**
    * Returns a new object of class '<em>EF Netport Constant</em>'.

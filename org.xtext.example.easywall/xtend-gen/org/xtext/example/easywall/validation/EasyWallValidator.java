@@ -5,15 +5,20 @@ package org.xtext.example.easywall.validation;
 
 import com.google.inject.Inject;
 import java.util.Objects;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.easywall.EasyWallUtils;
 import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EFField;
+import org.xtext.example.easywall.easyWall.EFIPv4Constant;
+import org.xtext.example.easywall.easyWall.EFNetworkConstant;
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
 import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFRule;
@@ -21,6 +26,7 @@ import org.xtext.example.easywall.easyWall.EFRuleClass;
 import org.xtext.example.easywall.easyWall.EFRulesTypes;
 import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
+import org.xtext.example.easywall.easyWall.EFfirewall;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
@@ -40,13 +46,13 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
 
   public static final String PROTOCOL_RULELAYER_MISMATCH = (EasyWallValidator.ISSUE_CODE_PREFIX + "ProtocolRulelayerMismatch");
 
-  /**
-   * TODO
-   */
   public static final String IP_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "IPSyntax");
 
   public static final String NETWORK_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "NetworkSyntax");
 
+  /**
+   * TODO
+   */
   public static final String NETPORT_SYNTAX = (EasyWallValidator.ISSUE_CODE_PREFIX + "NetPortSyntax");
 
   @Inject
@@ -147,6 +153,7 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
     }
   }
 
+  @Check
   public void checkProtocolMismatch(final EFVariableDeclaration decl) {
     EFRuleClass layer = decl.getRuletype();
     EFNetworkNativeType _nativetype = decl.getNativetype();
@@ -174,6 +181,97 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
           EasyWallPackage.eINSTANCE.getEFAssignment_Right(), 
           EasyWallValidator.PROTOCOL_RULELAYER_MISMATCH);
       }
+    }
+  }
+
+  @Check
+  public void checkIPSyntax(final EFIPv4Constant ip) {
+    if ((StringExtensions.isNullOrEmpty(ip.getIpv4().getAny()) && StringExtensions.isNullOrEmpty(ip.getIpv4().getLocalhost()))) {
+      this.utilitaryCheckIP(ip.getIpv4().getFirst(), ip.getIpv4().getSecond(), ip.getIpv4().getThird(), ip.getIpv4().getFourth());
+    }
+  }
+
+  @Check
+  public Object checkNetworkSyntax(final EFNetworkConstant net) {
+    Object _xifexpression = null;
+    if (((!StringExtensions.isNullOrEmpty(net.getAny())) || (!StringExtensions.isNullOrEmpty(net.getLocalhost())))) {
+      this.error("IPv4 constant must not be either \"any\" or \"localhost\" if it is used in a network type variable", 
+        EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
+        EasyWallValidator.NETWORK_SYNTAX);
+    } else {
+      Object _xifexpression_1 = null;
+      if (((net.getRawip() != null) && (net.getVarnetmask() != null))) {
+        this.checkEFRAWIPVARNETSYNTAX(net.getRawip().getFirst(), net.getRawip().getSecond(), net.getRawip().getThird(), net.getRawip().getFourth(), net.getVarnetmask(), net);
+      } else {
+        Object _xifexpression_2 = null;
+        if (((net.getVarip() != null) && (net.getVarnetmask() != null))) {
+          _xifexpression_2 = this.checkEFVARNETSYNTAX(net.getVarip(), net.getVarnetmask());
+        } else {
+          Object _xifexpression_3 = null;
+          String _varip = net.getVarip();
+          boolean _tripleNotEquals = (_varip != null);
+          if (_tripleNotEquals) {
+            _xifexpression_3 = this.checkEFVARIPRAWNETSYNTAX(net.getVarip(), net.getRawnetmask());
+          } else {
+            this.checkEFRAWNETSYNTAX(net.getRawip().getFirst(), net.getRawip().getSecond(), net.getRawip().getThird(), net.getRawip().getFourth(), net.getRawnetmask());
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+
+  private void checkEFRAWNETSYNTAX(final int first, final int second, final int third, final int fourth, final int netmask) {
+    this.utilitaryCheckIP(first, second, third, fourth);
+    if (((netmask < 0) || (netmask > 32))) {
+      this.error("Netmask must be in the following interval: [0,32]", 
+        EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
+        EasyWallValidator.NETWORK_SYNTAX);
+    }
+  }
+
+  private Object checkEFVARNETSYNTAX(final String ipvarName, final String netmaskVarName) {
+    return null;
+  }
+
+  private void checkEFRAWIPVARNETSYNTAX(final int first, final int second, final int third, final int fourth, final String netmaskVarName, final EFNetworkConstant net) {
+    this.utilitaryCheckIP(first, second, third, fourth);
+    EObject _xifexpression = null;
+    EFfirewall _containerOfType = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    boolean _tripleEquals = (_containerOfType == null);
+    if (_tripleEquals) {
+      _xifexpression = EcoreUtil2.<EFRule>getContainerOfType(net, EFRule.class);
+    } else {
+      _xifexpression = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    }
+    EObject container = _xifexpression;
+    if ((container instanceof EFRule)) {
+      final Function1<EFField, Boolean> _function = (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+      };
+      boolean _exists = IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), _function);
+      boolean _not = (!_exists);
+      if (_not) {
+        this.error("Netmask variable does not exist", 
+          EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
+          EasyWallValidator.NETWORK_SYNTAX);
+      }
+    }
+  }
+
+  private Object checkEFVARIPRAWNETSYNTAX(final String ipvarName, final int subnet) {
+    return null;
+  }
+
+  private void utilitaryCheckIP(final int first, final int second, final int third, final int fourth) {
+    if (((((first > 255) || (second > 255)) || (third > 255)) || (fourth > 255))) {
+      this.error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255", 
+        EasyWallPackage.eINSTANCE.getEFIPv4Constant_Ipv4(), 
+        EasyWallValidator.IP_SYNTAX);
     }
   }
 }
