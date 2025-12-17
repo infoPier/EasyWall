@@ -309,13 +309,22 @@ public interface EasyWallPackage extends EPackage
   int EF_FIELD__NATIVETYPE = EF_MEMBER__NATIVETYPE;
 
   /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FIELD__EXPRESSION = EF_MEMBER_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>EF Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_FIELD_FEATURE_COUNT = EF_MEMBER_FEATURE_COUNT + 0;
+  int EF_FIELD_FEATURE_COUNT = EF_MEMBER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl <em>EF Variable Declaration</em>}' class.
@@ -334,7 +343,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__NAME = EF_FIELD__NAME;
+  int EF_VARIABLE_DECLARATION__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Ruletype</b></em>' reference.
@@ -343,7 +352,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__RULETYPE = EF_FIELD__RULETYPE;
+  int EF_VARIABLE_DECLARATION__RULETYPE = 1;
 
   /**
    * The feature id for the '<em><b>Nativetype</b></em>' attribute.
@@ -352,7 +361,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__NATIVETYPE = EF_FIELD__NATIVETYPE;
+  int EF_VARIABLE_DECLARATION__NATIVETYPE = 2;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -361,7 +370,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION__EXPRESSION = EF_FIELD_FEATURE_COUNT + 0;
+  int EF_VARIABLE_DECLARATION__EXPRESSION = 3;
 
   /**
    * The number of structural features of the '<em>EF Variable Declaration</em>' class.
@@ -370,7 +379,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_VARIABLE_DECLARATION_FEATURE_COUNT = EF_FIELD_FEATURE_COUNT + 1;
+  int EF_VARIABLE_DECLARATION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFMethodImpl <em>EF Method</em>}' class.
@@ -668,31 +677,13 @@ public interface EasyWallPackage extends EPackage
   int EF_EXPRESSION__LOCALHOST = EF_STATEMENT_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>Rawip</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_EXPRESSION__RAWIP = EF_STATEMENT_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Rawnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_EXPRESSION__RAWNETMASK = EF_STATEMENT_FEATURE_COUNT + 7;
-
-  /**
    * The feature id for the '<em><b>Varip</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_EXPRESSION__VARIP = EF_STATEMENT_FEATURE_COUNT + 8;
+  int EF_EXPRESSION__VARIP = EF_STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
@@ -701,7 +692,34 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_EXPRESSION__VARNETMASK = EF_STATEMENT_FEATURE_COUNT + 9;
+  int EF_EXPRESSION__VARNETMASK = EF_STATEMENT_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Rawip</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__RAWIP = EF_STATEMENT_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Rawnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__RAWNETMASK = EF_STATEMENT_FEATURE_COUNT + 9;
+
+  /**
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EXPRESSION__SUBNET = EF_STATEMENT_FEATURE_COUNT + 10;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -710,7 +728,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_EXPRESSION__NETPORT = EF_STATEMENT_FEATURE_COUNT + 10;
+  int EF_EXPRESSION__NETPORT = EF_STATEMENT_FEATURE_COUNT + 11;
 
   /**
    * The number of structural features of the '<em>EF Expression</em>' class.
@@ -719,7 +737,7 @@ public interface EasyWallPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EF_EXPRESSION_FEATURE_COUNT = EF_STATEMENT_FEATURE_COUNT + 11;
+  int EF_EXPRESSION_FEATURE_COUNT = EF_STATEMENT_FEATURE_COUNT + 12;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFRuleImpl <em>EF Rule</em>}' class.
@@ -860,6 +878,24 @@ public interface EasyWallPackage extends EPackage
   int EF_ASSIGNMENT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_ASSIGNMENT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -878,22 +914,13 @@ public interface EasyWallPackage extends EPackage
   int EF_ASSIGNMENT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_ASSIGNMENT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_ASSIGNMENT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_ASSIGNMENT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -996,6 +1023,24 @@ public interface EasyWallPackage extends EPackage
   int EF_OR_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_OR_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1014,22 +1059,13 @@ public interface EasyWallPackage extends EPackage
   int EF_OR_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_OR_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_OR_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_OR_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1132,6 +1168,24 @@ public interface EasyWallPackage extends EPackage
   int EF_AND_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_AND_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1150,22 +1204,13 @@ public interface EasyWallPackage extends EPackage
   int EF_AND_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_AND_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_AND_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_AND_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1268,6 +1313,24 @@ public interface EasyWallPackage extends EPackage
   int EF_EQUAL_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_EQUAL_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1286,22 +1349,13 @@ public interface EasyWallPackage extends EPackage
   int EF_EQUAL_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_EQUAL_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_EQUAL_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_EQUAL_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1404,6 +1458,24 @@ public interface EasyWallPackage extends EPackage
   int EF_REL_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_REL_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1422,22 +1494,13 @@ public interface EasyWallPackage extends EPackage
   int EF_REL_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_REL_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_REL_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_REL_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1540,6 +1603,24 @@ public interface EasyWallPackage extends EPackage
   int EF_NOT_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NOT_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1558,22 +1639,13 @@ public interface EasyWallPackage extends EPackage
   int EF_NOT_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_NOT_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_NOT_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_NOT_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1667,6 +1739,24 @@ public interface EasyWallPackage extends EPackage
   int EF_STRING_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_STRING_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1685,22 +1775,13 @@ public interface EasyWallPackage extends EPackage
   int EF_STRING_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_STRING_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_STRING_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_STRING_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1794,6 +1875,24 @@ public interface EasyWallPackage extends EPackage
   int EF_INT_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_INT_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1812,22 +1911,13 @@ public interface EasyWallPackage extends EPackage
   int EF_INT_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_INT_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_INT_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_INT_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -1921,6 +2011,24 @@ public interface EasyWallPackage extends EPackage
   int EF_BOOL_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_BOOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1939,22 +2047,13 @@ public interface EasyWallPackage extends EPackage
   int EF_BOOL_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_BOOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_BOOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_BOOL_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2048,6 +2147,24 @@ public interface EasyWallPackage extends EPackage
   int EF_PRIMITIVE_TYPE__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_PRIMITIVE_TYPE__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2066,22 +2183,13 @@ public interface EasyWallPackage extends EPackage
   int EF_PRIMITIVE_TYPE__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_PRIMITIVE_TYPE__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_PRIMITIVE_TYPE__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_PRIMITIVE_TYPE__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2175,6 +2283,24 @@ public interface EasyWallPackage extends EPackage
   int EF_DIRECTION_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_DIRECTION_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2193,22 +2319,13 @@ public interface EasyWallPackage extends EPackage
   int EF_DIRECTION_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_DIRECTION_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_DIRECTION_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_DIRECTION_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2302,6 +2419,24 @@ public interface EasyWallPackage extends EPackage
   int EF_NETWORK_PROTOCOL_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2320,22 +2455,13 @@ public interface EasyWallPackage extends EPackage
   int EF_NETWORK_PROTOCOL_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_NETWORK_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_NETWORK_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_NETWORK_PROTOCOL_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2429,6 +2555,24 @@ public interface EasyWallPackage extends EPackage
   int EF_TRANSPORT_PROTOCOL_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2447,22 +2591,13 @@ public interface EasyWallPackage extends EPackage
   int EF_TRANSPORT_PROTOCOL_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_TRANSPORT_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_TRANSPORT_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_TRANSPORT_PROTOCOL_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2556,6 +2691,24 @@ public interface EasyWallPackage extends EPackage
   int EF_APPLICATION_PROTOCOL_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_APPLICATION_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2574,22 +2727,13 @@ public interface EasyWallPackage extends EPackage
   int EF_APPLICATION_PROTOCOL_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_APPLICATION_PROTOCOL_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_APPLICATION_PROTOCOL_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_APPLICATION_PROTOCOL_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2683,6 +2827,24 @@ public interface EasyWallPackage extends EPackage
   int EFI_PV6_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV6_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2701,22 +2863,13 @@ public interface EasyWallPackage extends EPackage
   int EFI_PV6_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EFI_PV6_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFI_PV6_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EFI_PV6_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2810,6 +2963,24 @@ public interface EasyWallPackage extends EPackage
   int EFI_PV4_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFI_PV4_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2828,22 +2999,13 @@ public interface EasyWallPackage extends EPackage
   int EFI_PV4_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EFI_PV4_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFI_PV4_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EFI_PV4_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -2937,6 +3099,24 @@ public interface EasyWallPackage extends EPackage
   int EF_NETWORK_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETWORK_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2955,22 +3135,13 @@ public interface EasyWallPackage extends EPackage
   int EF_NETWORK_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_NETWORK_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_NETWORK_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_NETWORK_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3064,6 +3235,24 @@ public interface EasyWallPackage extends EPackage
   int EF_NETPORT_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETPORT_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3082,22 +3271,13 @@ public interface EasyWallPackage extends EPackage
   int EF_NETPORT_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_NETPORT_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_NETPORT_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_NETPORT_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3127,6 +3307,142 @@ public interface EasyWallPackage extends EPackage
   int EF_NETPORT_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetmaskConstantImpl <em>EF Netmask Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.easywall.easyWall.impl.EFNetmaskConstantImpl
+   * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetmaskConstant()
+   * @generated
+   */
+  int EF_NETMASK_CONSTANT = 35;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__FIRST = EF_EXPRESSION__FIRST;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__SECOND = EF_EXPRESSION__SECOND;
+
+  /**
+   * The feature id for the '<em><b>Third</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__THIRD = EF_EXPRESSION__THIRD;
+
+  /**
+   * The feature id for the '<em><b>Fourth</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__FOURTH = EF_EXPRESSION__FOURTH;
+
+  /**
+   * The feature id for the '<em><b>Any</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__ANY = EF_EXPRESSION__ANY;
+
+  /**
+   * The feature id for the '<em><b>Localhost</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__LOCALHOST = EF_EXPRESSION__LOCALHOST;
+
+  /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
+   * The feature id for the '<em><b>Rawip</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__RAWIP = EF_EXPRESSION__RAWIP;
+
+  /**
+   * The feature id for the '<em><b>Rawnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
+
+  /**
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__SUBNET = EF_EXPRESSION__SUBNET;
+
+  /**
+   * The feature id for the '<em><b>Netport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__NETPORT = EF_EXPRESSION__NETPORT;
+
+  /**
+   * The feature id for the '<em><b>Netmask</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT__NETMASK = EF_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>EF Netmask Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NETMASK_CONSTANT_FEATURE_COUNT = EF_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3134,7 +3450,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFThis()
    * @generated
    */
-  int EF_THIS = 35;
+  int EF_THIS = 36;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3191,6 +3507,24 @@ public interface EasyWallPackage extends EPackage
   int EF_THIS__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_THIS__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3209,22 +3543,13 @@ public interface EasyWallPackage extends EPackage
   int EF_THIS__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_THIS__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_THIS__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_THIS__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3252,7 +3577,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSuper()
    * @generated
    */
-  int EF_SUPER = 36;
+  int EF_SUPER = 37;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3309,6 +3634,24 @@ public interface EasyWallPackage extends EPackage
   int EF_SUPER__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SUPER__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3327,22 +3670,13 @@ public interface EasyWallPackage extends EPackage
   int EF_SUPER__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_SUPER__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_SUPER__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_SUPER__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3370,7 +3704,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNew()
    * @generated
    */
-  int EF_NEW = 37;
+  int EF_NEW = 38;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3427,6 +3761,24 @@ public interface EasyWallPackage extends EPackage
   int EF_NEW__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_NEW__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3445,22 +3797,13 @@ public interface EasyWallPackage extends EPackage
   int EF_NEW__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_NEW__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_NEW__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_NEW__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3497,7 +3840,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFBRacketsExpression()
    * @generated
    */
-  int EFB_RACKETS_EXPRESSION = 38;
+  int EFB_RACKETS_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3554,6 +3897,24 @@ public interface EasyWallPackage extends EPackage
   int EFB_RACKETS_EXPRESSION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EFB_RACKETS_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3572,22 +3933,13 @@ public interface EasyWallPackage extends EPackage
   int EFB_RACKETS_EXPRESSION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EFB_RACKETS_EXPRESSION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EFB_RACKETS_EXPRESSION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EFB_RACKETS_EXPRESSION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3624,7 +3976,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFFunctionCall()
    * @generated
    */
-  int EF_FUNCTION_CALL = 39;
+  int EF_FUNCTION_CALL = 40;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3681,6 +4033,24 @@ public interface EasyWallPackage extends EPackage
   int EF_FUNCTION_CALL__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_FUNCTION_CALL__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3699,22 +4069,13 @@ public interface EasyWallPackage extends EPackage
   int EF_FUNCTION_CALL__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_FUNCTION_CALL__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_FUNCTION_CALL__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_FUNCTION_CALL__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3760,7 +4121,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFSymbolRef()
    * @generated
    */
-  int EF_SYMBOL_REF = 40;
+  int EF_SYMBOL_REF = 41;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3817,6 +4178,24 @@ public interface EasyWallPackage extends EPackage
   int EF_SYMBOL_REF__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_SYMBOL_REF__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3835,22 +4214,13 @@ public interface EasyWallPackage extends EPackage
   int EF_SYMBOL_REF__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_SYMBOL_REF__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_SYMBOL_REF__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_SYMBOL_REF__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -3887,7 +4257,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFMemberSelection()
    * @generated
    */
-  int EF_MEMBER_SELECTION = 41;
+  int EF_MEMBER_SELECTION = 42;
 
   /**
    * The feature id for the '<em><b>First</b></em>' attribute.
@@ -3944,6 +4314,24 @@ public interface EasyWallPackage extends EPackage
   int EF_MEMBER_SELECTION__LOCALHOST = EF_EXPRESSION__LOCALHOST;
 
   /**
+   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__VARIP = EF_EXPRESSION__VARIP;
+
+  /**
+   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EF_MEMBER_SELECTION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+
+  /**
    * The feature id for the '<em><b>Rawip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3962,22 +4350,13 @@ public interface EasyWallPackage extends EPackage
   int EF_MEMBER_SELECTION__RAWNETMASK = EF_EXPRESSION__RAWNETMASK;
 
   /**
-   * The feature id for the '<em><b>Varip</b></em>' attribute.
+   * The feature id for the '<em><b>Subnet</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EF_MEMBER_SELECTION__VARIP = EF_EXPRESSION__VARIP;
-
-  /**
-   * The feature id for the '<em><b>Varnetmask</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EF_MEMBER_SELECTION__VARNETMASK = EF_EXPRESSION__VARNETMASK;
+  int EF_MEMBER_SELECTION__SUBNET = EF_EXPRESSION__SUBNET;
 
   /**
    * The feature id for the '<em><b>Netport</b></em>' attribute.
@@ -4032,7 +4411,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetworkNativeType()
    * @generated
    */
-  int EF_NETWORK_NATIVE_TYPE = 42;
+  int EF_NETWORK_NATIVE_TYPE = 43;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFDirectionNativeType <em>EF Direction Native Type</em>}' enum.
@@ -4042,7 +4421,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFDirectionNativeType()
    * @generated
    */
-  int EF_DIRECTION_NATIVE_TYPE = 43;
+  int EF_DIRECTION_NATIVE_TYPE = 44;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.EFRulesTypes <em>EF Rules Types</em>}' enum.
@@ -4052,7 +4431,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFRulesTypes()
    * @generated
    */
-  int EF_RULES_TYPES = 44;
+  int EF_RULES_TYPES = 45;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.NETWORKLAYERPROTOCOL <em>NETWORKLAYERPROTOCOL</em>}' enum.
@@ -4062,7 +4441,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getNETWORKLAYERPROTOCOL()
    * @generated
    */
-  int NETWORKLAYERPROTOCOL = 45;
+  int NETWORKLAYERPROTOCOL = 46;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.TRANSPORTLAYERPROTOCOL <em>TRANSPORTLAYERPROTOCOL</em>}' enum.
@@ -4072,7 +4451,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getTRANSPORTLAYERPROTOCOL()
    * @generated
    */
-  int TRANSPORTLAYERPROTOCOL = 46;
+  int TRANSPORTLAYERPROTOCOL = 47;
 
   /**
    * The meta object id for the '{@link org.xtext.example.easywall.easyWall.APPLICATIONLAYERPROTOCOL <em>APPLICATIONLAYERPROTOCOL</em>}' enum.
@@ -4082,7 +4461,7 @@ public interface EasyWallPackage extends EPackage
    * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getAPPLICATIONLAYERPROTOCOL()
    * @generated
    */
-  int APPLICATIONLAYERPROTOCOL = 47;
+  int APPLICATIONLAYERPROTOCOL = 48;
 
 
   /**
@@ -4277,6 +4656,17 @@ public interface EasyWallPackage extends EPackage
   EClass getEFField();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFField#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFField#getExpression()
+   * @see #getEFField()
+   * @generated
+   */
+  EReference getEFField_Expression();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration <em>EF Variable Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4285,6 +4675,39 @@ public interface EasyWallPackage extends EPackage
    * @generated
    */
   EClass getEFVariableDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getName()
+   * @see #getEFVariableDeclaration()
+   * @generated
+   */
+  EAttribute getEFVariableDeclaration_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getRuletype <em>Ruletype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ruletype</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getRuletype()
+   * @see #getEFVariableDeclaration()
+   * @generated
+   */
+  EReference getEFVariableDeclaration_Ruletype();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getNativetype <em>Nativetype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nativetype</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFVariableDeclaration#getNativetype()
+   * @see #getEFVariableDeclaration()
+   * @generated
+   */
+  EAttribute getEFVariableDeclaration_Nativetype();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFVariableDeclaration#getExpression <em>Expression</em>}'.
@@ -4544,6 +4967,28 @@ public interface EasyWallPackage extends EPackage
   EAttribute getEFExpression_Localhost();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarip <em>Varip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Varip</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getVarip()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Varip();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask <em>Varnetmask</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Varnetmask</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask()
+   * @see #getEFExpression()
+   * @generated
+   */
+  EAttribute getEFExpression_Varnetmask();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFExpression#getRawip <em>Rawip</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4566,26 +5011,15 @@ public interface EasyWallPackage extends EPackage
   EAttribute getEFExpression_Rawnetmask();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarip <em>Varip</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getSubnet <em>Subnet</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Varip</em>'.
-   * @see org.xtext.example.easywall.easyWall.EFExpression#getVarip()
+   * @return the meta object for the attribute '<em>Subnet</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFExpression#getSubnet()
    * @see #getEFExpression()
    * @generated
    */
-  EAttribute getEFExpression_Varip();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask <em>Varnetmask</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Varnetmask</em>'.
-   * @see org.xtext.example.easywall.easyWall.EFExpression#getVarnetmask()
-   * @see #getEFExpression()
-   * @generated
-   */
-  EAttribute getEFExpression_Varnetmask();
+  EAttribute getEFExpression_Subnet();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.example.easywall.easyWall.EFExpression#getNetport <em>Netport</em>}'.
@@ -5096,6 +5530,27 @@ public interface EasyWallPackage extends EPackage
   EReference getEFNetportConstant_Port();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFNetmaskConstant <em>EF Netmask Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EF Netmask Constant</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetmaskConstant
+   * @generated
+   */
+  EClass getEFNetmaskConstant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.easywall.easyWall.EFNetmaskConstant#getNetmask <em>Netmask</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Netmask</em>'.
+   * @see org.xtext.example.easywall.easyWall.EFNetmaskConstant#getNetmask()
+   * @see #getEFNetmaskConstant()
+   * @generated
+   */
+  EReference getEFNetmaskConstant_Netmask();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.easywall.easyWall.EFThis <em>EF This</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5495,6 +5950,14 @@ public interface EasyWallPackage extends EPackage
     EClass EF_FIELD = eINSTANCE.getEFField();
 
     /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EF_FIELD__EXPRESSION = eINSTANCE.getEFField_Expression();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFVariableDeclarationImpl <em>EF Variable Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5503,6 +5966,30 @@ public interface EasyWallPackage extends EPackage
      * @generated
      */
     EClass EF_VARIABLE_DECLARATION = eINSTANCE.getEFVariableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_VARIABLE_DECLARATION__NAME = eINSTANCE.getEFVariableDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Ruletype</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EF_VARIABLE_DECLARATION__RULETYPE = eINSTANCE.getEFVariableDeclaration_Ruletype();
+
+    /**
+     * The meta object literal for the '<em><b>Nativetype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_VARIABLE_DECLARATION__NATIVETYPE = eINSTANCE.getEFVariableDeclaration_Nativetype();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -5711,6 +6198,22 @@ public interface EasyWallPackage extends EPackage
     EAttribute EF_EXPRESSION__LOCALHOST = eINSTANCE.getEFExpression_Localhost();
 
     /**
+     * The meta object literal for the '<em><b>Varip</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__VARIP = eINSTANCE.getEFExpression_Varip();
+
+    /**
+     * The meta object literal for the '<em><b>Varnetmask</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EF_EXPRESSION__VARNETMASK = eINSTANCE.getEFExpression_Varnetmask();
+
+    /**
      * The meta object literal for the '<em><b>Rawip</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5727,20 +6230,12 @@ public interface EasyWallPackage extends EPackage
     EAttribute EF_EXPRESSION__RAWNETMASK = eINSTANCE.getEFExpression_Rawnetmask();
 
     /**
-     * The meta object literal for the '<em><b>Varip</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Subnet</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EF_EXPRESSION__VARIP = eINSTANCE.getEFExpression_Varip();
-
-    /**
-     * The meta object literal for the '<em><b>Varnetmask</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EF_EXPRESSION__VARNETMASK = eINSTANCE.getEFExpression_Varnetmask();
+    EAttribute EF_EXPRESSION__SUBNET = eINSTANCE.getEFExpression_Subnet();
 
     /**
      * The meta object literal for the '<em><b>Netport</b></em>' attribute feature.
@@ -6165,6 +6660,24 @@ public interface EasyWallPackage extends EPackage
      * @generated
      */
     EReference EF_NETPORT_CONSTANT__PORT = eINSTANCE.getEFNetportConstant_Port();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFNetmaskConstantImpl <em>EF Netmask Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.easywall.easyWall.impl.EFNetmaskConstantImpl
+     * @see org.xtext.example.easywall.easyWall.impl.EasyWallPackageImpl#getEFNetmaskConstant()
+     * @generated
+     */
+    EClass EF_NETMASK_CONSTANT = eINSTANCE.getEFNetmaskConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Netmask</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EF_NETMASK_CONSTANT__NETMASK = eINSTANCE.getEFNetmaskConstant_Netmask();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.easywall.easyWall.impl.EFThisImpl <em>EF This</em>}' class.

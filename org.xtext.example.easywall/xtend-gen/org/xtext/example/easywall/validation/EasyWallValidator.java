@@ -18,16 +18,14 @@ import org.xtext.example.easywall.easyWall.EFApplicationProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFExpression;
 import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFIPv4Constant;
+import org.xtext.example.easywall.easyWall.EFNetmaskConstant;
 import org.xtext.example.easywall.easyWall.EFNetworkConstant;
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType;
 import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant;
 import org.xtext.example.easywall.easyWall.EFRule;
-import org.xtext.example.easywall.easyWall.EFRuleClass;
 import org.xtext.example.easywall.easyWall.EFRulesTypes;
 import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant;
-import org.xtext.example.easywall.easyWall.EFVariableDeclaration;
 import org.xtext.example.easywall.easyWall.EFfirewall;
-import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
  * This class contains custom validation rules.
@@ -61,124 +59,109 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
 
   @Check
   public void checkMissingProtocol(final EFRule rule) {
+    System.out.println("Passato per checkMissingProtocol");
     final Function1<EFField, Boolean> _function = (EFField f) -> {
-      EFNetworkNativeType _nativetype = f.getNativetype();
-      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL));
+      return Boolean.valueOf((((f.getNativetype() != null) && Objects.equals(f.getNativetype(), EFNetworkNativeType.PROTOCOL)) && f.getName().equals("RULE_PROTOCOL")));
     };
-    final Function1<EFField, String> _function_1 = (EFField f) -> {
-      return f.getName();
-    };
-    final Function1<String, Boolean> _function_2 = (String n) -> {
-      return Boolean.valueOf(Objects.equals(n, "RULE_PROTOCOL"));
-    };
-    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2));
+    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function));
     if (_isEmpty) {
       String _name = rule.getRules().getName();
       String _plus = ("Rule " + _name);
       String _plus_1 = (_plus + " is missing protocol");
       this.error(_plus_1, 
-        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        rule.getRules(), 
+        null, 
         EasyWallValidator.MISSING_PROTOCOL);
     }
   }
 
   @Check
   public void checkTooManyProtocols(final EFRule rule) {
+    System.out.println("Passato per checkTooManyProtocols");
     final Function1<EFField, Boolean> _function = (EFField f) -> {
-      EFNetworkNativeType _nativetype = f.getNativetype();
-      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL));
+      return Boolean.valueOf((((f.getNativetype() != null) && Objects.equals(f.getNativetype(), EFNetworkNativeType.PROTOCOL)) && f.getName().equals("RULE_PROTOCOL")));
     };
-    final Function1<EFField, String> _function_1 = (EFField f) -> {
-      return f.getName();
-    };
-    final Function1<String, Boolean> _function_2 = (String n) -> {
-      return Boolean.valueOf(Objects.equals(n, "RULE_PROTOCOL"));
-    };
-    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2), Object.class)).length;
+    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), Object.class)).length;
     boolean _greaterThan = (_length > 1);
     if (_greaterThan) {
       String _name = rule.getRules().getName();
       String _plus = ("Rule " + _name);
       String _plus_1 = (_plus + " has to many rule protocols");
       this.error(_plus_1, 
-        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        rule.getRules(), 
+        null, 
         EasyWallValidator.MISSING_PROTOCOL);
     }
   }
 
   @Check
   public void checkMissingDirection(final EFRule rule) {
-    final Function1<EFField, Boolean> _function = (EFField f) -> {
-      EFNetworkNativeType _nativetype = f.getNativetype();
-      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION));
+    final Function1<EFField, Boolean> _function = (EFField it) -> {
+      return Boolean.valueOf((((it.getNativetype() != null) && Objects.equals(it.getNativetype(), EFNetworkNativeType.DIRECTION)) && it.getName().equals("RULE_DIRECTION")));
     };
-    final Function1<EFField, String> _function_1 = (EFField f) -> {
-      return f.getName();
-    };
-    final Function1<String, Boolean> _function_2 = (String n) -> {
-      return Boolean.valueOf(Objects.equals(n, "RULE_DIRECTION"));
-    };
-    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2));
+    boolean _isEmpty = IterableExtensions.isEmpty(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function));
     if (_isEmpty) {
       String _name = rule.getRules().getName();
       String _plus = ("Rule " + _name);
       String _plus_1 = (_plus + " is missing direction (in/out)");
       this.error(_plus_1, 
-        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        rule.getRules(), 
+        null, 
         EasyWallValidator.MISSING_DIRECTION);
     }
   }
 
   @Check
   public void checkTooManyDirections(final EFRule rule) {
+    System.out.println("Passato per checkTooManyDirections");
     final Function1<EFField, Boolean> _function = (EFField f) -> {
-      EFNetworkNativeType _nativetype = f.getNativetype();
-      return Boolean.valueOf(Objects.equals(_nativetype, EFNetworkNativeType.DIRECTION));
+      return Boolean.valueOf((((f.getNativetype() != null) && Objects.equals(f.getNativetype(), EFNetworkNativeType.DIRECTION)) && f.getName().equals("RULE_DIRECTION")));
     };
-    final Function1<EFField, String> _function_1 = (EFField f) -> {
-      return f.getName();
-    };
-    final Function1<String, Boolean> _function_2 = (String n) -> {
-      return Boolean.valueOf(Objects.equals(n, "RULE_DIRECTION"));
-    };
-    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<String>filter(IterableExtensions.<EFField, String>map(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), _function_1), _function_2), Object.class)).length;
+    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(rule), _function), Object.class)).length;
     boolean _greaterThan = (_length > 1);
     if (_greaterThan) {
       String _name = rule.getRules().getName();
       String _plus = ("Rule " + _name);
       String _plus_1 = (_plus + " has to many rule directions");
       this.error(_plus_1, 
-        EasyWallPackage.eINSTANCE.getEFRuleClass_Members(), 
+        rule.getRules(), 
+        null, 
         EasyWallValidator.MISSING_DIRECTION);
     }
   }
 
   @Check
-  public void checkProtocolMismatch(final EFVariableDeclaration decl) {
-    EFRuleClass layer = decl.getRuletype();
-    EFNetworkNativeType _nativetype = decl.getNativetype();
-    boolean _equals = Objects.equals(_nativetype, EFNetworkNativeType.PROTOCOL);
-    if (_equals) {
+  public void checkProtocolMismatch(final EFField decl) {
+    if ((((decl.getNativetype() != null) && Objects.equals(decl.getNativetype(), EFNetworkNativeType.PROTOCOL)) && (decl.getExpression() != null))) {
+      EFRule rule = EcoreUtil2.<EFRule>getContainerOfType(decl, EFRule.class);
+      if (((((rule == null) || (rule.getRules() == null)) || (rule.getRules().getType() == null)) || (decl.getExpression() == null))) {
+        return;
+      }
+      EFRulesTypes layer = rule.getRules().getType();
       EFExpression expr = decl.getExpression();
       if (((((expr instanceof EFNetworkProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.IPLEVEL))) || ((expr instanceof EFTransportProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.TRANSPLEVEL)))) || ((expr instanceof EFApplicationProtocolConstant) && (!Objects.equals(layer, EFRulesTypes.APPLEVEL))))) {
         String protocol = null;
         String protocolLayer = null;
         if ((expr instanceof EFNetworkProtocolConstant)) {
+          System.out.println("SONO NEL PUNTO GIUSTO");
           protocol = ((EFNetworkProtocolConstant) expr).getProtocol().toString();
           protocolLayer = "Network Layer";
         } else {
           if ((expr instanceof EFTransportProtocolConstant)) {
+            System.out.println("SONO NEL PUNTO SBAGLIATO1");
             protocol = ((EFTransportProtocolConstant) expr).getProtocol().toString();
             protocolLayer = "Transport Layer";
           } else {
             if ((expr instanceof EFApplicationProtocolConstant)) {
+              System.out.println("SONO NEL PUNTO SBAGLIATO2");
               protocol = ((EFApplicationProtocolConstant) expr).getProtocol().toString();
               protocolLayer = "Application Layer";
             }
           }
         }
         this.error(((((("Protocol " + protocol) + " does not match the layer defined for the rule.\nRule is at: ") + layer) + "\nProtocol defined is at: ") + protocolLayer), 
-          EasyWallPackage.eINSTANCE.getEFAssignment_Right(), 
+          rule.getRules(), 
+          null, 
           EasyWallValidator.PROTOCOL_RULELAYER_MISMATCH);
       }
     }
@@ -186,59 +169,115 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
 
   @Check
   public void checkIPSyntax(final EFIPv4Constant ip) {
+    EFExpression _ipv4 = ip.getIpv4();
+    boolean _tripleEquals = (_ipv4 == null);
+    if (_tripleEquals) {
+      return;
+    }
     if ((StringExtensions.isNullOrEmpty(ip.getIpv4().getAny()) && StringExtensions.isNullOrEmpty(ip.getIpv4().getLocalhost()))) {
-      this.utilitaryCheckIP(ip.getIpv4().getFirst(), ip.getIpv4().getSecond(), ip.getIpv4().getThird(), ip.getIpv4().getFourth());
+      this.utilitaryCheckIP(ip, ip.getIpv4().getFirst(), ip.getIpv4().getSecond(), ip.getIpv4().getThird(), ip.getIpv4().getFourth());
     }
   }
 
   @Check
-  public Object checkNetworkSyntax(final EFNetworkConstant net) {
-    Object _xifexpression = null;
-    if (((!StringExtensions.isNullOrEmpty(net.getAny())) || (!StringExtensions.isNullOrEmpty(net.getLocalhost())))) {
-      this.error("IPv4 constant must not be either \"any\" or \"localhost\" if it is used in a network type variable", 
-        EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
+  public void checkNetmaskSyntax(final EFNetmaskConstant netmask) {
+    this.utilitaryCheckNetmask(netmask);
+  }
+
+  @Check
+  public void checkNetworkSyntax(final EFNetworkConstant net) {
+    if (((!StringExtensions.isNullOrEmpty(net.getNetwork().getAny())) || (!StringExtensions.isNullOrEmpty(net.getNetwork().getLocalhost())))) {
+      this.error("IPv4 constant must not be either \"any\" or \"localhost\" if it is used in a network type variable", net, 
+        null, 
         EasyWallValidator.NETWORK_SYNTAX);
     } else {
-      Object _xifexpression_1 = null;
-      if (((net.getRawip() != null) && (net.getVarnetmask() != null))) {
-        this.checkEFRAWIPVARNETSYNTAX(net.getRawip().getFirst(), net.getRawip().getSecond(), net.getRawip().getThird(), net.getRawip().getFourth(), net.getVarnetmask(), net);
+      if (((net.getNetwork().getRawip() != null) && (net.getNetwork().getVarnetmask() != null))) {
+        this.checkEFRAWIPVARNETSYNTAX(net.getNetwork().getRawip().getFirst(), net.getNetwork().getRawip().getSecond(), net.getNetwork().getRawip().getThird(), net.getNetwork().getRawip().getFourth(), net.getNetwork().getVarnetmask(), net);
       } else {
-        Object _xifexpression_2 = null;
-        if (((net.getVarip() != null) && (net.getVarnetmask() != null))) {
-          _xifexpression_2 = this.checkEFVARNETSYNTAX(net.getVarip(), net.getVarnetmask());
+        if (((net.getNetwork().getVarip() != null) && (net.getNetwork().getVarnetmask() != null))) {
+          this.checkEFVARNETSYNTAX(net.getNetwork().getVarip(), net.getNetwork().getVarnetmask(), net);
         } else {
-          Object _xifexpression_3 = null;
-          String _varip = net.getVarip();
+          String _varip = net.getNetwork().getVarip();
           boolean _tripleNotEquals = (_varip != null);
           if (_tripleNotEquals) {
-            _xifexpression_3 = this.checkEFVARIPRAWNETSYNTAX(net.getVarip(), net.getRawnetmask());
+            this.checkEFVARIPRAWNETSYNTAX(net.getNetwork().getVarip(), net.getNetwork().getRawnetmask(), net);
           } else {
-            this.checkEFRAWNETSYNTAX(net.getRawip().getFirst(), net.getRawip().getSecond(), net.getRawip().getThird(), net.getRawip().getFourth(), net.getRawnetmask());
+            this.checkEFRAWNETSYNTAX(net.getNetwork().getRawip().getFirst(), net.getNetwork().getRawip().getSecond(), net.getNetwork().getRawip().getThird(), net.getNetwork().getRawip().getFourth(), net.getNetwork().getRawnetmask(), net);
           }
-          _xifexpression_2 = _xifexpression_3;
         }
-        _xifexpression_1 = _xifexpression_2;
       }
-      _xifexpression = _xifexpression_1;
-    }
-    return _xifexpression;
-  }
-
-  private void checkEFRAWNETSYNTAX(final int first, final int second, final int third, final int fourth, final int netmask) {
-    this.utilitaryCheckIP(first, second, third, fourth);
-    if (((netmask < 0) || (netmask > 32))) {
-      this.error("Netmask must be in the following interval: [0,32]", 
-        EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
-        EasyWallValidator.NETWORK_SYNTAX);
     }
   }
 
-  private Object checkEFVARNETSYNTAX(final String ipvarName, final String netmaskVarName) {
-    return null;
+  private void checkEFRAWNETSYNTAX(final int first, final int second, final int third, final int fourth, final int netmask, final EFNetworkConstant net) {
+    this.utilitaryCheckIP(net, first, second, third, fourth);
+    this.utilitaryCheckNetmask(net, netmask);
+  }
+
+  private void checkEFVARNETSYNTAX(final String ipvarName, final String netmaskVarName, final EFNetworkConstant net) {
+    EObject _xifexpression = null;
+    EFfirewall _containerOfType = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    boolean _tripleEquals = (_containerOfType == null);
+    if (_tripleEquals) {
+      _xifexpression = EcoreUtil2.<EFRule>getContainerOfType(net, EFRule.class);
+    } else {
+      _xifexpression = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    }
+    EObject container = _xifexpression;
+    System.out.println(container.getClass());
+    if ((container instanceof EFRule)) {
+      if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+      }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+      })), ((Function1<EFField, Boolean>) (EFField f) -> {
+        return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.NETMASK))));
+      })))) {
+        this.throwNetmaskVarNotExists(net);
+      }
+      if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, ipvarName));
+      }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, ipvarName));
+      })), ((Function1<EFField, Boolean>) (EFField f) -> {
+        return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.IPV4))));
+      })))) {
+        this.throwNetmaskVarNotExists(net);
+      }
+    } else {
+      if ((container instanceof EFfirewall)) {
+        if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+        }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+        })), ((Function1<EFField, Boolean>) (EFField f) -> {
+          return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.NETMASK))));
+        })))) {
+          this.throwNetmaskVarNotExists(net);
+        }
+        if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, ipvarName));
+        }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, ipvarName));
+        })), ((Function1<EFField, Boolean>) (EFField f) -> {
+          return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.IPV4))));
+        })))) {
+          this.throwNetmaskVarNotExists(net);
+        }
+      }
+    }
   }
 
   private void checkEFRAWIPVARNETSYNTAX(final int first, final int second, final int third, final int fourth, final String netmaskVarName, final EFNetworkConstant net) {
-    this.utilitaryCheckIP(first, second, third, fourth);
+    this.utilitaryCheckIP(net, first, second, third, fourth);
     EObject _xifexpression = null;
     EFfirewall _containerOfType = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
     boolean _tripleEquals = (_containerOfType == null);
@@ -249,29 +288,109 @@ public class EasyWallValidator extends AbstractEasyWallValidator {
     }
     EObject container = _xifexpression;
     if ((container instanceof EFRule)) {
-      final Function1<EFField, Boolean> _function = (EFField it) -> {
+      if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
         String _name = it.getName();
         return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
-      };
-      boolean _exists = IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), _function);
-      boolean _not = (!_exists);
-      if (_not) {
-        this.error("Netmask variable does not exist", 
-          EasyWallPackage.eINSTANCE.getEFNetworkConstant_Network(), 
-          EasyWallValidator.NETWORK_SYNTAX);
+      }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+      })), ((Function1<EFField, Boolean>) (EFField f) -> {
+        return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.NETMASK))));
+      })))) {
+        this.throwNetmaskVarNotExists(net);
+      }
+    } else {
+      if ((container instanceof EFfirewall)) {
+        if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+        }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, netmaskVarName));
+        })), ((Function1<EFField, Boolean>) (EFField f) -> {
+          return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.NETMASK))));
+        })))) {
+          this.throwNetmaskVarNotExists(net);
+        }
       }
     }
   }
 
-  private Object checkEFVARIPRAWNETSYNTAX(final String ipvarName, final int subnet) {
-    return null;
+  private void checkEFVARIPRAWNETSYNTAX(final String ipvarName, final int subnet, final EFNetworkConstant net) {
+    this.utilitaryCheckNetmask(net, subnet);
+    EObject _xifexpression = null;
+    EFfirewall _containerOfType = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    boolean _tripleEquals = (_containerOfType == null);
+    if (_tripleEquals) {
+      _xifexpression = EcoreUtil2.<EFRule>getContainerOfType(net, EFRule.class);
+    } else {
+      _xifexpression = EcoreUtil2.<EFfirewall>getContainerOfType(net, EFfirewall.class);
+    }
+    EObject container = _xifexpression;
+    if ((container instanceof EFRule)) {
+      if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, ipvarName));
+      }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.ruleFields(((EFRule)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equals(_name, ipvarName));
+      })), ((Function1<EFField, Boolean>) (EFField f) -> {
+        return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.IPV4))));
+      })))) {
+        this.throwNetmaskVarNotExists(net);
+      }
+    } else {
+      if ((container instanceof EFfirewall)) {
+        if (((!IterableExtensions.<EFField>exists(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, ipvarName));
+        }))) || IterableExtensions.<EFField>exists(IterableExtensions.<EFField>filter(this._easyWallUtils.firewallFields(((EFfirewall)container)), ((Function1<EFField, Boolean>) (EFField it) -> {
+          String _name = it.getName();
+          return Boolean.valueOf(Objects.equals(_name, ipvarName));
+        })), ((Function1<EFField, Boolean>) (EFField f) -> {
+          return Boolean.valueOf(((f.getNativetype() != null) && (!f.getNativetype().equals(EFNetworkNativeType.IPV4))));
+        })))) {
+          this.throwNetmaskVarNotExists(net);
+        }
+      }
+    }
   }
 
-  private void utilitaryCheckIP(final int first, final int second, final int third, final int fourth) {
-    if (((((first > 255) || (second > 255)) || (third > 255)) || (fourth > 255))) {
-      this.error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255", 
-        EasyWallPackage.eINSTANCE.getEFIPv4Constant_Ipv4(), 
+  private void utilitaryCheckIP(final EFIPv4Constant ip, final int first, final int second, final int third, final int fourth) {
+    if (((((((((first > 255) || (second > 255)) || (third > 255)) || (fourth > 255)) || (first < 0)) || (second < 0)) || (third < 0)) || (fourth < 0))) {
+      this.error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255", ip, 
+        null, 
         EasyWallValidator.IP_SYNTAX);
     }
+  }
+
+  private void utilitaryCheckIP(final EFNetworkConstant ip, final int first, final int second, final int third, final int fourth) {
+    if (((((((((first > 255) || (second > 255)) || (third > 255)) || (fourth > 255)) || (first < 0)) || (second < 0)) || (third < 0)) || (fourth < 0))) {
+      this.error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255", ip, 
+        null, 
+        EasyWallValidator.IP_SYNTAX);
+    }
+  }
+
+  private void utilitaryCheckNetmask(final EFNetworkConstant net, final int subnet) {
+    if (((subnet < 0) || (subnet > 32))) {
+      this.error("Netmask must be in the following interval: [0,32]", net, 
+        null, 
+        EasyWallValidator.NETWORK_SYNTAX);
+    }
+  }
+
+  private void utilitaryCheckNetmask(final EFNetmaskConstant net) {
+    if (((net.getSubnet() < 0) || (net.getSubnet() > 32))) {
+      this.error("Netmask must be in the following interval: [0,32]", net, 
+        null, 
+        EasyWallValidator.NETWORK_SYNTAX);
+    }
+  }
+
+  private void throwNetmaskVarNotExists(final EFNetworkConstant net) {
+    this.error("Netmask variable does not exist", net, 
+      null, 
+      EasyWallValidator.NETWORK_SYNTAX);
   }
 }

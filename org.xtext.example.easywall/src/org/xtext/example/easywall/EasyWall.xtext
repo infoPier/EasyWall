@@ -34,13 +34,13 @@ EFMember:
 	EFField | EFMethod
 ;
 EFField:
-	('set' | 'var') EFTypedDeclaration ';' | EFVariableDeclaration//set for constants and var for variables
+	('set' | 'var') EFTypedDeclaration ('=' expression=EFExpression)? ';' //set for constants and var for variables
 ;
 fragment EFTypedDeclaration *:
 	name=ID ':' (ruletype=[EFRuleClass|QualifiedName] | nativetype=EFNetworkNativeType)
 ;
 enum EFNetworkNativeType:
-	NETWORK='network' | IPv4='netip' | IPv6='netipv6' | PORT='netport' | PROTOCOL='protocol' | DIRECTION='direction'
+	NETWORK='network' | IPv4='netip' | IPv6='netipv6' | PORT='netport' | PROTOCOL='protocol' | DIRECTION='direction' | NETMASK='netmask'
 ;
 enum EFDirectionNativeType:
 	IN='in' | OUT='out'
@@ -57,7 +57,7 @@ EFBlock:
 	{EFBlock} '{' statements+=EFStatement* '}'
 ;
 EFStatement:
-	EFVariableDeclaration |
+	EFField |
 	EFReturn |
 	EFExpression ';' |
 	EFIfStatement
@@ -99,7 +99,7 @@ EFPrimaryExpression returns EFExpression:
     {EFStringConstant} value=STRING
   | {EFIntConstant} value=INT
   | {EFBoolConstant} value=('true'|'false')
-  | {EFPrimitiveType} type=EFNetworkNativeType
+  | {EFPrimitiveType} type=EFNetworkNativeType //FORSE INUTILE TOGLILO
   | {EFDirectionConstant} direction=EFDirectionNativeType
   | {EFNetworkProtocolConstant} protocol=NETWORKLAYERPROTOCOL
   | {EFTransportProtocolConstant} protocol=TRANSPORTLAYERPROTOCOL
@@ -108,6 +108,7 @@ EFPrimaryExpression returns EFExpression:
   | {EFIPv4Constant} ipv4=EFIPv4SYNTAX
   | {EFNetworkConstant} network=EFNetworkSYNTAX
   | {EFNetportConstant} port=EFNetportSYNTAX
+  | {EFNetmaskConstant} netmask=EFNetmaskSYNTAX
   | {EFThis} 'this'
   | {EFSuper} 'super'
   | {EFNew} 'new' type=[EFRuleClass|QualifiedName] '(' ')'
@@ -182,9 +183,12 @@ terminal EFIPV6SYNTAX:
 	 ('0'..'9'|'a'..'f'|'A'..'F')+ (':' ('0'..'9'|'a'..'f'|'A'..'F')+)+
 	//{EFIPv6}(D0|D1|D2|D3|D4|D5|D6|D7|D8|D9|A|B|C|D|E|F|':')+
 ;
-EFNetworkSYNTAX returns EFExpression: EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX;
-EFRAWNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/'rawnetmask=INT;
-EFVARNETSYNTAX returns EFExpression: varip=ID '/' varnetmask=ID;
-EFRAWIPVARNETSYNTAX returns EFExpression: rawip=EFIPv4SYNTAX '/' varnetmask=ID;
-EFVARIPRAWNETSYNTAX returns EFExpression: varip=ID '/' rawnetmask=INT;
+/*EFNetworkSYNTAX returns EFExpression: EFRAWNETSYNTAX | EFVARNETSYNTAX | EFRAWIPVARNETSYNTAX | EFVARIPRAWNETSYNTAX;*/
+EFNetworkSYNTAX returns EFExpression: 
+    varip=ID '/' varnetmask=ID
+  | rawip=EFIPv4SYNTAX '/' rawnetmask=INT
+  | rawip=EFIPv4SYNTAX '/' varnetmask=ID
+  | varip=ID '/' rawnetmask=INT
+;
+EFNetmaskSYNTAX returns EFExpression: '/' subnet=INT;
 EFNetportSYNTAX returns EFExpression: ':'netport=INT;

@@ -5,6 +5,7 @@ import org.xtext.example.easywall.easyWall.EFField
 import org.xtext.example.easywall.easyWall.EFMethod
 import org.xtext.example.easywall.easyWall.EFBlock
 import org.xtext.example.easywall.easyWall.EFReturn
+import org.xtext.example.easywall.easyWall.EFfirewall
 
 class EasyWallUtils {
 	/*
@@ -25,5 +26,16 @@ class EasyWallUtils {
 	
 	def returnStatement(EFBlock b) {
 		b.statements.filter(EFReturn).head
+	}
+	
+	/*
+	 * FIREWALL
+	 */
+	def firewallFields(EFfirewall f) {
+		f.firewall.members.filter(EFField)
+	}
+
+	def firewallMethods(EFfirewall f) {
+		f.firewall.members.filter(EFMethod)
 	}
 }

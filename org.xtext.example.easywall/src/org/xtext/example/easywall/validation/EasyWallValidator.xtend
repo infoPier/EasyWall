@@ -7,9 +7,7 @@ import org.xtext.example.easywall.easyWall.EFRule
 import org.eclipse.xtext.validation.Check
 import com.google.inject.Inject
 import org.xtext.example.easywall.EasyWallUtils
-import org.xtext.example.easywall.easyWall.EasyWallPackage
 import org.xtext.example.easywall.easyWall.EFNetworkNativeType
-import org.xtext.example.easywall.easyWall.EFVariableDeclaration
 import org.xtext.example.easywall.easyWall.EFNetworkProtocolConstant
 import org.xtext.example.easywall.easyWall.EFTransportProtocolConstant
 import org.xtext.example.easywall.easyWall.EFRulesTypes
@@ -18,6 +16,8 @@ import org.xtext.example.easywall.easyWall.EFIPv4Constant
 import org.xtext.example.easywall.easyWall.EFNetworkConstant
 import org.eclipse.xtext.EcoreUtil2
 import org.xtext.example.easywall.easyWall.EFfirewall
+import org.xtext.example.easywall.easyWall.EFNetmaskConstant
+import org.xtext.example.easywall.easyWall.EFField
 
 /**
  * This class contains custom validation rules. 
@@ -40,154 +40,244 @@ class EasyWallValidator extends AbstractEasyWallValidator {
 	@Inject extension EasyWallUtils
 	
 	@Check
-	def checkMissingProtocol(EFRule rule){
+	def void checkMissingProtocol(EFRule rule){
+		System.out.println("Passato per checkMissingProtocol")
 		if(rule.ruleFields
-			.filter[f | f.nativetype == EFNetworkNativeType.PROTOCOL]
-			.map[f | f.name]
-			.filter[n | n == "RULE_PROTOCOL"]
+			.filter[f | f.nativetype !== null &&  f.nativetype == EFNetworkNativeType.PROTOCOL && f.name.equals("RULE_PROTOCOL")]
 			.isEmpty) { 
 				error("Rule " + rule.rules.name+ " is missing protocol", 
-					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					rule.rules,
+					null, 
 					MISSING_PROTOCOL)
 			}
 	}
 	
 	@Check
-	def checkTooManyProtocols(EFRule rule){
+	def void checkTooManyProtocols(EFRule rule){
+		System.out.println("Passato per checkTooManyProtocols")
 		if(rule.ruleFields
-			.filter[f | f.nativetype == EFNetworkNativeType.PROTOCOL]
-			.map[f | f.name]
-			.filter[n | n == "RULE_PROTOCOL"]
+			.filter[f | f.nativetype !== null && f.nativetype == EFNetworkNativeType.PROTOCOL && f.name.equals("RULE_PROTOCOL")]
 			.length > 1) { 
 				error("Rule " + rule.rules.name+ " has to many rule protocols", 
-					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					rule.rules,
+					null, 
 					MISSING_PROTOCOL)
 			}
 	}
 	
 	@Check
-	def checkMissingDirection(EFRule rule){
+	def void checkMissingDirection(EFRule rule){
+		
 		if(rule.ruleFields
-			.filter[f | f.nativetype == EFNetworkNativeType.DIRECTION]
-			.map[f | f.name]
-			.filter[n | n == "RULE_DIRECTION"]
+			.filter[nativetype !== null &&  nativetype == EFNetworkNativeType.DIRECTION && name.equals("RULE_DIRECTION")]
 			.isEmpty) { 
 				error("Rule " + rule.rules.name+ " is missing direction (in/out)", 
-					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					rule.rules, 
+					null,
 					MISSING_DIRECTION)
 			}
 	}	
 	
 	@Check
-	def checkTooManyDirections(EFRule rule){
+	def void checkTooManyDirections(EFRule rule){
+		System.out.println("Passato per checkTooManyDirections");
 		if(rule.ruleFields
-			.filter[f | f.nativetype == EFNetworkNativeType.DIRECTION]
-			.map[f | f.name]
-			.filter[n | n == "RULE_DIRECTION"]
+			.filter[f | f.nativetype !== null && f.nativetype == EFNetworkNativeType.DIRECTION && f.name.equals("RULE_DIRECTION")]
 			.length > 1) { 
 				error("Rule " + rule.rules.name+ " has to many rule directions", 
-					EasyWallPackage.eINSTANCE.EFRuleClass_Members, 
+					rule.rules,
+					null, 
 					MISSING_DIRECTION)
 			}
 	}	
 	
 	@Check
-	def checkProtocolMismatch(EFVariableDeclaration decl){
-		var layer = decl.ruletype
+	def void checkProtocolMismatch(EFField decl){
 		
-		if(decl.nativetype == EFNetworkNativeType.PROTOCOL){
+		if(decl.nativetype !== null && decl.nativetype == EFNetworkNativeType.PROTOCOL && decl.expression !== null){
+			var rule = EcoreUtil2.getContainerOfType(decl, EFRule)
+			if(rule === null || rule.rules === null || rule.rules.type === null || decl.expression === null)
+				return;
+			var layer = rule.rules.type
 			var expr = decl.expression
-			
 			if((expr instanceof EFNetworkProtocolConstant && layer != EFRulesTypes.IPLEVEL) ||
 				(expr instanceof EFTransportProtocolConstant && layer != EFRulesTypes.TRANSPLEVEL) ||
 				(expr instanceof EFApplicationProtocolConstant && layer != EFRulesTypes.APPLEVEL)){
 					var String protocol
 					var String protocolLayer
 					if(expr instanceof EFNetworkProtocolConstant){
+						System.out.println("SONO NEL PUNTO GIUSTO")
 						protocol = (expr as EFNetworkProtocolConstant).protocol.toString
 						protocolLayer = "Network Layer"
 					} else if(expr instanceof EFTransportProtocolConstant){
+						System.out.println("SONO NEL PUNTO SBAGLIATO1")
 						protocol = (expr as EFTransportProtocolConstant).protocol.toString
 						protocolLayer = "Transport Layer"
 					} else if(expr instanceof EFApplicationProtocolConstant){
+						System.out.println("SONO NEL PUNTO SBAGLIATO2")
 						protocol = (expr as EFApplicationProtocolConstant).protocol.toString
 						protocolLayer = "Application Layer"
 					}
 					error("Protocol " + protocol + " does not match the layer defined for the rule.\nRule is at: " + layer +"\nProtocol defined is at: " + protocolLayer,
-						EasyWallPackage.eINSTANCE.EFAssignment_Right,
+						rule.rules,
+						null,
 						PROTOCOL_RULELAYER_MISMATCH)
 			}
 		}
 	}
 	
 	@Check
-	def checkIPSyntax(EFIPv4Constant ip){
+	def void checkIPSyntax(EFIPv4Constant ip){
+		if(ip.ipv4 === null)
+			return;
 		if(ip.ipv4.any.isNullOrEmpty && ip.ipv4.localhost.isNullOrEmpty){
-			utilitaryCheckIP(ip.ipv4.first, ip.ipv4.second, ip.ipv4.third, ip.ipv4.fourth)
+			ip.utilitaryCheckIP(ip.ipv4.first, ip.ipv4.second, ip.ipv4.third, ip.ipv4.fourth)
 		}
 	}
 	
 	@Check
-	def checkNetworkSyntax(EFNetworkConstant net){
-		if(!net.any.isNullOrEmpty() || !net.localhost.isNullOrEmpty){
+	def void checkNetmaskSyntax(EFNetmaskConstant netmask){
+		netmask.utilitaryCheckNetmask
+	}
+	
+	@Check
+	def void checkNetworkSyntax(EFNetworkConstant net){
+		if(!net.network.any.isNullOrEmpty() || !net.network.localhost.isNullOrEmpty){
 			error("IPv4 constant must not be either \"any\" or \"localhost\" if it is used in a network type variable",
-				EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
+				net,
+				null,
 				NETWORK_SYNTAX
 			)
 		}	
 		else {	
-			
-			if(net.rawip !== null && net.varnetmask !== null){
-				checkEFRAWIPVARNETSYNTAX(net.rawip.first, net.rawip.second, net.rawip.third, net.rawip.fourth, net.varnetmask, net)
+			if(net.network.rawip !== null && net.network.varnetmask !== null){
+				checkEFRAWIPVARNETSYNTAX(net.network.rawip.first, net.network.rawip.second, net.network.rawip.third, net.network.rawip.fourth, net.network.varnetmask, net)
 			}
-			else if(net.varip !== null && net.varnetmask !== null){
-				checkEFVARNETSYNTAX(net.varip, net.varnetmask)
+			else if(net.network.varip !== null && net.network.varnetmask !== null){
+				checkEFVARNETSYNTAX(net.network.varip, net.network.varnetmask, net)
 			}
 			else{
-				if(net.varip !== null){
-					checkEFVARIPRAWNETSYNTAX(net.varip, net.rawnetmask)
+				if(net.network.varip !== null){
+					checkEFVARIPRAWNETSYNTAX(net.network.varip, net.network.rawnetmask, net)
 				}
 				else{
-					checkEFRAWNETSYNTAX(net.rawip.first, net.rawip.second, net.rawip.third, net.rawip.fourth, net.rawnetmask)
+					checkEFRAWNETSYNTAX(net.network.rawip.first, net.network.rawip.second, net.network.rawip.third, net.network.rawip.fourth, net.network.rawnetmask, net)
 				}
 			}
 		}
 	}	
-	private def checkEFRAWNETSYNTAX(int first, int second, int third, int fourth, int netmask){
-		utilitaryCheckIP(first, second, third, fourth)
-		if(netmask < 0 || netmask > 32){
-			error("Netmask must be in the following interval: [0,32]",
-				EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
-				NETWORK_SYNTAX
-			)
-		}
+	
+	
+	private def void checkEFRAWNETSYNTAX(int first, int second, int third, int fourth, int netmask, EFNetworkConstant net){
+		net.utilitaryCheckIP(first, second, third, fourth)
+		net.utilitaryCheckNetmask(netmask)
 	}
-	private def checkEFVARNETSYNTAX(String ipvarName, String netmaskVarName){} //TODO
-	private def checkEFRAWIPVARNETSYNTAX(int first, int second, int third, int fourth,String netmaskVarName, EFNetworkConstant net){
-		utilitaryCheckIP(first, second, third, fourth)
+	private def void checkEFVARNETSYNTAX(String ipvarName, String netmaskVarName, EFNetworkConstant net){
+		
+		var container = (EcoreUtil2.getContainerOfType(net, EFfirewall) === null) ? 
+						EcoreUtil2.getContainerOfType(net, EFRule) 
+						: EcoreUtil2.getContainerOfType(net, EFfirewall);
+		System.out.println(container.class)
+		if(container instanceof EFRule){
+			if(!container.ruleFields.exists[name == netmaskVarName] || container.ruleFields.filter[name == netmaskVarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.NETMASK)]){
+				net.throwNetmaskVarNotExists
+			}
+			
+			if(!container.ruleFields.exists[name == ipvarName] || container.ruleFields.filter[name == ipvarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.IPV4)]){
+				net.throwNetmaskVarNotExists
+			}
+		}
+		else if(container instanceof EFfirewall){
+			if(!container.firewallFields.exists[name == netmaskVarName] || container.firewallFields.filter[name == netmaskVarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.NETMASK)]){
+				net.throwNetmaskVarNotExists
+			}
+			if(!container.firewallFields.exists[name == ipvarName] || container.firewallFields.filter[name == ipvarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.IPV4)]){
+				net.throwNetmaskVarNotExists
+			}
+		}
+			
+	} 
+	private def void checkEFRAWIPVARNETSYNTAX(int first, int second, int third, int fourth, String netmaskVarName, EFNetworkConstant net){
+		net.utilitaryCheckIP(first, second, third, fourth)
 		var container = (EcoreUtil2.getContainerOfType(net, EFfirewall) === null) ? 
 						EcoreUtil2.getContainerOfType(net, EFRule) 
 						: EcoreUtil2.getContainerOfType(net, EFfirewall);
 		if(container instanceof EFRule){
-			if(!container.ruleFields.exists[name == netmaskVarName]){
-				error("Netmask variable does not exist",
-					EasyWallPackage.eINSTANCE.EFNetworkConstant_Network,
-					NETWORK_SYNTAX
-				)
+			if(!container.ruleFields.exists[name == netmaskVarName] || container.ruleFields.filter[name == netmaskVarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.NETMASK)]){
+				net.throwNetmaskVarNotExists
 			}
 		}
-		//TODO: devo decidere se farlo anche per EFfirewall o dare direttamente errore
+		else if(container instanceof EFfirewall){
+			if(!container.firewallFields.exists[name == netmaskVarName] || container.firewallFields.filter[name == netmaskVarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.NETMASK)]){
+				net.throwNetmaskVarNotExists
+			}
+		}
 	}
-	private def checkEFVARIPRAWNETSYNTAX(String ipvarName, int subnet){ //TODO
+	private def void checkEFVARIPRAWNETSYNTAX(String ipvarName, int subnet, EFNetworkConstant net){
+		net.utilitaryCheckNetmask(subnet)
 		
+		var container = (EcoreUtil2.getContainerOfType(net, EFfirewall) === null) ? 
+						EcoreUtil2.getContainerOfType(net, EFRule) 
+						: EcoreUtil2.getContainerOfType(net, EFfirewall);
+		if(container instanceof EFRule){			
+			if(!container.ruleFields.exists[name == ipvarName] || container.ruleFields.filter[name == ipvarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.IPV4)]){
+				net.throwNetmaskVarNotExists
+			}
+		}
+		else if(container instanceof EFfirewall){
+			if(!container.firewallFields.exists[name == ipvarName] || container.firewallFields.filter[name == ipvarName].exists[f | f.nativetype !== null && !f.nativetype.equals(EFNetworkNativeType.IPV4)]){
+				net.throwNetmaskVarNotExists
+			}
+		}
 	}
 	
-	private def utilitaryCheckIP(int first, int second, int third, int fourth){
-		if(first > 255 || second > 255 || third > 255 || fourth > 255){
+	private def void utilitaryCheckIP(EFIPv4Constant ip, int first, int second, int third, int fourth){
+		if(first > 255 || second > 255 || third > 255 || fourth > 255 || first < 0 || second < 0 || third < 0 || fourth < 0){
 			error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255",
-				EasyWallPackage.eINSTANCE.EFIPv4Constant_Ipv4,
+				ip,
+				null,
 				IP_SYNTAX
 			)
 		}
 	}
+	
+	private def void utilitaryCheckIP(EFNetworkConstant ip, int first, int second, int third, int fourth){
+		if(first > 255 || second > 255 || third > 255 || fourth > 255 || first < 0 || second < 0 || third < 0 || fourth < 0){
+			error("IPv4 constant must be: INT.INT.INT.INT where each INT must be greater than 0 and lesser than at most 255",
+				ip,
+				null,
+				IP_SYNTAX
+			)
+		}
+	}
+	
+	private def void utilitaryCheckNetmask(EFNetworkConstant net, int subnet){
+		if(subnet < 0 || subnet > 32){
+			error("Netmask must be in the following interval: [0,32]",
+				net,
+				null,
+				NETWORK_SYNTAX
+			)
+		}
+	}
+	
+	private def void utilitaryCheckNetmask(EFNetmaskConstant net){
+		if(net.subnet < 0 || net.subnet > 32){
+			error("Netmask must be in the following interval: [0,32]",
+				net,
+				null,
+				NETWORK_SYNTAX
+			)
+		}
+	}
+	
+	
+	private def void throwNetmaskVarNotExists(EFNetworkConstant net){
+		error("Netmask variable does not exist",
+					net,
+					null,
+					NETWORK_SYNTAX
+				)
+	}
+	
 }

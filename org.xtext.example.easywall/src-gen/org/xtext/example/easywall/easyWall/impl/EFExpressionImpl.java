@@ -28,10 +28,11 @@ import org.xtext.example.easywall.easyWall.EasyWallPackage;
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getFourth <em>Fourth</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getAny <em>Any</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getLocalhost <em>Localhost</em>}</li>
- *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getRawip <em>Rawip</em>}</li>
- *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getRawnetmask <em>Rawnetmask</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getVarip <em>Varip</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getVarnetmask <em>Varnetmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getRawip <em>Rawip</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getRawnetmask <em>Rawnetmask</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getSubnet <em>Subnet</em>}</li>
  *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFExpressionImpl#getNetport <em>Netport</em>}</li>
  * </ul>
  *
@@ -160,36 +161,6 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
   protected String localhost = LOCALHOST_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRawip() <em>Rawip</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRawip()
-   * @generated
-   * @ordered
-   */
-  protected EFExpression rawip;
-
-  /**
-   * The default value of the '{@link #getRawnetmask() <em>Rawnetmask</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRawnetmask()
-   * @generated
-   * @ordered
-   */
-  protected static final int RAWNETMASK_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getRawnetmask() <em>Rawnetmask</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRawnetmask()
-   * @generated
-   * @ordered
-   */
-  protected int rawnetmask = RAWNETMASK_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getVarip() <em>Varip</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -228,6 +199,56 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
    * @ordered
    */
   protected String varnetmask = VARNETMASK_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRawip() <em>Rawip</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRawip()
+   * @generated
+   * @ordered
+   */
+  protected EFExpression rawip;
+
+  /**
+   * The default value of the '{@link #getRawnetmask() <em>Rawnetmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRawnetmask()
+   * @generated
+   * @ordered
+   */
+  protected static final int RAWNETMASK_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getRawnetmask() <em>Rawnetmask</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRawnetmask()
+   * @generated
+   * @ordered
+   */
+  protected int rawnetmask = RAWNETMASK_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSubnet() <em>Subnet</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubnet()
+   * @generated
+   * @ordered
+   */
+  protected static final int SUBNET_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getSubnet() <em>Subnet</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSubnet()
+   * @generated
+   * @ordered
+   */
+  protected int subnet = SUBNET_EDEFAULT;
 
   /**
    * The default value of the '{@link #getNetport() <em>Netport</em>}' attribute.
@@ -426,6 +447,56 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
    * @generated
    */
   @Override
+  public String getVarip()
+  {
+    return varip;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVarip(String newVarip)
+  {
+    String oldVarip = varip;
+    varip = newVarip;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__VARIP, oldVarip, varip));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getVarnetmask()
+  {
+    return varnetmask;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVarnetmask(String newVarnetmask)
+  {
+    String oldVarnetmask = varnetmask;
+    varnetmask = newVarnetmask;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__VARNETMASK, oldVarnetmask, varnetmask));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EFExpression getRawip()
   {
     return rawip;
@@ -501,9 +572,9 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
    * @generated
    */
   @Override
-  public String getVarip()
+  public int getSubnet()
   {
-    return varip;
+    return subnet;
   }
 
   /**
@@ -512,37 +583,12 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
    * @generated
    */
   @Override
-  public void setVarip(String newVarip)
+  public void setSubnet(int newSubnet)
   {
-    String oldVarip = varip;
-    varip = newVarip;
+    int oldSubnet = subnet;
+    subnet = newSubnet;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__VARIP, oldVarip, varip));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getVarnetmask()
-  {
-    return varnetmask;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVarnetmask(String newVarnetmask)
-  {
-    String oldVarnetmask = varnetmask;
-    varnetmask = newVarnetmask;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__VARNETMASK, oldVarnetmask, varnetmask));
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_EXPRESSION__SUBNET, oldSubnet, subnet));
   }
 
   /**
@@ -608,14 +654,16 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
         return getAny();
       case EasyWallPackage.EF_EXPRESSION__LOCALHOST:
         return getLocalhost();
-      case EasyWallPackage.EF_EXPRESSION__RAWIP:
-        return getRawip();
-      case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
-        return getRawnetmask();
       case EasyWallPackage.EF_EXPRESSION__VARIP:
         return getVarip();
       case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
         return getVarnetmask();
+      case EasyWallPackage.EF_EXPRESSION__RAWIP:
+        return getRawip();
+      case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
+        return getRawnetmask();
+      case EasyWallPackage.EF_EXPRESSION__SUBNET:
+        return getSubnet();
       case EasyWallPackage.EF_EXPRESSION__NETPORT:
         return getNetport();
     }
@@ -650,17 +698,20 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
       case EasyWallPackage.EF_EXPRESSION__LOCALHOST:
         setLocalhost((String)newValue);
         return;
+      case EasyWallPackage.EF_EXPRESSION__VARIP:
+        setVarip((String)newValue);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
+        setVarnetmask((String)newValue);
+        return;
       case EasyWallPackage.EF_EXPRESSION__RAWIP:
         setRawip((EFExpression)newValue);
         return;
       case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
         setRawnetmask((Integer)newValue);
         return;
-      case EasyWallPackage.EF_EXPRESSION__VARIP:
-        setVarip((String)newValue);
-        return;
-      case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
-        setVarnetmask((String)newValue);
+      case EasyWallPackage.EF_EXPRESSION__SUBNET:
+        setSubnet((Integer)newValue);
         return;
       case EasyWallPackage.EF_EXPRESSION__NETPORT:
         setNetport((Integer)newValue);
@@ -697,17 +748,20 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
       case EasyWallPackage.EF_EXPRESSION__LOCALHOST:
         setLocalhost(LOCALHOST_EDEFAULT);
         return;
+      case EasyWallPackage.EF_EXPRESSION__VARIP:
+        setVarip(VARIP_EDEFAULT);
+        return;
+      case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
+        setVarnetmask(VARNETMASK_EDEFAULT);
+        return;
       case EasyWallPackage.EF_EXPRESSION__RAWIP:
         setRawip((EFExpression)null);
         return;
       case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
         setRawnetmask(RAWNETMASK_EDEFAULT);
         return;
-      case EasyWallPackage.EF_EXPRESSION__VARIP:
-        setVarip(VARIP_EDEFAULT);
-        return;
-      case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
-        setVarnetmask(VARNETMASK_EDEFAULT);
+      case EasyWallPackage.EF_EXPRESSION__SUBNET:
+        setSubnet(SUBNET_EDEFAULT);
         return;
       case EasyWallPackage.EF_EXPRESSION__NETPORT:
         setNetport(NETPORT_EDEFAULT);
@@ -738,14 +792,16 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
         return ANY_EDEFAULT == null ? any != null : !ANY_EDEFAULT.equals(any);
       case EasyWallPackage.EF_EXPRESSION__LOCALHOST:
         return LOCALHOST_EDEFAULT == null ? localhost != null : !LOCALHOST_EDEFAULT.equals(localhost);
-      case EasyWallPackage.EF_EXPRESSION__RAWIP:
-        return rawip != null;
-      case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
-        return rawnetmask != RAWNETMASK_EDEFAULT;
       case EasyWallPackage.EF_EXPRESSION__VARIP:
         return VARIP_EDEFAULT == null ? varip != null : !VARIP_EDEFAULT.equals(varip);
       case EasyWallPackage.EF_EXPRESSION__VARNETMASK:
         return VARNETMASK_EDEFAULT == null ? varnetmask != null : !VARNETMASK_EDEFAULT.equals(varnetmask);
+      case EasyWallPackage.EF_EXPRESSION__RAWIP:
+        return rawip != null;
+      case EasyWallPackage.EF_EXPRESSION__RAWNETMASK:
+        return rawnetmask != RAWNETMASK_EDEFAULT;
+      case EasyWallPackage.EF_EXPRESSION__SUBNET:
+        return subnet != SUBNET_EDEFAULT;
       case EasyWallPackage.EF_EXPRESSION__NETPORT:
         return netport != NETPORT_EDEFAULT;
     }
@@ -775,12 +831,14 @@ public class EFExpressionImpl extends EFStatementImpl implements EFExpression
     result.append(any);
     result.append(", localhost: ");
     result.append(localhost);
-    result.append(", rawnetmask: ");
-    result.append(rawnetmask);
     result.append(", varip: ");
     result.append(varip);
     result.append(", varnetmask: ");
     result.append(varnetmask);
+    result.append(", rawnetmask: ");
+    result.append(rawnetmask);
+    result.append(", subnet: ");
+    result.append(subnet);
     result.append(", netport: ");
     result.append(netport);
     result.append(')');

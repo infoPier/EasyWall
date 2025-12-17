@@ -22,14 +22,14 @@ import org.xtext.example.easywall.services.EasyWallGrammarAccess;
 public class EasyWallSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EasyWallGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_EFField_SetKeyword_0_0_0_or_VarKeyword_0_0_1;
+	protected AbstractElementAlias match_EFField_SetKeyword_0_0_or_VarKeyword_0_1;
 	protected AbstractElementAlias match_EFSelectionExpression___LeftParenthesisKeyword_1_3_0_RightParenthesisKeyword_1_3_2__q;
 	protected AbstractElementAlias match_EFVariableDeclaration_SetKeyword_0_0_or_VarKeyword_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EasyWallGrammarAccess) access;
-		match_EFField_SetKeyword_0_0_0_or_VarKeyword_0_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getEFFieldAccess().getSetKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getEFFieldAccess().getVarKeyword_0_0_1()));
+		match_EFField_SetKeyword_0_0_or_VarKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getEFFieldAccess().getSetKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getEFFieldAccess().getVarKeyword_0_1()));
 		match_EFSelectionExpression___LeftParenthesisKeyword_1_3_0_RightParenthesisKeyword_1_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEFSelectionExpressionAccess().getLeftParenthesisKeyword_1_3_0()), new TokenAlias(false, false, grammarAccess.getEFSelectionExpressionAccess().getRightParenthesisKeyword_1_3_2()));
 		match_EFVariableDeclaration_SetKeyword_0_0_or_VarKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getEFVariableDeclarationAccess().getSetKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getEFVariableDeclarationAccess().getVarKeyword_0_1()));
 	}
@@ -100,8 +100,8 @@ public class EasyWallSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_EFField_SetKeyword_0_0_0_or_VarKeyword_0_0_1.equals(syntax))
-				emit_EFField_SetKeyword_0_0_0_or_VarKeyword_0_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_EFField_SetKeyword_0_0_or_VarKeyword_0_1.equals(syntax))
+				emit_EFField_SetKeyword_0_0_or_VarKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_EFSelectionExpression___LeftParenthesisKeyword_1_3_0_RightParenthesisKeyword_1_3_2__q.equals(syntax))
 				emit_EFSelectionExpression___LeftParenthesisKeyword_1_3_0_RightParenthesisKeyword_1_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_EFVariableDeclaration_SetKeyword_0_0_or_VarKeyword_0_1.equals(syntax))
@@ -120,7 +120,7 @@ public class EasyWallSyntacticSequencer extends AbstractSyntacticSequencer {
 	 
 	 * </pre>
 	 */
-	protected void emit_EFField_SetKeyword_0_0_0_or_VarKeyword_0_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EFField_SetKeyword_0_0_or_VarKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

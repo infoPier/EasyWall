@@ -101,6 +101,7 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
       case EasyWallPackage.EFI_PV4_CONSTANT: return createEFIPv4Constant();
       case EasyWallPackage.EF_NETWORK_CONSTANT: return createEFNetworkConstant();
       case EasyWallPackage.EF_NETPORT_CONSTANT: return createEFNetportConstant();
+      case EasyWallPackage.EF_NETMASK_CONSTANT: return createEFNetmaskConstant();
       case EasyWallPackage.EF_THIS: return createEFThis();
       case EasyWallPackage.EF_SUPER: return createEFSuper();
       case EasyWallPackage.EF_NEW: return createEFNew();
@@ -585,6 +586,18 @@ public class EasyWallFactoryImpl extends EFactoryImpl implements EasyWallFactory
   {
     EFNetportConstantImpl efNetportConstant = new EFNetportConstantImpl();
     return efNetportConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EFNetmaskConstant createEFNetmaskConstant()
+  {
+    EFNetmaskConstantImpl efNetmaskConstant = new EFNetmaskConstantImpl();
+    return efNetmaskConstant;
   }
 
   /**

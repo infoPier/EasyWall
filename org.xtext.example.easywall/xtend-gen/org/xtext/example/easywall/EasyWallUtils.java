@@ -7,6 +7,7 @@ import org.xtext.example.easywall.easyWall.EFField;
 import org.xtext.example.easywall.easyWall.EFMethod;
 import org.xtext.example.easywall.easyWall.EFReturn;
 import org.xtext.example.easywall.easyWall.EFRule;
+import org.xtext.example.easywall.easyWall.EFfirewall;
 
 @SuppressWarnings("all")
 public class EasyWallUtils {
@@ -27,5 +28,16 @@ public class EasyWallUtils {
 
   public EFReturn returnStatement(final EFBlock b) {
     return IterableExtensions.<EFReturn>head(Iterables.<EFReturn>filter(b.getStatements(), EFReturn.class));
+  }
+
+  /**
+   * FIREWALL
+   */
+  public Iterable<EFField> firewallFields(final EFfirewall f) {
+    return Iterables.<EFField>filter(f.getFirewall().getMembers(), EFField.class);
+  }
+
+  public Iterable<EFMethod> firewallMethods(final EFfirewall f) {
+    return Iterables.<EFMethod>filter(f.getFirewall().getMembers(), EFMethod.class);
   }
 }

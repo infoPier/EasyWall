@@ -122,4 +122,75 @@ class EasyWallParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+	
+	@Test
+	def void NetMaskSyntaxTest(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var mask : netmask = /24;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void NetSyntaxTest1(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+		    var mynet : network = 192.168.1.0/24;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void NetSyntaxTest2(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+			var mask : netmask = /24;
+		    var mynet : network = 192.168.1.0/mask;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void NetSyntaxTest3(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+			var mask : netmask = /24;
+			var ip : netip = 192.168.0.1;
+		    var mynet : network = ip/mask;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	@Test
+	def void NetSyntaxTest4(){
+		var result = parseHelper.parse('''
+		pack my.fire;
+		import net.rules.*;
+		rule r at ApplicationLayer{
+			var ip : netip = 192.168.0.1;
+		    var mynet : network = ip/24;
+		}
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
 }

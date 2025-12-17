@@ -244,4 +244,161 @@ public class EasyWallParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+
+  @Test
+  public void NetMaskSyntaxTest() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var mask : netmask = /24;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void NetSyntaxTest1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var mynet : network = 192.168.1.0/24;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void NetSyntaxTest2() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var mask : netmask = /24;");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var mynet : network = 192.168.1.0/mask;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void NetSyntaxTest3() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var mask : netmask = /24;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var ip : netip = 192.168.0.1;");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var mynet : network = ip/mask;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  @Test
+  public void NetSyntaxTest4() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("pack my.fire;");
+      _builder.newLine();
+      _builder.append("import net.rules.*;");
+      _builder.newLine();
+      _builder.append("rule r at ApplicationLayer{");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var ip : netip = 192.168.0.1;");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("var mynet : network = ip/24;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      EFProgram result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
 }

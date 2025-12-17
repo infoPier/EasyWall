@@ -12,40 +12,40 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.easywall.easyWall.EFExpression;
-import org.xtext.example.easywall.easyWall.EFField;
+import org.xtext.example.easywall.easyWall.EFNetmaskConstant;
 import org.xtext.example.easywall.easyWall.EasyWallPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>EF Field</b></em>'.
+ * An implementation of the model object '<em><b>EF Netmask Constant</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFFieldImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.xtext.example.easywall.easyWall.impl.EFNetmaskConstantImpl#getNetmask <em>Netmask</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EFFieldImpl extends EFMemberImpl implements EFField
+public class EFNetmaskConstantImpl extends EFExpressionImpl implements EFNetmaskConstant
 {
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+   * The cached value of the '{@link #getNetmask() <em>Netmask</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getNetmask()
    * @generated
    * @ordered
    */
-  protected EFExpression expression;
+  protected EFExpression netmask;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EFFieldImpl()
+  protected EFNetmaskConstantImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   @Override
   protected EClass eStaticClass()
   {
-    return EasyWallPackage.Literals.EF_FIELD;
+    return EasyWallPackage.Literals.EF_NETMASK_CONSTANT;
   }
 
   /**
@@ -67,9 +67,9 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
    * @generated
    */
   @Override
-  public EFExpression getExpression()
+  public EFExpression getNetmask()
   {
-    return expression;
+    return netmask;
   }
 
   /**
@@ -77,13 +77,13 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(EFExpression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetNetmask(EFExpression newNetmask, NotificationChain msgs)
   {
-    EFExpression oldExpression = expression;
-    expression = newExpression;
+    EFExpression oldNetmask = netmask;
+    netmask = newNetmask;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_FIELD__EXPRESSION, oldExpression, newExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK, oldNetmask, newNetmask);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +95,20 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
    * @generated
    */
   @Override
-  public void setExpression(EFExpression newExpression)
+  public void setNetmask(EFExpression newNetmask)
   {
-    if (newExpression != expression)
+    if (newNetmask != netmask)
     {
       NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_FIELD__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_FIELD__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
+      if (netmask != null)
+        msgs = ((InternalEObject)netmask).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK, null, msgs);
+      if (newNetmask != null)
+        msgs = ((InternalEObject)newNetmask).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK, null, msgs);
+      msgs = basicSetNetmask(newNetmask, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_FIELD__EXPRESSION, newExpression, newExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK, newNetmask, newNetmask));
   }
 
   /**
@@ -121,8 +121,8 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_FIELD__EXPRESSION:
-        return basicSetExpression(null, msgs);
+      case EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK:
+        return basicSetNetmask(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +137,8 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_FIELD__EXPRESSION:
-        return getExpression();
+      case EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK:
+        return getNetmask();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +153,8 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_FIELD__EXPRESSION:
-        setExpression((EFExpression)newValue);
+      case EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK:
+        setNetmask((EFExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_FIELD__EXPRESSION:
-        setExpression((EFExpression)null);
+      case EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK:
+        setNetmask((EFExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +187,10 @@ public class EFFieldImpl extends EFMemberImpl implements EFField
   {
     switch (featureID)
     {
-      case EasyWallPackage.EF_FIELD__EXPRESSION:
-        return expression != null;
+      case EasyWallPackage.EF_NETMASK_CONSTANT__NETMASK:
+        return netmask != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //EFFieldImpl
+} //EFNetmaskConstantImpl

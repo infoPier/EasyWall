@@ -480,41 +480,55 @@ ruleEFField returns [EObject current=null]
 }:
 	(
 		(
-			(
-				otherlv_0='set'
-				{
-					newLeafNode(otherlv_0, grammarAccess.getEFFieldAccess().getSetKeyword_0_0_0());
-				}
-				    |
-				otherlv_1='var'
-				{
-					newLeafNode(otherlv_1, grammarAccess.getEFFieldAccess().getVarKeyword_0_0_1());
-				}
-			)
+			otherlv_0='set'
 			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getEFFieldRule());
-				}
-				newCompositeNode(grammarAccess.getEFFieldAccess().getEFTypedDeclarationParserRuleCall_0_1());
+				newLeafNode(otherlv_0, grammarAccess.getEFFieldAccess().getSetKeyword_0_0());
 			}
-			this_EFTypedDeclaration_2=ruleEFTypedDeclaration[$current]
+			    |
+			otherlv_1='var'
 			{
-				$current = $this_EFTypedDeclaration_2.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_3=';'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getEFFieldAccess().getSemicolonKeyword_0_2());
+				newLeafNode(otherlv_1, grammarAccess.getEFFieldAccess().getVarKeyword_0_1());
 			}
 		)
-		    |
 		{
-			newCompositeNode(grammarAccess.getEFFieldAccess().getEFVariableDeclarationParserRuleCall_1());
+			if ($current==null) {
+				$current = createModelElement(grammarAccess.getEFFieldRule());
+			}
+			newCompositeNode(grammarAccess.getEFFieldAccess().getEFTypedDeclarationParserRuleCall_1());
 		}
-		this_EFVariableDeclaration_4=ruleEFVariableDeclaration
+		this_EFTypedDeclaration_2=ruleEFTypedDeclaration[$current]
 		{
-			$current = $this_EFVariableDeclaration_4.current;
+			$current = $this_EFTypedDeclaration_2.current;
 			afterParserOrEnumRuleCall();
+		}
+		(
+			otherlv_3='='
+			{
+				newLeafNode(otherlv_3, grammarAccess.getEFFieldAccess().getEqualsSignKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEFFieldAccess().getExpressionEFExpressionParserRuleCall_2_1_0());
+					}
+					lv_expression_4_0=ruleEFExpression
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEFFieldRule());
+						}
+						set(
+							$current,
+							"expression",
+							lv_expression_4_0,
+							"org.xtext.example.easywall.EasyWall.EFExpression");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_5=';'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getEFFieldAccess().getSemicolonKeyword_3());
 		}
 	)
 ;
@@ -589,74 +603,6 @@ ruleEFTypedDeclaration[EObject in_current]  returns [EObject current=in_current]
 				)
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleEFVariableDeclaration
-entryRuleEFVariableDeclaration returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFVariableDeclarationRule()); }
-	iv_ruleEFVariableDeclaration=ruleEFVariableDeclaration
-	{ $current=$iv_ruleEFVariableDeclaration.current; }
-	EOF;
-
-// Rule EFVariableDeclaration
-ruleEFVariableDeclaration returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			otherlv_0='set'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getEFVariableDeclarationAccess().getSetKeyword_0_0());
-			}
-			    |
-			otherlv_1='var'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getEFVariableDeclarationAccess().getVarKeyword_0_1());
-			}
-		)
-		{
-			if ($current==null) {
-				$current = createModelElement(grammarAccess.getEFVariableDeclarationRule());
-			}
-			newCompositeNode(grammarAccess.getEFVariableDeclarationAccess().getEFTypedDeclarationParserRuleCall_1());
-		}
-		this_EFTypedDeclaration_2=ruleEFTypedDeclaration[$current]
-		{
-			$current = $this_EFTypedDeclaration_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		otherlv_3='='
-		{
-			newLeafNode(otherlv_3, grammarAccess.getEFVariableDeclarationAccess().getEqualsSignKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEFVariableDeclarationAccess().getExpressionEFExpressionParserRuleCall_3_0());
-				}
-				lv_expression_4_0=ruleEFExpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEFVariableDeclarationRule());
-					}
-					set(
-						$current,
-						"expression",
-						lv_expression_4_0,
-						"org.xtext.example.easywall.EasyWall.EFExpression");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_5=';'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getEFVariableDeclarationAccess().getSemicolonKeyword_4());
-		}
 	)
 ;
 
@@ -865,11 +811,11 @@ ruleEFStatement returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getEFStatementAccess().getEFVariableDeclarationParserRuleCall_0());
+			newCompositeNode(grammarAccess.getEFStatementAccess().getEFFieldParserRuleCall_0());
 		}
-		this_EFVariableDeclaration_0=ruleEFVariableDeclaration
+		this_EFField_0=ruleEFField
 		{
-			$current = $this_EFVariableDeclaration_0.current;
+			$current = $this_EFField_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -1866,13 +1812,42 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFThisAction_12_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFNetmaskConstantAction_12_0(),
 						$current);
 				}
 			)
-			otherlv_25='this'
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getNetmaskEFNetmaskSYNTAXParserRuleCall_12_1_0());
+					}
+					lv_netmask_25_0=ruleEFNetmaskSYNTAX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
+						}
+						set(
+							$current,
+							"netmask",
+							lv_netmask_25_0,
+							"org.xtext.example.easywall.EasyWall.EFNetmaskSYNTAX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getEFPrimaryExpressionAccess().getEFThisAction_13_0(),
+						$current);
+				}
+			)
+			otherlv_27='this'
 			{
-				newLeafNode(otherlv_25, grammarAccess.getEFPrimaryExpressionAccess().getThisKeyword_12_1());
+				newLeafNode(otherlv_27, grammarAccess.getEFPrimaryExpressionAccess().getThisKeyword_13_1());
 			}
 		)
 		    |
@@ -1880,13 +1855,13 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFSuperAction_13_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFSuperAction_14_0(),
 						$current);
 				}
 			)
-			otherlv_27='super'
+			otherlv_29='super'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getEFPrimaryExpressionAccess().getSuperKeyword_13_1());
+				newLeafNode(otherlv_29, grammarAccess.getEFPrimaryExpressionAccess().getSuperKeyword_14_1());
 			}
 		)
 		    |
@@ -1894,13 +1869,13 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFNewAction_14_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFNewAction_15_0(),
 						$current);
 				}
 			)
-			otherlv_29='new'
+			otherlv_31='new'
 			{
-				newLeafNode(otherlv_29, grammarAccess.getEFPrimaryExpressionAccess().getNewKeyword_14_1());
+				newLeafNode(otherlv_31, grammarAccess.getEFPrimaryExpressionAccess().getNewKeyword_15_1());
 			}
 			(
 				(
@@ -1910,7 +1885,7 @@ ruleEFPrimaryExpression returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassCrossReference_14_2_0());
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getTypeEFRuleClassCrossReference_15_2_0());
 					}
 					ruleQualifiedName
 					{
@@ -1918,13 +1893,13 @@ ruleEFPrimaryExpression returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_31='('
+			otherlv_33='('
 			{
-				newLeafNode(otherlv_31, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_14_3());
+				newLeafNode(otherlv_33, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_15_3());
 			}
-			otherlv_32=')'
+			otherlv_34=')'
 			{
-				newLeafNode(otherlv_32, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_14_4());
+				newLeafNode(otherlv_34, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_15_4());
 			}
 		)
 		    |
@@ -1932,20 +1907,20 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFBRacketsExpressionAction_15_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFBRacketsExpressionAction_16_0(),
 						$current);
 				}
 			)
-			otherlv_34='('
+			otherlv_36='('
 			{
-				newLeafNode(otherlv_34, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_15_1());
+				newLeafNode(otherlv_36, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_16_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_15_2_0());
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getExpressionEFExpressionParserRuleCall_16_2_0());
 					}
-					lv_expression_35_0=ruleEFExpression
+					lv_expression_37_0=ruleEFExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
@@ -1953,15 +1928,15 @@ ruleEFPrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"expression",
-							lv_expression_35_0,
+							lv_expression_37_0,
 							"org.xtext.example.easywall.EasyWall.EFExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_36=')'
+			otherlv_38=')'
 			{
-				newLeafNode(otherlv_36, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_15_3());
+				newLeafNode(otherlv_38, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_16_3());
 			}
 		)
 		    |
@@ -1969,16 +1944,16 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFFunctionCallAction_16_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFFunctionCallAction_17_0(),
 						$current);
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameQualifiedNameParserRuleCall_16_1_0());
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getFunctionNameQualifiedNameParserRuleCall_17_1_0());
 					}
-					lv_functionName_38_0=ruleQualifiedName
+					lv_functionName_40_0=ruleQualifiedName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
@@ -1986,23 +1961,23 @@ ruleEFPrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"functionName",
-							lv_functionName_38_0,
+							lv_functionName_40_0,
 							"org.xtext.example.easywall.EasyWall.QualifiedName");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_39='('
+			otherlv_41='('
 			{
-				newLeafNode(otherlv_39, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_16_2());
+				newLeafNode(otherlv_41, grammarAccess.getEFPrimaryExpressionAccess().getLeftParenthesisKeyword_17_2());
 			}
 			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getArgsEFExpressionParserRuleCall_16_3_0_0());
+							newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getArgsEFExpressionParserRuleCall_17_3_0_0());
 						}
-						lv_args_40_0=ruleEFExpression
+						lv_args_42_0=ruleEFExpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
@@ -2010,23 +1985,23 @@ ruleEFPrimaryExpression returns [EObject current=null]
 							add(
 								$current,
 								"args",
-								lv_args_40_0,
+								lv_args_42_0,
 								"org.xtext.example.easywall.EasyWall.EFExpression");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 				(
-					otherlv_41=','
+					otherlv_43=','
 					{
-						newLeafNode(otherlv_41, grammarAccess.getEFPrimaryExpressionAccess().getCommaKeyword_16_3_1_0());
+						newLeafNode(otherlv_43, grammarAccess.getEFPrimaryExpressionAccess().getCommaKeyword_17_3_1_0());
 					}
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getArgsEFExpressionParserRuleCall_16_3_1_1_0());
+								newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getArgsEFExpressionParserRuleCall_17_3_1_1_0());
 							}
-							lv_args_42_0=ruleEFExpression
+							lv_args_44_0=ruleEFExpression
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
@@ -2034,7 +2009,7 @@ ruleEFPrimaryExpression returns [EObject current=null]
 								add(
 									$current,
 									"args",
-									lv_args_42_0,
+									lv_args_44_0,
 									"org.xtext.example.easywall.EasyWall.EFExpression");
 								afterParserOrEnumRuleCall();
 							}
@@ -2042,9 +2017,9 @@ ruleEFPrimaryExpression returns [EObject current=null]
 					)
 				)*
 			)?
-			otherlv_43=')'
+			otherlv_45=')'
 			{
-				newLeafNode(otherlv_43, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_16_4());
+				newLeafNode(otherlv_45, grammarAccess.getEFPrimaryExpressionAccess().getRightParenthesisKeyword_17_4());
 			}
 		)
 		    |
@@ -2052,16 +2027,16 @@ ruleEFPrimaryExpression returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getEFPrimaryExpressionAccess().getEFSymbolRefAction_17_0(),
+						grammarAccess.getEFPrimaryExpressionAccess().getEFSymbolRefAction_18_0(),
 						$current);
 				}
 			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_17_1_0());
+						newCompositeNode(grammarAccess.getEFPrimaryExpressionAccess().getSymbolQualifiedNameParserRuleCall_18_1_0());
 					}
-					lv_symbol_45_0=ruleQualifiedName
+					lv_symbol_47_0=ruleQualifiedName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getEFPrimaryExpressionRule());
@@ -2069,7 +2044,7 @@ ruleEFPrimaryExpression returns [EObject current=null]
 						set(
 							$current,
 							"symbol",
-							lv_symbol_45_0,
+							lv_symbol_47_0,
 							"org.xtext.example.easywall.EasyWall.QualifiedName");
 						afterParserOrEnumRuleCall();
 					}
@@ -2525,53 +2500,191 @@ ruleEFNetworkSYNTAX returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFRAWNETSYNTAXParserRuleCall_0());
-		}
-		this_EFRAWNETSYNTAX_0=ruleEFRAWNETSYNTAX
-		{
-			$current = $this_EFRAWNETSYNTAX_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				(
+					lv_varip_0_0=RULE_ID
+					{
+						newLeafNode(lv_varip_0_0, grammarAccess.getEFNetworkSYNTAXAccess().getVaripIDTerminalRuleCall_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"varip",
+							lv_varip_0_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			otherlv_1='/'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getEFNetworkSYNTAXAccess().getSolidusKeyword_0_1());
+			}
+			(
+				(
+					lv_varnetmask_2_0=RULE_ID
+					{
+						newLeafNode(lv_varnetmask_2_0, grammarAccess.getEFNetworkSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_0_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"varnetmask",
+							lv_varnetmask_2_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFVARNETSYNTAXParserRuleCall_1());
-		}
-		this_EFVARNETSYNTAX_1=ruleEFVARNETSYNTAX
-		{
-			$current = $this_EFVARNETSYNTAX_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_1_0_0());
+					}
+					lv_rawip_3_0=ruleEFIPv4SYNTAX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						set(
+							$current,
+							"rawip",
+							lv_rawip_3_0,
+							"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_4='/'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getEFNetworkSYNTAXAccess().getSolidusKeyword_1_1());
+			}
+			(
+				(
+					lv_rawnetmask_5_0=RULE_INT
+					{
+						newLeafNode(lv_rawnetmask_5_0, grammarAccess.getEFNetworkSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_1_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"rawnetmask",
+							lv_rawnetmask_5_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFRAWIPVARNETSYNTAXParserRuleCall_2());
-		}
-		this_EFRAWIPVARNETSYNTAX_2=ruleEFRAWIPVARNETSYNTAX
-		{
-			$current = $this_EFRAWIPVARNETSYNTAX_2.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_2_0_0());
+					}
+					lv_rawip_6_0=ruleEFIPv4SYNTAX
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						set(
+							$current,
+							"rawip",
+							lv_rawip_6_0,
+							"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_7='/'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getEFNetworkSYNTAXAccess().getSolidusKeyword_2_1());
+			}
+			(
+				(
+					lv_varnetmask_8_0=RULE_ID
+					{
+						newLeafNode(lv_varnetmask_8_0, grammarAccess.getEFNetworkSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_2_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"varnetmask",
+							lv_varnetmask_8_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getEFNetworkSYNTAXAccess().getEFVARIPRAWNETSYNTAXParserRuleCall_3());
-		}
-		this_EFVARIPRAWNETSYNTAX_3=ruleEFVARIPRAWNETSYNTAX
-		{
-			$current = $this_EFVARIPRAWNETSYNTAX_3.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				(
+					lv_varip_9_0=RULE_ID
+					{
+						newLeafNode(lv_varip_9_0, grammarAccess.getEFNetworkSYNTAXAccess().getVaripIDTerminalRuleCall_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"varip",
+							lv_varip_9_0,
+							"org.eclipse.xtext.common.Terminals.ID");
+					}
+				)
+			)
+			otherlv_10='/'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getEFNetworkSYNTAXAccess().getSolidusKeyword_3_1());
+			}
+			(
+				(
+					lv_rawnetmask_11_0=RULE_INT
+					{
+						newLeafNode(lv_rawnetmask_11_0, grammarAccess.getEFNetworkSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_3_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getEFNetworkSYNTAXRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"rawnetmask",
+							lv_rawnetmask_11_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+		)
 	)
 ;
 
-// Entry rule entryRuleEFRAWNETSYNTAX
-entryRuleEFRAWNETSYNTAX returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFRAWNETSYNTAXRule()); }
-	iv_ruleEFRAWNETSYNTAX=ruleEFRAWNETSYNTAX
-	{ $current=$iv_ruleEFRAWNETSYNTAX.current; }
+// Entry rule entryRuleEFNetmaskSYNTAX
+entryRuleEFNetmaskSYNTAX returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEFNetmaskSYNTAXRule()); }
+	iv_ruleEFNetmaskSYNTAX=ruleEFNetmaskSYNTAX
+	{ $current=$iv_ruleEFNetmaskSYNTAX.current; }
 	EOF;
 
-// Rule EFRAWNETSYNTAX
-ruleEFRAWNETSYNTAX returns [EObject current=null]
+// Rule EFNetmaskSYNTAX
+ruleEFNetmaskSYNTAX returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -2579,221 +2692,24 @@ ruleEFRAWNETSYNTAX returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEFRAWNETSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_0_0());
-				}
-				lv_rawip_0_0=ruleEFIPv4SYNTAX
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEFRAWNETSYNTAXRule());
-					}
-					set(
-						$current,
-						"rawip",
-						lv_rawip_0_0,
-						"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_1='/'
+		otherlv_0='/'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getEFRAWNETSYNTAXAccess().getSolidusKeyword_1());
+			newLeafNode(otherlv_0, grammarAccess.getEFNetmaskSYNTAXAccess().getSolidusKeyword_0());
 		}
 		(
 			(
-				lv_rawnetmask_2_0=RULE_INT
+				lv_subnet_1_0=RULE_INT
 				{
-					newLeafNode(lv_rawnetmask_2_0, grammarAccess.getEFRAWNETSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_2_0());
+					newLeafNode(lv_subnet_1_0, grammarAccess.getEFNetmaskSYNTAXAccess().getSubnetINTTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFRAWNETSYNTAXRule());
+						$current = createModelElement(grammarAccess.getEFNetmaskSYNTAXRule());
 					}
 					setWithLastConsumed(
 						$current,
-						"rawnetmask",
-						lv_rawnetmask_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleEFVARNETSYNTAX
-entryRuleEFVARNETSYNTAX returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFVARNETSYNTAXRule()); }
-	iv_ruleEFVARNETSYNTAX=ruleEFVARNETSYNTAX
-	{ $current=$iv_ruleEFVARNETSYNTAX.current; }
-	EOF;
-
-// Rule EFVARNETSYNTAX
-ruleEFVARNETSYNTAX returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_varip_0_0=RULE_ID
-				{
-					newLeafNode(lv_varip_0_0, grammarAccess.getEFVARNETSYNTAXAccess().getVaripIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFVARNETSYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"varip",
-						lv_varip_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_1='/'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEFVARNETSYNTAXAccess().getSolidusKeyword_1());
-		}
-		(
-			(
-				lv_varnetmask_2_0=RULE_ID
-				{
-					newLeafNode(lv_varnetmask_2_0, grammarAccess.getEFVARNETSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFVARNETSYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"varnetmask",
-						lv_varnetmask_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleEFRAWIPVARNETSYNTAX
-entryRuleEFRAWIPVARNETSYNTAX returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFRAWIPVARNETSYNTAXRule()); }
-	iv_ruleEFRAWIPVARNETSYNTAX=ruleEFRAWIPVARNETSYNTAX
-	{ $current=$iv_ruleEFRAWIPVARNETSYNTAX.current; }
-	EOF;
-
-// Rule EFRAWIPVARNETSYNTAX
-ruleEFRAWIPVARNETSYNTAX returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getRawipEFIPv4SYNTAXParserRuleCall_0_0());
-				}
-				lv_rawip_0_0=ruleEFIPv4SYNTAX
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEFRAWIPVARNETSYNTAXRule());
-					}
-					set(
-						$current,
-						"rawip",
-						lv_rawip_0_0,
-						"org.xtext.example.easywall.EasyWall.EFIPv4SYNTAX");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_1='/'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getSolidusKeyword_1());
-		}
-		(
-			(
-				lv_varnetmask_2_0=RULE_ID
-				{
-					newLeafNode(lv_varnetmask_2_0, grammarAccess.getEFRAWIPVARNETSYNTAXAccess().getVarnetmaskIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFRAWIPVARNETSYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"varnetmask",
-						lv_varnetmask_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleEFVARIPRAWNETSYNTAX
-entryRuleEFVARIPRAWNETSYNTAX returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEFVARIPRAWNETSYNTAXRule()); }
-	iv_ruleEFVARIPRAWNETSYNTAX=ruleEFVARIPRAWNETSYNTAX
-	{ $current=$iv_ruleEFVARIPRAWNETSYNTAX.current; }
-	EOF;
-
-// Rule EFVARIPRAWNETSYNTAX
-ruleEFVARIPRAWNETSYNTAX returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_varip_0_0=RULE_ID
-				{
-					newLeafNode(lv_varip_0_0, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getVaripIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFVARIPRAWNETSYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"varip",
-						lv_varip_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_1='/'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getSolidusKeyword_1());
-		}
-		(
-			(
-				lv_rawnetmask_2_0=RULE_INT
-				{
-					newLeafNode(lv_rawnetmask_2_0, grammarAccess.getEFVARIPRAWNETSYNTAXAccess().getRawnetmaskINTTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEFVARIPRAWNETSYNTAXRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"rawnetmask",
-						lv_rawnetmask_2_0,
+						"subnet",
+						lv_subnet_1_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
@@ -2896,6 +2812,14 @@ ruleEFNetworkNativeType returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_5, grammarAccess.getEFNetworkNativeTypeAccess().getDIRECTIONEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='netmask'
+			{
+				$current = grammarAccess.getEFNetworkNativeTypeAccess().getNETMASKEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getEFNetworkNativeTypeAccess().getNETMASKEnumLiteralDeclaration_6());
 			}
 		)
 	)

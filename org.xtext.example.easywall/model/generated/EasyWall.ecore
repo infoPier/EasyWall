@@ -29,7 +29,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ruletype" eType="#//EFRuleClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativetype" eType="#//EFNetworkNativeType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EFField" eSuperTypes="#//EFMember"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EFField" eSuperTypes="#//EFMember #//EFStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//EFExpression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EFNetworkNativeType">
     <eLiterals name="NETWORK" literal="network"/>
     <eLiterals name="IPv4" value="1" literal="netip"/>
@@ -37,12 +40,16 @@
     <eLiterals name="PORT" value="3" literal="netport"/>
     <eLiterals name="PROTOCOL" value="4" literal="protocol"/>
     <eLiterals name="DIRECTION" value="5" literal="direction"/>
+    <eLiterals name="NETMASK" value="6" literal="netmask"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EFDirectionNativeType">
     <eLiterals name="IN" literal="in"/>
     <eLiterals name="OUT" value="1" literal="out"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EFVariableDeclaration" eSuperTypes="#//EFField #//EFStatement">
+  <eClassifiers xsi:type="ecore:EClass" name="EFVariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruletype" eType="#//EFRuleClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativetype" eType="#//EFNetworkNativeType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//EFExpression"
         containment="true"/>
   </eClassifiers>
@@ -81,11 +88,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fourth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varnetmask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawip" eType="#//EFExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rawnetmask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varnetmask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subnet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="netport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFRule">
@@ -205,6 +213,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFNetportConstant" eSuperTypes="#//EFExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="#//EFExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFNetmaskConstant" eSuperTypes="#//EFExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="netmask" eType="#//EFExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EFThis" eSuperTypes="#//EFExpression"/>

@@ -78,7 +78,17 @@ public enum EFNetworkNativeType implements Enumerator
    * @generated
    * @ordered
    */
-  DIRECTION(5, "DIRECTION", "direction");
+  DIRECTION(5, "DIRECTION", "direction"),
+
+  /**
+   * The '<em><b>NETMASK</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #NETMASK_VALUE
+   * @generated
+   * @ordered
+   */
+  NETMASK(6, "NETMASK", "netmask");
 
   /**
    * The '<em><b>NETWORK</b></em>' literal value.
@@ -147,6 +157,17 @@ public enum EFNetworkNativeType implements Enumerator
   public static final int DIRECTION_VALUE = 5;
 
   /**
+   * The '<em><b>NETMASK</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #NETMASK
+   * @model literal="netmask"
+   * @generated
+   * @ordered
+   */
+  public static final int NETMASK_VALUE = 6;
+
+  /**
    * An array of all the '<em><b>EF Network Native Type</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -161,6 +182,7 @@ public enum EFNetworkNativeType implements Enumerator
       PORT,
       PROTOCOL,
       DIRECTION,
+      NETMASK,
     };
 
   /**
@@ -231,6 +253,7 @@ public enum EFNetworkNativeType implements Enumerator
       case PORT_VALUE: return PORT;
       case PROTOCOL_VALUE: return PROTOCOL;
       case DIRECTION_VALUE: return DIRECTION;
+      case NETMASK_VALUE: return NETMASK;
     }
     return null;
   }

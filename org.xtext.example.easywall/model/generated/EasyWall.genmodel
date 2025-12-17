@@ -13,6 +13,7 @@
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PORT"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/PROTOCOL"/>
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/DIRECTION"/>
+      <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFNetworkNativeType/NETMASK"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="EasyWall.ecore#//EFDirectionNativeType">
       <genEnumLiterals ecoreEnumLiteral="EasyWall.ecore#//EFDirectionNativeType/IN"/>
@@ -76,8 +77,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFMember/ruletype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFMember/nativetype"/>
     </genClasses>
-    <genClasses ecoreClass="EasyWall.ecore#//EFField"/>
+    <genClasses ecoreClass="EasyWall.ecore#//EFField">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFField/expression"/>
+    </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFVariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/ruletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFVariableDeclaration/nativetype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFVariableDeclaration/expression"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFMethod">
@@ -108,10 +114,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/fourth"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/any"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/localhost"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFExpression/rawip"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/rawnetmask"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/varip"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/varnetmask"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFExpression/rawip"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/rawnetmask"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/subnet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EasyWall.ecore#//EFExpression/netport"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFRule">
@@ -180,6 +187,9 @@
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFNetportConstant">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetportConstant/port"/>
+    </genClasses>
+    <genClasses ecoreClass="EasyWall.ecore#//EFNetmaskConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EasyWall.ecore#//EFNetmaskConstant/netmask"/>
     </genClasses>
     <genClasses ecoreClass="EasyWall.ecore#//EFThis"/>
     <genClasses ecoreClass="EasyWall.ecore#//EFSuper"/>

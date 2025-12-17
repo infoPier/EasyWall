@@ -9,11 +9,39 @@ package org.xtext.example.easywall.easyWall;
  * A representation of the model object '<em><b>EF Field</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.easywall.easyWall.EFField#getExpression <em>Expression</em>}</li>
+ * </ul>
  *
  * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFField()
  * @model
  * @generated
  */
-public interface EFField extends EFMember
+public interface EFField extends EFMember, EFStatement
 {
+  /**
+   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expression</em>' containment reference.
+   * @see #setExpression(EFExpression)
+   * @see org.xtext.example.easywall.easyWall.EasyWallPackage#getEFField_Expression()
+   * @model containment="true"
+   * @generated
+   */
+  EFExpression getExpression();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.easywall.easyWall.EFField#getExpression <em>Expression</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expression</em>' containment reference.
+   * @see #getExpression()
+   * @generated
+   */
+  void setExpression(EFExpression value);
+
 } // EFField

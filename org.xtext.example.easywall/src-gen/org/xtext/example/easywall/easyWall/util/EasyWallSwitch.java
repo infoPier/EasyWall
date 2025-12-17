@@ -121,6 +121,7 @@ public class EasyWallSwitch<T> extends Switch<T>
         EFField efField = (EFField)theEObject;
         T result = caseEFField(efField);
         if (result == null) result = caseEFMember(efField);
+        if (result == null) result = caseEFStatement(efField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -128,9 +129,6 @@ public class EasyWallSwitch<T> extends Switch<T>
       {
         EFVariableDeclaration efVariableDeclaration = (EFVariableDeclaration)theEObject;
         T result = caseEFVariableDeclaration(efVariableDeclaration);
-        if (result == null) result = caseEFField(efVariableDeclaration);
-        if (result == null) result = caseEFStatement(efVariableDeclaration);
-        if (result == null) result = caseEFMember(efVariableDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -360,6 +358,15 @@ public class EasyWallSwitch<T> extends Switch<T>
         T result = caseEFNetportConstant(efNetportConstant);
         if (result == null) result = caseEFExpression(efNetportConstant);
         if (result == null) result = caseEFStatement(efNetportConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EasyWallPackage.EF_NETMASK_CONSTANT:
+      {
+        EFNetmaskConstant efNetmaskConstant = (EFNetmaskConstant)theEObject;
+        T result = caseEFNetmaskConstant(efNetmaskConstant);
+        if (result == null) result = caseEFExpression(efNetmaskConstant);
+        if (result == null) result = caseEFStatement(efNetmaskConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -986,6 +993,22 @@ public class EasyWallSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEFNetportConstant(EFNetportConstant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EF Netmask Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EF Netmask Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEFNetmaskConstant(EFNetmaskConstant object)
   {
     return null;
   }
